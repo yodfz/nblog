@@ -15,8 +15,16 @@
   },
   "homepage": "https://github.com/yodfz/nblog#readme",
   "dependencies": {
+    "babel-core": "^7",
+    "babel-polyfill": "^6.23.0",
     "koa": "^2.2.0",
+    "koa-router": "^7.1.1",
     "react": "^16.0.0-alpha.11",
-    "redux": "^3.6.0"
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.15.1",
+    "webpack": "^2"
   }
 }

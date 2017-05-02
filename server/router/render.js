@@ -3,4 +3,11 @@
  * 界面渲染路由
  * @type {{}}
  */
-module.exports = {};
+var router = require('koa-router')();
+
+router.get('/', ctx=> {
+    ctx.body = 'Hello KOA2,this is Test Code.';
+});
+
+
+module.exports = router;
