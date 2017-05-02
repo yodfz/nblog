@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "> 学习型项目",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yodfz/nblog.git"
@@ -14,5 +13,10 @@
   "bugs": {
     "url": "https://github.com/yodfz/nblog/issues"
   },
-  "homepage": "https://github.com/yodfz/nblog#readme"
+  "homepage": "https://github.com/yodfz/nblog#readme",
+  "dependencies": {
+    "koa": "^2.2.0",
+    "react": "^16.0.0-alpha.11",
+    "redux": "^3.6.0"
+  }
 }

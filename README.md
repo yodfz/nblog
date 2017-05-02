@@ -3,13 +3,18 @@
 > 学习型项目
 
 ## 技术结构
-后台:express,koa2,egg.js,hapijs
+后台:
+[ ] express
+[x] koa2
+[ ] egg.js
+[ ] hapijs
 
 RESTFUL框架:hapijs,feathers
 
 ORM框架:sequelizejs,ORM2
 
-PC端:React.js
+PC端:
+[x] React.js 16
 
 M端:Vue2.0
 
