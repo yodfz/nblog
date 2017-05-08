@@ -4,12 +4,24 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: [path.join(__dirname ,'../PC_client/index.js')],
-        vendor: ['react', 'react-router', 'redux', 'react-redux','react-dom']
+        main: [
+            'react-hot-loader/patch',
+            // 开启 React 代码的模块热替换(HMR)
+
+            // 'webpack-dev-server/client?http://localhost:3900',
+            // 为 webpack-dev-server 的环境打包代码
+            // 然后连接到指定服务器域名与端口
+
+            'webpack/hot/only-dev-server',
+            // 为热替换(HMR)打包好代码
+            // only- 意味着只有成功更新运行代码才会执行热替换(HMR)
+            path.join(__dirname, '../PC_client/index.js')],
+        vendor: ['react', 'react-router', 'redux', 'react-redux', 'react-dom']
     },
     // 输出文件地址
     output: {
         // 生成位置
+        publicPath: '/',
         path: path.join(__dirname, '/../PC_client_dist/'),
         chunkFilename: 'js/[id].[chunkhash].js',
         filename: 'js/[name].[chunkhash].js'
@@ -25,8 +37,10 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     //   // , 'stage-0'
-                    presets: ['latest', 'stage-0','react'],
+                    presets: [['latest', {"modules": false}], 'stage-0', 'react'],
                     "plugins": [
+                        "react-hot-loader/babel",
+                        // 开启 React 代码的模块热替换(HMR)
                         "transform-object-rest-spread",
                         "transform-runtime",
                         "transform-async-to-generator"
@@ -67,11 +81,9 @@ module.exports = {
     resolve: {
         // 默认扩展名 import 可不带后缀的文件
         extensions: ['.js', '.jsx'],
-        alias: {
-        }
+        alias: {}
     },
-    resolveLoader: {
-    },
+    resolveLoader: {},
     // 插件
     plugins: [
         new webpack.optimize.CommonsChunkPlugin(
@@ -79,6 +91,9 @@ module.exports = {
         // 需要手动添加 HotModuleReplacementPlugin , 命令行的方式会自动添加
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.NamedModulesPlugin(),
+        // 当模块热替换(HMR)时在浏览器控制台输出对用户更友好的模块名字信息
+
         /* 配置好Dll */
         // new webpack.DllReferencePlugin({
         //   context: path.join(__dirname, '../'), // 指定一个路径作为上下文环境，需要与DllPlugin的context参数保持一致，建议统一设置为项目根目录
