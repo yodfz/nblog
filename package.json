@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "> 学习型项目",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "devpc": "webpack --config ./build/webpack.pc.config.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yodfz/nblog.git"
@@ -15,16 +17,28 @@
   },
   "homepage": "https://github.com/yodfz/nblog#readme",
   "dependencies": {
-    "babel-core": "^7",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.1",
+    "html-webpack-plugin": "^2.28.0",
+    "jsx-loader": "^0.13.2",
     "koa": "^2.2.0",
     "koa-router": "^7.1.1",
-    "react": "^16.0.0-alpha.11",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
     "redux": "^3.6.0",
     "redux-saga": "^0.15.1",
-    "webpack": "^2"
+    "style-loader": "^0.17.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.5.1"
   }
 }
