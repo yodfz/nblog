@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: __dirname + '/../PC_client/index.js',
+        main: [path.join(__dirname ,'../PC_client/index.js')],
         vendor: ['react', 'react-router', 'redux', 'react-redux','react-dom']
     },
     // 输出文件地址
