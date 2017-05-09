@@ -1,26 +1,41 @@
-import React, {Component,PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
+import Menu from '../../components/Menu/Menu.js';
+
 import styles from './LeftMenu.less';
-console.log(styles);
-export default class LeftMenu  extends Component {
-    static defaultProps = {
-    };
-    static propTypes = {
-    };
+export default class LeftMenu extends Component {
+    static defaultProps = {};
+    static propTypes = {};
+
     constructor () {
         super()
     };
-    componentWillMount () {}
-    componentDidMount  () {}
-    shouldComponentUpdate () {}
-    componentWillUpdate () {}
-    componentDidUpdate () {}
-    componentWillUnmount () {}
+
+    componentWillMount () {
+    }
+
+    componentDidMount () {
+    }
+
+    shouldComponentUpdate () {
+    }
+
+    componentWillUpdate () {
+    }
+
+    componentDidUpdate () {
+    }
+
+    componentWillUnmount () {
+    }
 
     render () {
         return (
             <div className={"fl vh100 " + styles.leftMenu}>
-
-                LeftMenu</div>
+                <div className={styles.logo}>
+                    NBlog 1.0.0
+                </div>
+                <Menu/>
+            </div>
         );
     }
 }
