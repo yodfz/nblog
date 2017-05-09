@@ -1,5 +1,6 @@
 import React, {Component,PropTypes} from 'react';
-
+import styles from './LeftMenu.less';
+console.log(styles);
 export default class LeftMenu  extends Component {
     static defaultProps = {
     };
@@ -17,7 +18,9 @@ export default class LeftMenu  extends Component {
 
     render () {
         return (
-            <div>LeftMenu</div>
+            <div className={"fl vh100 " + styles.leftMenu}>
+
+                LeftMenu</div>
         );
     }
 }

@@ -52,7 +52,12 @@ module.exports = {
                 // 使用了这个load 可以直接在jsx文件中import less文件
                 // 如: import 'entry.less'; 将自动将样式插入
                 test: /\.less$/,
-                loader: "style-loader!css-loader!less-loader"
+                use:[
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
+                // loader: "style-loader!css-loader!less-loader"
             },
             {
                 //   使用了这个load 可以直接在jsx文件中import css文件

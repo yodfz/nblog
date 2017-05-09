@@ -8,7 +8,7 @@ import ArticleDetail from './Article/Detail';
 export default class Main extends Component {
     render () {
         return (
-            <div>
+            <div className="vh100">
                 <LeftMenu/>
                 <MiddleArticleList/>
                 <RightDetail></RightDetail>

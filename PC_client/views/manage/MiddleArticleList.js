@@ -1,5 +1,5 @@
 import React, {Component,PropTypes} from 'react';
-
+import styles from './MiddleArticleList.less';
 export default class MiddleArticleList  extends Component {
     static defaultProps = {
     };
@@ -17,7 +17,7 @@ export default class MiddleArticleList  extends Component {
 
     render () {
         return (
-            <div>MiddleArticle</div>
+            <div className={"fl vh100 " + styles.MiddleArticleList}>MiddleArticle</div>
         );
     }
 }

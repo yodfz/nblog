@@ -17,7 +17,7 @@ export default class RightDetail  extends Component {
 
     render () {
         return (
-            <div>RightDetail</div>
+            <div className="fl vh100">RightDetail</div>
         );
     }
 }
