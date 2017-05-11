@@ -43,8 +43,8 @@ module.exports = {
                         // 开启 React 代码的模块热替换(HMR)
                         "transform-object-rest-spread",
                         "transform-runtime",
-                        "transform-async-to-generator"
-                        // "transform-decorators-legacy"
+                        "transform-async-to-generator",
+                        "transform-decorators-legacy"
                     ]
                 }
             },

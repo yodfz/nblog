@@ -3,6 +3,6 @@ import styles from './index.less';
 
 export default (props) => {
     return (
-        <input type="text"/>
+        <input type="text" className={styles.inputDefault}/>
     );
 }

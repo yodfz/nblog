@@ -7,21 +7,21 @@ export default class Menu extends Component {
     static defaultProps = {
         items: [
             {
-                idx:1,
+                idx: 1,
                 icon: 'article',
                 text: '文章',
                 url: '',
                 active: true
             },
             {
-                idx:2,
+                idx: 2,
                 icon: 'groupcopy5',
                 text: '评论',
                 url: '',
                 active: false
             },
             {
-                idx:3,
+                idx: 3,
                 icon: 'setting',
                 text: '系统',
                 url: '',
@@ -31,8 +31,9 @@ export default class Menu extends Component {
     };
     static propTypes = {};
 
-    constructor () {
-        super()
+    constructor (props) {
+        super(props);
+        console.log('menu', props)
     };
 
     componentWillMount () {
@@ -41,8 +42,8 @@ export default class Menu extends Component {
     componentDidMount () {
     }
 
-    shouldComponentUpdate () {
-    }
+    // shouldComponentUpdate () {
+    // }
 
     componentWillUpdate () {
     }
@@ -54,8 +55,13 @@ export default class Menu extends Component {
     }
 
     render () {
+        console.log(this.props.index);
         var children = this.props.items.map(item=> {
-            return <MenuItem {...item} key={item.idx}/>;
+            return <MenuItem
+                select={this.props.select.bind(this, item.idx)}
+                className={item.idx == this.props.index ? 'selected' : ''}
+                {...item}
+                key={item.idx}/>;
         });
         return (
             <ul className={styles.ul}>

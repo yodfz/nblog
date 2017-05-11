@@ -2,12 +2,25 @@ import React, {Component, PropTypes} from 'react';
 import Menu from '../../components/Menu/Menu.js';
 
 import styles from './LeftMenu.less';
+
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import {selectMenu} from '../../store/actions/Menu.js';
+
+@connect(
+    state=> {
+        return {state:state.Menu}
+    },
+    dispatch=>bindActionCreators({selectMenu}, dispatch)
+)
 export default class LeftMenu extends Component {
     static defaultProps = {};
     static propTypes = {};
 
-    constructor () {
-        super()
+    constructor (props) {
+        super();
+        console.log(props);
     };
 
     componentWillMount () {
@@ -16,8 +29,9 @@ export default class LeftMenu extends Component {
     componentDidMount () {
     }
 
-    shouldComponentUpdate () {
-    }
+    // shouldComponentUpdate () {
+    //     return true;
+    // }
 
     componentWillUpdate () {
     }
@@ -34,7 +48,7 @@ export default class LeftMenu extends Component {
                 <div className={styles.logo}>
                     NBlog 1.0.0
                 </div>
-                <Menu/>
+                <Menu select={this.props.selectMenu} index={this.props.state.index}/>
             </div>
         );
     }
