@@ -1,9 +1,13 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
-import styles from './index.less';
+import createSagaMiddleware from 'redux-saga';
+
 import appStore from './store';
+
+import styles from './index.less';
+
 let store = createStore(appStore);
 
 import ManageMain from './views/manage/Main';

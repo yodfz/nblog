@@ -1,10 +1,67 @@
-:local(.MiddleArticleList){
-  width:280px;
+:local(.MiddleArticleList) {
+  @hightColor: #db4d52;
+  .td {
+    transition-duration: .5s;
+  }
+  width: 280px;
   background-color: #fbfbfb;
-  border-right:1px solid #dedede;
+  border-right: 1px solid #dedede;
+  .ShowSearchText {
+    position: relative;
+    margin-top: -42px;
+    line-height: 40px;
+    .td();
+    padding-left: 42px;
+    transform: translateZ(0px);
+    .iconfont {
+      position: relative;
+      top: 11px;
+    }
+    span {
+      .td();
+    }
+  }
+  .searchTextInput:focus {
+    border-color: @hightColor;
+    padding-left: 26px;
+  }
+  .searchTextInput:focus ~ .ShowSearchText {
+    padding-left: 0px;
+    left: -5px;
+    span {
+      opacity: 0;
+    }
+  }
+  .searchTextInput {
+    box-sizing: border-box;
+    padding-left: 66px;
+    height: 26px;
+    transform: translateZ(0px);
+    .td();
+  }
+  .btnRight {
+    position: absolute;
+    right: 0;
+    border: 0;
+    background-color: transparent;
+    top: -2px;
+    color: #bdbdbd;
+    .td();
+  }
+  .btnRight:hover {
+    color: @hightColor;
+  }
+  .input {
+    position: relative;
+    padding-right: 50px;
+    color: #bdbdbd;
+    margin: 15px;
+
+  }
 
 }
-:local(.top){
-    height:50px;
-    border-bottom:1px solid #dedede;
+
+:local(.top) {
+  height: 50px;
+  border-bottom: 1px solid #dedede;
 }
