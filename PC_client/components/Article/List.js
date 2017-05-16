@@ -1,5 +1,6 @@
 import React, {Component,PropTypes} from 'react';
 import styles from './Article.less';
+import ListItem from './ListItem';
 
 export default class List  extends Component {
     static defaultProps = {
@@ -11,12 +12,22 @@ export default class List  extends Component {
     };
     componentWillMount () {}
     componentDidMount  () {}
-    shouldComponentUpdate () {}
+    shouldComponentUpdate () {
+        return true;
+    }
     componentWillUpdate () {}
     componentDidUpdate () {}
     componentWillUnmount () {}
 
     render () {
-        return (<div></div>);
+        return (<div className={styles.List}>
+            <ListItem className="selected"/>
+            <ListItem/>
+            <ListItem/>
+            <ListItem/>
+            <ListItem/>
+            <ListItem/>
+            <ListItem/>
+        </div>);
     }
 }

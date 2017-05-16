@@ -1,5 +1,8 @@
 import React, {Component, PropTypes} from 'react';
+
 import {Input, Icon} from '../../components/UI';
+import ArticleList from '../../components/Article/List';
+
 import styles from './MiddleArticleList.less';
 export default class MiddleArticleList extends Component {
     static defaultProps = {};
@@ -53,7 +56,8 @@ export default class MiddleArticleList extends Component {
                         </button>
                     </div>
                 </div>
-                MiddleArticle</div>
+                <ArticleList/>
+            </div>
         );
     }
 }

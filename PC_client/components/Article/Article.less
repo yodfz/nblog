@@ -1,3 +1,31 @@
 :local(.List){
+  position: relative;
+  box-sizing: border-box;
+  height: e("calc(100% -  66px)");
+  overflow-y: auto;
+}
 
+:local(.ListItem){
+  padding-left:50px;
+  border-bottom:1px solid #aaa;
+  font-size:12px;
+  padding-bottom:20px;
+  transition-duration: .5s;
+  border-left:5px solid transparent;
+  &:hover{
+    background-color: #fff;
+  }
+  &.selected {
+    border-left-color:#db4d52;
+    background-color: #fff;
+  }
+  h3{
+    padding-top:20px;
+    height:35px;
+    //line-height:35px;
+  }
+  .description{
+    line-height:23px;
+    color:#b7bdc4;
+  }
 }
