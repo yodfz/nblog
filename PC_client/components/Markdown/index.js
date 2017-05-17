@@ -1,6 +1,6 @@
 import React, {Component,PropTypes} from 'react';
-import styles from './RightDetail.less';
-export default class RightDetail  extends Component {
+
+export default class Markdown extends Component {
     static defaultProps = {
     };
     static propTypes = {
@@ -10,16 +10,12 @@ export default class RightDetail  extends Component {
     };
     componentWillMount () {}
     componentDidMount  () {}
-    shouldComponentUpdate () {
-        return true;
-    }
+    shouldComponentUpdate () {return true;}
     componentWillUpdate () {}
     componentDidUpdate () {}
     componentWillUnmount () {}
 
     render () {
-        return (
-            <div className={"fl vh100 " + styles.RightDetail}>RightDetail</div>
-        );
+        return (<div></div>);
     }
 }

@@ -4,6 +4,7 @@ import {createStore,applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 
+import Routes from './routers';
 import appStore from './store';
 
 import styles from './index.less';

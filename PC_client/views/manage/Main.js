@@ -7,8 +7,9 @@ import ArticleDetail from './Article/Detail';
 export default class Main extends Component {
     render () {
         return (
-            <div className="vh100">
+            <div className="vh100 main">
                 <LeftMenu/>
+                {this.props.children}
                 <MiddleArticleList/>
                 <RightDetail></RightDetail>
             </div>
