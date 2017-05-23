@@ -1,8 +1,8 @@
 import React, {Component, PropTyps} from 'react';
 import LeftMenu from './LeftMenu';
-import MiddleArticleList from './MiddleArticleList';
-import RightDetail from './RightDetail';
-import ArticleDetail from './Article/Detail';
+// import MiddleArticleList from './MiddleArticleList';
+// import RightDetail from './RightDetail';
+// import ArticleDetail from './Article/Detail';
 
 export default class Main extends Component {
     render () {
@@ -10,8 +10,8 @@ export default class Main extends Component {
             <div className="vh100 main">
                 <LeftMenu/>
                 {this.props.children}
-                <MiddleArticleList/>
-                <RightDetail></RightDetail>
+                {/*<MiddleArticleList/>*/}
+                {/*<RightDetail></RightDetail>*/}
             </div>
         );
     }
