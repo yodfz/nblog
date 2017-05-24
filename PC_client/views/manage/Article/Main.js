@@ -1,21 +1,60 @@
-import React, {Component,PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 
+import MiddleArticleList from './MiddleArticleList';
+
+import RightDetail from '../RightDetail';
+import noSelect from '../../../components/Article/noSelect';
+
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {selectArticle} from '../../../store/actions/Article.js';
+
+@connect(
+    state=> {
+        return {state: state.Article}
+    },
+    dispatch=>bindActionCreators({selectArticle}, dispatch)
+)
 export default class ArticleMain extends Component {
-    static defaultProps = {
+    static defaultProps = {};
+    static propTypes = {};
+
+    constructor (props) {
+        super(props)
     };
-    static propTypes = {
-    };
-    constructor () {
-        super()
-    };
-    componentWillMount () {}
-    componentDidMount  () {}
-    shouldComponentUpdate () {return true;}
-    componentWillUpdate () {}
-    componentDidUpdate () {}
-    componentWillUnmount () {}
+
+    componentWillMount () {
+    }
+
+    componentDidMount () {
+    }
+
+    shouldComponentUpdate () {
+        return true;
+    }
+
+    componentWillUpdate () {
+    }
+
+    componentDidUpdate () {
+    }
+
+    componentWillUnmount () {
+    }
 
     render () {
-        return (<div></div>);
+        let children = ()=> {
+            if (this.props.state.select.id) {
+                return <div></div>;
+            } else {
+                return <noSelect/>;
+            }
+        };
+        return (<div>
+            <MiddleArticleList select={this.props.selectArticle}/>
+            <RightDetail>
+                {children}
+            </RightDetail>
+        </div>);
     }
 }

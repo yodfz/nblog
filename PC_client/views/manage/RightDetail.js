@@ -5,8 +5,8 @@ export default class RightDetail  extends Component {
     };
     static propTypes = {
     };
-    constructor () {
-        super()
+    constructor (props) {
+        super(props)
     };
     componentWillMount () {}
     componentDidMount  () {}
@@ -19,7 +19,9 @@ export default class RightDetail  extends Component {
 
     render () {
         return (
-            <div className={"fl vh100 " + styles.RightDetail}></div>
+            <div className={"fl vh100 " + styles.RightDetail}>
+                {this.props.children}
+            </div>
         );
     }
 }
