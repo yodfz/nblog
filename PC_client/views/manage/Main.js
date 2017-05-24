@@ -1,15 +1,22 @@
 import React, {Component, PropTyps} from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
+
 import LeftMenu from './LeftMenu';
-// import MiddleArticleList from './MiddleArticleList';
-// import RightDetail from './RightDetail';
-// import ArticleDetail from './Article/Detail';
+
+import ArticleMain from './Article/Main';
+
 
 export default class Main extends Component {
     render () {
         return (
             <div className="vh100 main">
                 <LeftMenu/>
-                {this.props.children}
+                {/*<Route exact path="/article" component={ArticleMain}/>*/}
+                {/*{this.props.children}*/}
                 {/*<MiddleArticleList/>*/}
                 {/*<RightDetail></RightDetail>*/}
             </div>

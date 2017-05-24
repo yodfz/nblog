@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 
-import {Input, Icon} from '../../components/UI';
-import ArticleList from '../../components/Article/List';
+import {Input, Icon} from '../../../components/UI';
+import ArticleList from '../../../components/Article/List';
 
 import styles from './MiddleArticleList.less';
 export default class MiddleArticleList extends Component {
