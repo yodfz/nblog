@@ -8,6 +8,7 @@ import {
 import LeftMenu from './LeftMenu';
 
 import ArticleMain from './Article/Main';
+import NoMatch from './NoMatch';
 
 
 export default class Main extends Component {

@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    Link,Switch
 } from 'react-router-dom';
 
 import createSagaMiddleware from 'redux-saga';
@@ -16,13 +16,17 @@ import appStore from './store';
 import styles from './index.less';
 
 import Main from './views/manage/Main';
+import NoMatch from './views/manage/NoMatch';
 
 let store = createStore(appStore);
 
 render(
     <Provider store={store}>
         <Router>
-            <Route path="/manage" component={Main}/>
+            <Switch>
+                <Route path="/manage" component={Main}/>
+                <Route component={NoMatch}/>
+            </Switch>
         </Router>
         {/*<Route path="/manage" component={Main}/>*/}
         {/*<Main/>*/}
