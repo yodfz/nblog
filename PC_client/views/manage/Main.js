@@ -11,15 +11,22 @@ import ArticleMain from './Article/Main';
 
 
 export default class Main extends Component {
+    constructor ({match}) {
+        super();
+        this.match = match;
+    }
+
     render () {
         return (
-            <div className="vh100 main">
-                <LeftMenu/>
-                {/*<Route exact path="/article" component={ArticleMain}/>*/}
-                {/*{this.props.children}*/}
-                {/*<MiddleArticleList/>*/}
-                {/*<RightDetail></RightDetail>*/}
-            </div>
+            <Router>
+                <div className="vh100 main">
+                    <LeftMenu/>
+                    <Route exact path={`${this.match.url}/article`} component={ArticleMain}/>
+                    {/*{this.props.children}*/}
+                    {/*<MiddleArticleList/>*/}
+                    {/*<RightDetail></RightDetail>*/}
+                </div>
+            </Router>
         );
     }
 };
