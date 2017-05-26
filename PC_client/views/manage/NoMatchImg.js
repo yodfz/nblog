@@ -1,6 +1,7 @@
 import React, {Component,PropTypes} from 'react';
+import styles from './NoMatchImg.less';
 
-export default class NoMatch extends Component {
+export default class NoMatchImg extends Component {
     static defaultProps = {
     };
     static propTypes = {
@@ -16,6 +17,8 @@ export default class NoMatch extends Component {
     componentWillUnmount () {}
 
     render () {
-        return (<div>404 not found!</div>);
+        return (<div className={styles.NoMatchImg}>
+            <img src="/static/images/noselectArticle.png" alt=""/>
+        </div>);
     }
 }

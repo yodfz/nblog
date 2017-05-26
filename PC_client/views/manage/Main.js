@@ -8,7 +8,7 @@ import {
 import LeftMenu from './LeftMenu';
 
 import ArticleMain from './Article/Main';
-import NoMatch from './NoMatch';
+import NoMatchImg from './NoMatchImg';
 
 
 export default class Main extends Component {
@@ -23,6 +23,7 @@ export default class Main extends Component {
                 <div className="vh100 main">
                     <LeftMenu/>
                     <Route exact path={`${this.match.url}/article`} component={ArticleMain}/>
+                    <Route component={NoMatchImg}/>
                     {/*{this.props.children}*/}
                     {/*<MiddleArticleList/>*/}
                     {/*<RightDetail></RightDetail>*/}
