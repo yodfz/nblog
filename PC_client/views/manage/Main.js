@@ -15,6 +15,7 @@ export default class Main extends Component {
     constructor ({match}) {
         super();
         this.match = match;
+        console.log(match);
     }
 
     render () {

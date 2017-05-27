@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import MenuItem from './MenuItem';
-
+import {
+    Link
+} from 'react-router-dom';
 import styles from './Menu.less';
 
 export default class Menu extends Component {
@@ -10,21 +12,21 @@ export default class Menu extends Component {
                 idx: 1,
                 icon: 'article',
                 text: '文章',
-                url: '',
+                url: '/manage/article',
                 active: true
             },
             {
                 idx: 2,
                 icon: 'groupcopy5',
                 text: '评论',
-                url: '',
+                url: '/manage/comment',
                 active: false
             },
             {
                 idx: 3,
                 icon: 'setting',
                 text: '系统',
-                url: '',
+                url: '/manage/system',
                 active: false
             }
         ]
@@ -55,13 +57,12 @@ export default class Menu extends Component {
     }
 
     render () {
-        console.log(this.props.index);
         var children = this.props.items.map(item=> {
-            return <MenuItem
+            return <Link to={item.url} key={item.idx}><MenuItem
                 select={this.props.select.bind(this, item.idx)}
                 className={item.idx == this.props.index ? 'selected' : ''}
                 {...item}
-                key={item.idx}/>;
+                /></Link>;
         });
         return (
             <ul className={styles.ul}>

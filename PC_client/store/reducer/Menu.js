@@ -1,6 +1,6 @@
 import {SELECT_MENU} from '../actionsType';
 const defaultState = {
-    index: 1
+    index: 0
 };
 export default (state = defaultState, action)=> {
     console.log(state, action);
