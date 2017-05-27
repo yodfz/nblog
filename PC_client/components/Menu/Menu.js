@@ -48,6 +48,7 @@ export default class Menu extends Component {
     // }
 
     componentWillUpdate () {
+        return true;
     }
 
     componentDidUpdate () {
@@ -57,12 +58,15 @@ export default class Menu extends Component {
     }
 
     render () {
+        let checkUrl = (path) => {
+            return path == window.location.pathname;
+        };
         var children = this.props.items.map(item=> {
             return <Link to={item.url} key={item.idx}><MenuItem
                 select={this.props.select.bind(this, item.idx)}
-                className={item.idx == this.props.index ? 'selected' : ''}
+                className={checkUrl(item.url) ? 'selected' : ''}
                 {...item}
-                /></Link>;
+            /></Link>;
         });
         return (
             <ul className={styles.ul}>

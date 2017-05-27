@@ -20,7 +20,8 @@ export default class ArticleMain extends Component {
     static propTypes = {};
 
     constructor (props) {
-        super(props)
+        super(props);
+        console.log('article main',props);
     };
 
     componentWillMount () {
