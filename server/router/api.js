@@ -4,8 +4,9 @@
  * @type {{}}
  */
 var createMessage = require('../core/createMessage');
+var $config = require('../config');
 var router = require('koa-router')();
-var apiPre = '/api/v1/';
+const apiPre = $config.apiPre;
 router.get(apiPre + 'article', ctx=> {
     ctx.body = createMessage([]);
 });
