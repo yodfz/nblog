@@ -93,6 +93,13 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin(
             {name: 'vendor', filename: 'vendor.bundle.js'}),
+
+        new webpack.optimize.CommonsChunkPlugin(
+            {name: 'manifest', filename : 'manifest.bundle.js'}),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     names: ['vendor', 'manifest']
+        // }),
+
         // 需要手动添加 HotModuleReplacementPlugin , 命令行的方式会自动添加
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
