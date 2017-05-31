@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+var webpack = require('../node_modules/webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
