@@ -18,9 +18,10 @@ import styles from './index.less';
 
 import Main from './views/manage/Main';
 import NoMatch from './views/manage/NoMatch';
-
-let store = createStore(appStore, applyMiddleware(createSagaMiddleware(...watchSagas)));
-
+console.log('watchSagas',watchSagas);
+const sagaMiddleware = createSagaMiddleware(...watchSagas);
+let store = createStore(appStore, applyMiddleware(sagaMiddleware));
+// sagaMiddleware.run(watchSagas.watchGetArticleList);
 render(
     <Provider store={store}>
         <Router>

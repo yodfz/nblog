@@ -20,7 +20,6 @@ export default class LeftMenu extends Component {
 
     constructor (props) {
         super();
-        console.log(props);
     };
 
     componentWillMount () {

@@ -86,7 +86,9 @@ module.exports = {
     resolve: {
         // 默认扩展名 import 可不带后缀的文件
         extensions: ['.js', '.jsx'],
-        alias: {}
+        alias: {
+            'store':__dirname + '/../PC_client/store'
+        }
     },
     resolveLoader: {},
     // 插件

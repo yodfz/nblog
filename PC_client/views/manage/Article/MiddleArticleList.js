@@ -4,6 +4,18 @@ import {Input, Icon} from '../../../components/UI';
 import ArticleList from '../../../components/Article/List';
 
 import styles from './MiddleArticleList.less';
+
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import {getArticle} from '../../../store/actions/Article';
+
+@connect(
+    state=> {
+        return {state: state.Article}
+    },
+    dispatch=>bindActionCreators({getArticle}, dispatch)
+)
 export default class MiddleArticleList extends Component {
     static defaultProps = {};
     static propTypes = {};
@@ -16,9 +28,13 @@ export default class MiddleArticleList extends Component {
     };
 
     componentWillMount () {
+
     }
 
     componentDidMount () {
+        if (this.props.state.data.length == 0) {
+            this.props.getArticle();
+        }
     }
 
     shouldComponentUpdate () {

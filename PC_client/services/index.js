@@ -1,7 +1,8 @@
 import url from './url';
+import axios from 'axios';
 let fn = {};
 url.map(p=> {
-    fn[p.key] = function ($pageIndex, opt) {
+    fn[p.key] = function ($pageIndex, opt={}) {
         let params = {
             pageIndex: $pageIndex || 1
         };

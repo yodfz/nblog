@@ -21,7 +21,6 @@ export default class ArticleMain extends Component {
 
     constructor (props) {
         super(props);
-        console.log('article main',props);
     };
 
     componentWillMount () {

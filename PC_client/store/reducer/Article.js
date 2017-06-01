@@ -9,7 +9,7 @@ const defaultState = {
 
 
 export default (state = defaultState, action)=> {
-    console.log(state, action);
+    console.log('article action',action);
     switch (action.type) {
         case SELECT_ARTICLE: {
             if (action.payLoad.id == -1) {

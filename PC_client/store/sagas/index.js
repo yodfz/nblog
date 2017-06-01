@@ -1,3 +1,7 @@
 import {watchGetArticleList} from './article';
 
-export {watchGetArticleList};
+export default [watchGetArticleList];
+
+export function* sagas () {
+
+};
