@@ -4,6 +4,6 @@
  *
  */
 
-module.exports = (data, errorNo = 0, errorMessage = '')=> {
-    return {errorNo: errorNo, errorMessage: errorMessage, data: data};
+module.exports = (data, opt, errorNo = 0, errorMessage = '')=> {
+    return Object.assign({}, {errorNo: errorNo, errorMessage: errorMessage, data: data||[]}, opt);
 };
