@@ -1,9 +1,7 @@
-import {SELECT_ARTICLE} from '../actionsType';
+import {SELECT_ARTICLE, UPDATE_ARTICLE_STATE, APPEND_ARTICLE_LIST} from '../actionsType';
 
 const defaultState = {
-    status: {
-        isFetching: false,
-    },
+    status: '',
     select: {},
     data: [],
     detail: {}
@@ -18,6 +16,10 @@ export default (state = defaultState, action)=> {
                 return Object.assign({}, state, {select: {}});
             }
             return Object.assign({}, state, {select: {id: action.payLoad.index}});
+        }
+            break;
+        case UPDATE_ARTICLE_STATE: {
+            return Object.assign({}, state, {status: action.payLoad.state});
         }
             break;
         default:

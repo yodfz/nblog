@@ -5,20 +5,21 @@ import {Provider} from 'react-redux';
 import {
     BrowserRouter as Router,
     Route,
-    Link,Switch
+    Link, Switch
 } from 'react-router-dom';
 
 import createSagaMiddleware from 'redux-saga';
 
 // import Routes from './routers';
 import appStore from './store';
+import watchSagas from './store/sagas';
 
 import styles from './index.less';
 
 import Main from './views/manage/Main';
 import NoMatch from './views/manage/NoMatch';
 
-let store = createStore(appStore);
+let store = createStore(appStore, applyMiddleware(createSagaMiddleware(...watchSagas)));
 
 render(
     <Provider store={store}>

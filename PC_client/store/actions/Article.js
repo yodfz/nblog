@@ -13,8 +13,17 @@ const selectArticle = ($id)=> {
     return {type: SELECT_ARTICLE, payLoad: {id: $id}};
 };
 
+/**
+ * 获取远程数据链接
+ * @param $pageIndex
+ * @returns {{type, payLoad: {pageIndex: *}}}
+ */
+const getArticle = ($pageIndex) => {
+    return {type: GET_ARTICLE_LIST, payLoad: {pageIndex: $pageIndex}};
+};
 
 export {
     addArticle,
-    selectArticle
+    selectArticle,
+    getArticle
 }
