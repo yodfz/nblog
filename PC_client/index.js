@@ -12,16 +12,18 @@ import createSagaMiddleware from 'redux-saga';
 
 // import Routes from './routers';
 import appStore from './store';
-import watchSagas from './store/sagas';
+import watchSagas, {sagas} from './store/sagas';
 
 import styles from './index.less';
 
 import Main from './views/manage/Main';
 import NoMatch from './views/manage/NoMatch';
-console.log('watchSagas',watchSagas);
-const sagaMiddleware = createSagaMiddleware(...watchSagas);
+console.log('watchSagas', watchSagas);
+const sagaMiddleware = createSagaMiddleware();
 let store = createStore(appStore, applyMiddleware(sagaMiddleware));
 // sagaMiddleware.run(watchSagas.watchGetArticleList);
+sagaMiddleware.run(sagas);
+
 render(
     <Provider store={store}>
         <Router>
