@@ -8,13 +8,13 @@ import styles from './MiddleArticleList.less';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getArticle} from '../../../store/actions/Article';
+import {getArticle,selectArticle} from '../../../store/actions/Article';
 
 @connect(
     state=> {
         return {state: state.Article}
     },
-    dispatch=>bindActionCreators({getArticle}, dispatch)
+    dispatch=>bindActionCreators({getArticle,selectArticle}, dispatch)
 )
 export default class MiddleArticleList extends Component {
     static defaultProps = {};
@@ -72,7 +72,7 @@ export default class MiddleArticleList extends Component {
                         </button>
                     </div>
                 </div>
-                <ArticleList data={this.props.state.data}/>
+                <ArticleList data={this.props.state.data} selectIdx={this.props.state.selectIdx} select={this.props.selectArticle}/>
             </div>
         );
     }

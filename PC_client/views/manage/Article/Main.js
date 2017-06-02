@@ -51,7 +51,7 @@ export default class ArticleMain extends Component {
             }
         };
         return (<div>
-            <MiddleArticleList select={this.props.selectArticle}/>
+            <MiddleArticleList/>
             <RightDetail>
                 {children}
             </RightDetail>
