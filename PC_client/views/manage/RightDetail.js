@@ -6,7 +6,7 @@ export default class RightDetail  extends Component {
     static propTypes = {
     };
     constructor (props) {
-        super(props)
+        super(props);
     };
     componentWillMount () {}
     componentDidMount  () {}

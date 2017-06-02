@@ -3,11 +3,14 @@ import React, {Component, PropTypes} from 'react';
 import MiddleArticleList from './MiddleArticleList';
 
 import RightDetail from '../RightDetail';
-import noSelect from '../../../components/Article/noSelect';
+import NoMatchImg from '../NoMatchImg';
+import Detail from './Detail';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {selectArticle} from '../../../store/actions/Article.js';
+
+import styles from './Main.less';
 
 @connect(
     state=> {
@@ -34,6 +37,7 @@ export default class ArticleMain extends Component {
     }
 
     componentWillUpdate () {
+
     }
 
     componentDidUpdate () {
@@ -43,14 +47,15 @@ export default class ArticleMain extends Component {
     }
 
     render () {
-        let children = ()=> {
-            if (this.props.state.select.id) {
-                return <div></div>;
+        console.log('this.props.state.select',this.props.state.select);
+        let children = (() => {
+            if (this.props.state.selectIdx!=-1) {
+                return <Detail data={this.props.state.select}/>;
             } else {
-                return <noSelect/>;
+                return <NoMatchImg/>;
             }
-        };
-        return (<div>
+        })();
+        return (<div className={styles.Main}>
             <MiddleArticleList/>
             <RightDetail>
                 {children}

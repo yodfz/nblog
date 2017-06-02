@@ -2,7 +2,8 @@ import React, {Component, PropTyps} from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    Link,
+    Switch
 } from 'react-router-dom';
 
 import LeftMenu from './LeftMenu';
@@ -22,8 +23,10 @@ export default class Main extends Component {
             <Router>
                 <div className="vh100 main">
                     <LeftMenu/>
-                    <Route exact path={`${this.match.url}/article`} component={ArticleMain}/>
-                    <Route component={NoMatchImg}/>
+                    <Switch>
+                        <Route exact path={`${this.match.url}/article`} component={ArticleMain}/>
+                        <Route component={NoMatchImg}/>
+                    </Switch>
                     {/*{this.props.children}*/}
                     {/*<MiddleArticleList/>*/}
                     {/*<RightDetail></RightDetail>*/}

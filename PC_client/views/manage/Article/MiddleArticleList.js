@@ -20,8 +20,8 @@ export default class MiddleArticleList extends Component {
     static defaultProps = {};
     static propTypes = {};
 
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
             isFocus: false
         };

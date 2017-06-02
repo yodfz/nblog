@@ -20,6 +20,7 @@ export default (state = defaultState, action)=> {
                 return Object.assign({}, state, {select: {}});
             }
             let selectArticle = state.data.find(p=>p.idx == action.payLoad.id);
+            console.log('selectArticle',selectArticle);
             return Object.assign({}, state, {select: selectArticle, selectIdx: selectArticle.idx});
         }
             break;
