@@ -50,10 +50,15 @@ export default class MiddleArticleList extends Component {
     componentWillUnmount () {
     }
 
-    handleSearchTextOnClick () {
-        console.log(this);
+    handleSearchTextOnFocus () {
         this.setState({
             isFocus: true
+        });
+    }
+
+    handleSearchTextOnBlur () {
+        this.setState({
+            isFocus: false
         });
     }
 
@@ -62,10 +67,13 @@ export default class MiddleArticleList extends Component {
             <div className={"fl vh100 " + styles.MiddleArticleList}>
                 <div className={styles.top}>
                     <div className="input">
-                        <Input id="searchTextInput" className="searchTextInput" autoFocus={this.state.isFocus}/>
-                        <div className="ShowSearchText fs12" onClick={this.handleSearchTextOnClick.bind(this)}>
+                        <div className={"ShowSearchText fs12 " + (this.state.isFocus ? 'focused' : '')}>
+                            <Input id="searchTextInput" className="searchTextInput"
+                                   onFocus={this.handleSearchTextOnFocus.bind(this)}
+                                   onBlur={this.handleSearchTextOnBlur.bind(this)}
+                                   placeholder="搜索文章" />
                             <Icon name="search" className="fs40"/>
-                            <span>搜索文章</span>
+                            {/*<span>搜索文章</span>*/}
                         </div>
                         <button className="btnRight">
                             <Icon name="fankui1" className="fs24"/>

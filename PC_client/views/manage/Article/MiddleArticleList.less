@@ -8,14 +8,18 @@
   border-right: 1px solid #dedede;
   .ShowSearchText {
     position: relative;
-    margin-top: -42px;
-    line-height: 40px;
     .td();
-    padding-left: 42px;
     transform: translateZ(0px);
     .iconfont {
       position: relative;
-      top: 11px;
+      top: -35px;
+      left: 40px;
+      .td();
+    }
+    &.focused{
+      .iconfont {
+        left: -5px;
+      }
     }
     span {
       .td();
@@ -24,9 +28,18 @@
   .searchTextInput:focus {
     border-color: @hightColor;
     padding-left: 26px;
+    &::-webkit-input-placeholder{
+      opacity: 0;
+    }
+    &::-moz-placeholder{
+      opacity: 0;
+    }
+    &:-ms-input-placeholder{
+      opacity: 0;
+    }
   }
   .searchTextInput:focus ~ .ShowSearchText {
-    padding-left: 0px;
+    padding-left: 0;
     left: -5px;
     span {
       opacity: 0;
@@ -34,10 +47,22 @@
   }
   .searchTextInput {
     box-sizing: border-box;
-    padding-left: 66px;
+    padding-left: 76px;
     height: 26px;
-    transform: translateZ(0px);
+    //transform: translateZ(0px);
     .td();
+    &::-webkit-input-placeholder{
+      .td();
+      color: #bdbdbd;
+    }
+    &::-moz-placeholder{
+      .td();
+      color: #bdbdbd;
+    }
+    &:-ms-input-placeholder{
+      .td();
+      color: #bdbdbd;
+    }
   }
   .btnRight {
     position: absolute;
