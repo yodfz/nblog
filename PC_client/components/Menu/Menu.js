@@ -5,31 +5,11 @@ import {
 } from 'react-router-dom';
 import styles from './Menu.less';
 
+import $config from '../../config';
+
 export default class Menu extends Component {
     static defaultProps = {
-        items: [
-            {
-                idx: 1,
-                icon: 'article',
-                text: '文章',
-                url: '/manage/article',
-                active: true
-            },
-            {
-                idx: 2,
-                icon: 'groupcopy5',
-                text: '评论',
-                url: '/manage/comment',
-                active: false
-            },
-            {
-                idx: 3,
-                icon: 'setting',
-                text: '系统',
-                url: '/manage/system',
-                active: false
-            }
-        ]
+        items: $config.leftMenu
     };
     static propTypes = {};
 

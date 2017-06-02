@@ -4,7 +4,6 @@ import * as actions from '../actionsType';
 import services from '../../services';
 
 export function* GetArticleList (action) {
-    console.log('GETARTICLELIST SAGA', action);
     yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.FETCHING}});
     let data = yield call(services.article_list, action.payLoad.pageIndex);
     data = data.data;
@@ -21,6 +20,5 @@ export function* GetArticleList (action) {
  * 监听请求数据事件
  */
 export function* watchGetArticleList () {
-    console.log('watchGetArticleList');
     yield* takeEvery(actions.GET_ARTICLE_LIST, GetArticleList);
 }

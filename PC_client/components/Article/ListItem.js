@@ -6,7 +6,8 @@ export default class ListItem extends Component {
     static propTypes = {};
 
     constructor (props) {
-        super(props)
+        super(props);
+        this.model = props.data;
     };
 
     componentWillMount () {
@@ -29,11 +30,11 @@ export default class ListItem extends Component {
     }
 
     render () {
-        return (<div className={styles.ListItem + ' ' + (this.props.className||'')}>
-            <h3>Title</h3>
-            <p className="description">这个是描述文字</p>
-            <span className="description">2017-01-01</span>
-            <span className="description">#javascript #test</span>
+        return (<div className={styles.ListItem + ' ' + (this.props.className || '')}>
+            <h3>{this.model.title}</h3>
+            <p className="description">{this.model.description}</p>
+            <span className="description">{this.model.tag}</span>
+            <span className="description par">{this.model.createdAt}</span>
         </div>);
     }
 }
