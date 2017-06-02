@@ -5,10 +5,16 @@ import services from '../../services';
 
 export function* GetArticleList (action) {
     console.log('GETARTICLELIST SAGA', action);
-    yield* put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.FETCHING}});
-    const data = yield fork(services.article_list, action.payLoad.pageIndex);
-    yield* put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.SUCCESS}});
-    yield* put({type: actions.APPEND_ARTICLE_LIST, payLoad: {data: data}});
+    yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.FETCHING}});
+    let data = yield call(services.article_list, action.payLoad.pageIndex);
+    data = data.data;
+    if (data.errorNo == 0) {
+        yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.SUCCESS}});
+        yield put({type: actions.APPEND_ARTICLE_LIST, payLoad: {data: data.data}});
+    } else {
+        yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.ERROR}});
+    }
+
 }
 
 /**

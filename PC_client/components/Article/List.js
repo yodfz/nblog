@@ -1,33 +1,46 @@
-import React, {Component,PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import styles from './Article.less';
 import ListItem from './ListItem';
 
-export default class List  extends Component {
-    static defaultProps = {
+export default class List extends Component {
+    static defaultProps = {};
+    static propTypes = {};
+
+    constructor (props) {
+        super(props)
+        console.log('list', props);
     };
-    static propTypes = {
-    };
-    constructor () {
-        super()
-    };
-    componentWillMount () {}
-    componentDidMount  () {}
+
+    componentWillMount () {
+    }
+
+    componentDidMount () {
+    }
+
     shouldComponentUpdate () {
         return true;
     }
-    componentWillUpdate () {}
-    componentDidUpdate () {}
-    componentWillUnmount () {}
+
+    componentWillUpdate () {
+    }
+
+    componentDidUpdate () {
+    }
+
+    componentWillUnmount () {
+    }
 
     render () {
         return (<div className={styles.List}>
-            <ListItem className="selected"/>
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
+            {this.props.data.map(item=> {
+                return <ListItem data={item} key={item.idx}/>;
+            })}
+            {/*<ListItem className="selected"/>*/}
+            {/*<ListItem/>*/}
+            {/*<ListItem/>*/}
+            {/*<ListItem/>*/}
+            {/*<ListItem/>*/}
+            {/*<ListItem/>*/}
         </div>);
     }
 }

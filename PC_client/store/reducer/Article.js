@@ -9,7 +9,7 @@ const defaultState = {
 
 
 export default (state = defaultState, action)=> {
-    console.log('article action',action);
+    console.log('article action', action);
     switch (action.type) {
         case SELECT_ARTICLE: {
             if (action.payLoad.id == -1) {
@@ -20,6 +20,10 @@ export default (state = defaultState, action)=> {
             break;
         case UPDATE_ARTICLE_STATE: {
             return Object.assign({}, state, {status: action.payLoad.state});
+        }
+            break;
+        case APPEND_ARTICLE_LIST: {
+            return Object.assign({}, state, {data: [...state.data, ...action.payLoad.data]});
         }
             break;
         default:

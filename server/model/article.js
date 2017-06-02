@@ -30,12 +30,14 @@ module.exports = (sequelize, SQ)=> {
         idx: {type: SQ.INTEGER, primaryKey: true},//SQ.INTEGER,
         // 标题
         title: SQ.STRING,
+        // 描述
+        description: SQ.STRING,
         // 正文内容
         content: SQ.TEXT,
         // 标签
         tag: SQ.STRING,
         // 类别
-        category:SQ.STRING,
+        category: SQ.STRING,
         // 创建时间
         createDate: {type: SQ.DATE, defaultValue: SQ.NOW},
     }, {

@@ -72,7 +72,7 @@ export default class MiddleArticleList extends Component {
                         </button>
                     </div>
                 </div>
-                <ArticleList/>
+                <ArticleList data={this.props.state.data}/>
             </div>
         );
     }

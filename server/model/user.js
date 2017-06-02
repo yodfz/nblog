@@ -9,11 +9,14 @@ module.exports = (sequelize, SQ)=> {
         // {indexes: [{unique: true, fields: ['someUnique']}]},
         // idx
         idx: {type: SQ.INTEGER, primaryKey: true},//SQ.INTEGER,
-        // 标题
+        // 头像
+        avatar:SQ.STRING,
+        // 登陆账号
         user: SQ.STRING,
-        // 正文内容
+        // 登陆密码
         pwd: SQ.STRING,
         // 等级
+        // -1 超级管理员 0 普通管理员 1 普通用户
         level: SQ.INTEGER,
         // 创建时间
         createDate: {type: SQ.DATE, defaultValue: SQ.NOW},
