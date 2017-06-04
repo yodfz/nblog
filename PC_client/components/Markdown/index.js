@@ -22,15 +22,20 @@ export default class Markdown extends Component {
     }
 
     componentDidUpdate () {
+
     }
 
     componentWillUnmount () {
     }
 
+    handleMouseClick (event) {
+        console.log(window.getSelection().toString());
+    }
+
     render () {
         return (<div className={styles.index}>
 
-            <div className="editor" contentEditable="true">
+            <div className="editor" onClick={this.handleMouseClick.bind(this)} ref="MarkdownEditor" contentEditable="true">
                 {this.props.content}
             </div>
         </div>);

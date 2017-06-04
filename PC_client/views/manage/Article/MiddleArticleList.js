@@ -25,6 +25,9 @@ export default class MiddleArticleList extends Component {
         this.state = {
             isFocus: false
         };
+        if (this.props.state.data.length == 0) {
+            this.props.getArticle();
+        }
     };
 
     componentWillMount () {
@@ -32,9 +35,7 @@ export default class MiddleArticleList extends Component {
     }
 
     componentDidMount () {
-        if (this.props.state.data.length == 0) {
-            this.props.getArticle();
-        }
+
     }
 
     shouldComponentUpdate () {
@@ -63,6 +64,9 @@ export default class MiddleArticleList extends Component {
     }
 
     render () {
+        // if (this.props.state.data.length == 0) {
+        //     this.props.getArticle();
+        // }
         return (
             <div className={"fl vh100 " + styles.MiddleArticleList}>
                 <div className={styles.top}>
@@ -80,6 +84,7 @@ export default class MiddleArticleList extends Component {
                         </button>
                     </div>
                 </div>
+                {this.props.state.state}
                 <ArticleList data={this.props.state.data} selectIdx={this.props.state.selectIdx} select={this.props.selectArticle}/>
             </div>
         );
