@@ -3,15 +3,20 @@ import styles from './index.less';
 export default class Markdown extends Component {
     static defaultProps = {};
     static propTypes = {};
-
     constructor (props) {
-        super()
+        super();
+        this.editor=null;
     };
 
     componentWillMount () {
     }
 
     componentDidMount () {
+        this.editor = new Editor({
+            element:this.refs.MarkdownEditorMarkdownEditor// document.getElementById('editor')
+        });
+        this.editor.render();
+
     }
 
     shouldComponentUpdate () {
@@ -22,6 +27,9 @@ export default class Markdown extends Component {
     }
 
     componentDidUpdate () {
+        // console.log(this.props.content);
+        // this.editor.render();
+        console.log(this.editor.codemirror.setValue(this.props.content));
 
     }
 
@@ -34,10 +42,9 @@ export default class Markdown extends Component {
 
     render () {
         return (<div className={styles.index}>
-
-            <div className="editor" onClick={this.handleMouseClick.bind(this)} ref="MarkdownEditor" contentEditable="true">
-                {this.props.content}
-            </div>
+            <textarea name="" id="" ref="MarkdownEditor" cols="30" rows="10" defaultValue={this.props.content}></textarea>
+            {/*<div className="editor" onClick={this.handleMouseClick.bind(this)} ref="MarkdownEditor" contentEditable="true">*/}
+            {/*</div>*/}
         </div>);
     }
 }
