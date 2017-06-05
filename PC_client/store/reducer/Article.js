@@ -1,4 +1,4 @@
-import {SELECT_ARTICLE, UPDATE_ARTICLE_STATE, APPEND_ARTICLE_LIST} from '../actionsType';
+import {SELECT_ARTICLE, UPDATE_ARTICLE_STATE, APPEND_ARTICLE_LIST, ADD_ARTICLE} from '../actionsType';
 
 const defaultState = {
     // 当前状态
@@ -20,7 +20,6 @@ export default (state = defaultState, action)=> {
                 return Object.assign({}, state, {select: {}});
             }
             let selectArticle = state.data.find(p=>p.idx == action.payLoad.id);
-            console.log('selectArticle',selectArticle);
             return Object.assign({}, state, {select: selectArticle, selectIdx: selectArticle.idx});
         }
             break;
@@ -30,6 +29,16 @@ export default (state = defaultState, action)=> {
             break;
         case APPEND_ARTICLE_LIST: {
             return Object.assign({}, state, {data: [...state.data, ...action.payLoad.data]});
+        }
+            break;
+        case ADD_ARTICLE: {
+            return Object.assign({}, state, {data: [{
+                idx:0,
+                tag:'',
+                createdAt:new Date(),
+                content:'',
+                title:''
+            }, ...state.data]});
         }
             break;
         default:

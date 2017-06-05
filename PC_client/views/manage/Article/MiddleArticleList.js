@@ -8,13 +8,13 @@ import styles from './MiddleArticleList.less';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getArticle,selectArticle} from '../../../store/actions/Article';
+import {getArticle, selectArticle, addArticle} from '../../../store/actions/Article';
 
 @connect(
     state=> {
         return {state: state.Article}
     },
-    dispatch=>bindActionCreators({getArticle,selectArticle}, dispatch)
+    dispatch=>bindActionCreators({getArticle, selectArticle, addArticle}, dispatch)
 )
 export default class MiddleArticleList extends Component {
     static defaultProps = {};
@@ -63,6 +63,17 @@ export default class MiddleArticleList extends Component {
         });
     }
 
+    handleKeyDown (event) {
+        if(event.keyCode==13){
+
+        }
+    }
+
+    handleAddArticle () {
+        this.props.addArticle();
+        this.props.selectArticle(0);
+    }
+
     render () {
         // if (this.props.state.data.length == 0) {
         //     this.props.getArticle();
@@ -75,17 +86,19 @@ export default class MiddleArticleList extends Component {
                             <Input id="searchTextInput" className="searchTextInput"
                                    onFocus={this.handleSearchTextOnFocus.bind(this)}
                                    onBlur={this.handleSearchTextOnBlur.bind(this)}
-                                   placeholder="搜索文章" />
+                                   onKeyDown={this.handleKeyDown.bind(this)}
+                                   placeholder="搜索文章"/>
                             <Icon name="search" className="fs40"/>
                             {/*<span>搜索文章</span>*/}
                         </div>
-                        <button className="btnRight">
+                        <button className="btnRight" onClick={this.handleAddArticle.bind(this)}>
                             <Icon name="fankui1" className="fs24"/>
                         </button>
                     </div>
                 </div>
-                {this.props.state.state}
-                <ArticleList data={this.props.state.data} selectIdx={this.props.state.selectIdx} select={this.props.selectArticle}/>
+                {/*{this.props.state.status}*/}
+                <ArticleList data={this.props.state.data} selectIdx={this.props.state.selectIdx}
+                             select={this.props.selectArticle}/>
             </div>
         );
     }

@@ -8,12 +8,12 @@ module.exports = {
     create () {
 
     },
-    list: async function (pageIndex = 1) {
+    list: async function (pageIndex = 1, search = {}) {
         let data = await model.article.findAndCountAll({
-                // where: '',
-                offset: (pageIndex - 1) * $config.pageSize,
-                limit: $config.pageSize
-            });
+            where: search,
+            offset: (pageIndex - 1) * $config.pageSize,
+            limit: $config.pageSize
+        });
         return ({rows: data.rows, total: data.count});
 
         // return

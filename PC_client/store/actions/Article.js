@@ -1,8 +1,4 @@
-import {ADD_ARTICLE, GET_ARTICLE_LIST, SELECT_ARTICLE} from '../actionsType';
-
-const addArticle = function () {
-
-};
+import {ADD_ARTICLE, SAVE_ARTICLE, GET_ARTICLE_LIST, SELECT_ARTICLE} from '../actionsType';
 
 /**
  * 列表选中文章
@@ -20,6 +16,14 @@ const selectArticle = ($id)=> {
  */
 const getArticle = ($pageIndex) => {
     return {type: GET_ARTICLE_LIST, payLoad: {pageIndex: $pageIndex}};
+};
+
+/**
+ * 新建文章
+ * @returns {{type, payLoad: {}}}
+ */
+const addArticle = () => {
+    return {type: ADD_ARTICLE, payLoad: {}};
 };
 
 export {
