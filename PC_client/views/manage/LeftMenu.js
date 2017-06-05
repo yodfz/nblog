@@ -9,7 +9,7 @@ import {selectMenu} from '../../store/actions/Menu.js';
 
 import MenuItem from '../../components/Menu/MenuItem';
 
-import $config from '../../config';
+// import $config from '../../config';
 
 
 @connect(
@@ -20,7 +20,7 @@ import $config from '../../config';
 )
 export default class LeftMenu extends Component {
     static defaultProps = {
-        items: $config.leftMenu
+        items: window.config.leftMenu
     };
     static propTypes = {};
 

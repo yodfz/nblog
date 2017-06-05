@@ -1,6 +1,7 @@
-const $config = {
+window.config = {
     apiPre: 'http://localhost:7800/api/v1/',
-    leftMenu:[
+    uploadImage: 'http://localhost:7800',
+    leftMenu: [
         {
             idx: 1,
             icon: 'article',
@@ -31,6 +32,4 @@ const $config = {
             active: false
         },
     ]
-};
-window.config = $config;
-export default $config;
+};;

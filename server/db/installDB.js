@@ -84,6 +84,39 @@ img标签要设置高宽：减少重绘重排
         category: '扯蛋'
     });
     model.article.create({
+        title:'有哪些「还有这种操作？」的故事？',
+        content:`
+        十好几年前的事了，那时十六七岁。在一个陌生的小镇饮食区吃饭。结账的时候，摊主夫妇看我一个人，年龄小，还不是本地口音，给找了张假钱。我不干了，一再强调，让换一张，奸商夫妇一再说钱没问题。这时，邻居摊位的一对奸商夫妇来支援了，“乖，那张钱没问题。你就收着吧，你小孩子，他们会坑你么？”麻痹的，就差明抢了，好不好？我当时不知道从哪来的灵感，问到：“你确定没问题？”“真没问题。”于是我转身到邻居摊位买了一个5毛钱的烧饼，拿出那张钱。邻居不干了，非要我换一张，我说：“你不是言之凿凿地说这张钱没问题么？”“啊……哦……额……”张着嘴巴挤不出一个字来。我又喊了第一对摊主：“哎，你找的钱人家不要啊，怎么办？”“哎，那谁，你就收了吧。”接下来，我有生以来最有成就感的一幕出现了。两对奸商夫妇，四个年龄加起来超过150岁的人在我的眼皮子底下，交换了一下眼色，把那张都知道的假钱收下了，还找了我零钱。后来，我知道了，当时的那种灵感叫顿悟。面对复杂问题的时候，问题本身就是答案。再后来，我收拾过好多人，都像那两对奸商夫妇那样。
+        ----------------------------
+近日看见一条新闻，中国实施装备技术出口限制，西方国家不适应感觉不可思议。。。中国现在竟然有这种操作了?<img src="https://pic3.zhimg.com/v2-96fab4ba809d1be6f8e3ce793a9e661a_b.jpg" data-rawwidth="300" data-rawheight="238" class="content_image" width="300">我第一反映是，不可思议部又从震惊部抢头条了。 2017年5月26日，中国商务部发布2017年第28号公告 ：为维护国家安全，商务部禁止出口大型挖泥船。 <img src="https://pic1.zhimg.com/v2-5fbe317c3f764cd3b6532f1b83ba9a28_b.jpg" data-rawwidth="500" data-rawheight="448" class="origin_image zh-lightbox-thumb" width="500" data-original="https://pic1.zhimg.com/v2-5fbe317c3f764cd3b6532f1b83ba9a28_r.jpg">差不多长这样子。觉得一点都不高逼格对吧。。。这TM的就是个海上挖掘机。。。但是你会发现，当初越南猴，菲律宾佣在侵占的南海岛屿上围海造地，场景是这样的。<img src="https://pic4.zhimg.com/v2-abfe8e44d1e63c5acbf217f2ac3ec61f_b.jpg" data-rawwidth="600" data-rawheight="450" class="origin_image zh-lightbox-thumb" width="600" data-original="https://pic4.zhimg.com/v2-abfe8e44d1e63c5acbf217f2ac3ec61f_r.jpg">跟这样的<img src="https://pic1.zhimg.com/v2-ced4266c2aa641655ed9fbd4f3850f18_b.jpg" data-rawwidth="600" data-rawheight="400" class="origin_image zh-lightbox-thumb" width="600" data-original="https://pic1.zhimg.com/v2-ced4266c2aa641655ed9fbd4f3850f18_r.jpg">我们外交部再三劝阻不听告诫，哎呀好气哦。。。<img src="https://pic3.zhimg.com/v2-17beec510ef100988924c3c117181032_b.jpg" data-rawwidth="267" data-rawheight="267" class="content_image" width="267">于是乎~ 我们也开始填海造地，场景是这样的。<img src="https://pic3.zhimg.com/v2-1b95868aac0edf30cd702d32243c878a_b.jpg" data-rawwidth="525" data-rawheight="328" class="origin_image zh-lightbox-thumb" width="525" data-original="https://pic3.zhimg.com/v2-1b95868aac0edf30cd702d32243c878a_r.jpg">这时候你知道差距了吧。。。那个海上挖掘机其实是大型挖掘疏浚船， 属于绞吸式挖泥船 。名字叫 天鲸号，装机功率、疏浚能力均居亚洲第一、世界第三。 每小时可挖泥4500立方米。 作用原理是通过桥架最前端绞刀的旋转将水下泥面挖松，通过船上离心式泥泵的作用产生一定的真空，把挖掘所得的泥浆吸入、泵出再通过船上输泥管线排出。并吹送到上千米乃至上万米外的指定区域，达到疏浚航道和围海造地的双重目的。
+
+海底除了淤泥之外，还有大量坚硬的岩石，普通的挖泥船对付这些岩石有些吃力，主要是靠炸礁或者砸岩。而“天鲸号”配备有各种功能的绞刀头，巨大坚硬的风化岩可以轻松绞烂，然后直接吸进船里的驳船，既环保又省事。（来源自网易新闻学院）
+
+(至于这个上万米好多人表示不服，我也没办法啊，这新闻里就这么写我不好改啊(눈_눈)<img src="https://pic1.zhimg.com/v2-0c42d32d91364553250029656bb5ce3c_b.jpg" data-rawwidth="690" data-rawheight="440" class="origin_image zh-lightbox-thumb" width="690" data-original="https://pic1.zhimg.com/v2-0c42d32d91364553250029656bb5ce3c_r.jpg">看这巨大的绞头。。。。。我有一个硬邦邦的想法如果还是不知道它的操作有多叼，就拿永暑礁为例吧。没填岛之前，就四五个篮球场大小。<img src="https://pic2.zhimg.com/v2-31054cdcc4408c0bb1af288ef8629c09_b.jpg" data-rawwidth="524" data-rawheight="238" class="origin_image zh-lightbox-thumb" width="524" data-original="https://pic2.zhimg.com/v2-31054cdcc4408c0bb1af288ef8629c09_r.jpg"><img src="https://pic4.zhimg.com/v2-27ac2cbfd64cfcf1f6af8ebe19c2b773_b.jpg" data-rawwidth="451" data-rawheight="512" class="origin_image zh-lightbox-thumb" width="451" data-original="https://pic4.zhimg.com/v2-27ac2cbfd64cfcf1f6af8ebe19c2b773_r.jpg">下面就是见证奇迹的时刻<img src="https://pic3.zhimg.com/v2-93a9147ea86beb01a6a8d68d56166ece_b.jpg" data-rawwidth="451" data-rawheight="513" class="origin_image zh-lightbox-thumb" width="451" data-original="https://pic3.zhimg.com/v2-93a9147ea86beb01a6a8d68d56166ece_r.jpg"><img src="https://pic2.zhimg.com/v2-e7ad2b4605f99d6660fe37305cc4c7d9_b.jpg" data-rawwidth="451" data-rawheight="511" class="origin_image zh-lightbox-thumb" width="451" data-original="https://pic2.zhimg.com/v2-e7ad2b4605f99d6660fe37305cc4c7d9_r.jpg">2016年的永暑礁，其长度已经足够修建3500米的机场跑道，深水港池陆基已经基本成型，成为了南沙第一大岛。
+<img src="https://pic1.zhimg.com/v2-8d11ef37ad66f411aaaa0553542cde44_b.jpg" data-rawwidth="198" data-rawheight="158" class="content_image" width="198">而这次禁止出口针对的，主要是南海周边国家 ，毕竟那些遥远的西方国家拿去挖鱼塘，钓鱼和我们关系不大。然后周边小国发现中国开挂了，又开始抗议，提议搁置建设，共同开发。。。<img src="https://pic2.zhimg.com/v2-8c20c8fb2727a24bbdebebd218c45e25_b.jpg" data-rawwidth="400" data-rawheight="400" class="content_image" width="400"><img src="https://pic2.zhimg.com/v2-a607f598bd67f22401d2249a50328d19_b.jpg" data-rawwidth="330" data-rawheight="330" class="content_image" width="330">军事分析员周辰敏说：“越南渴望获得先进的挖泥船来加快造岛速度，中国显然不希望这个对手具备同等的能力，也不希望世界掌握其所重视的疏浚技术。”  所以这次是军民两用的全禁止出口，有钱的没用。<img src="https://pic3.zhimg.com/v2-475a78f585531701eb7c30d9ab75a0d6_b.jpg" data-rawwidth="290" data-rawheight="290" class="content_image" width="290">一直传闻中国的重工能上天，这也让我想到了多年前那个新闻。13年美国前总统奥巴马在迈阿密港口发表演说，鼓励美国人使用“美国制造”时，一阵风吹落了奥巴马身后起重机上的美国国旗，露出了“ZPMC”(振华重工)的标志。全场哗然。
+<img src="https://pic2.zhimg.com/v2-fbd7af8a74078358a490e2b8008c7d91_b.jpg" data-rawwidth="640" data-rawheight="447" class="origin_image zh-lightbox-thumb" width="640" data-original="https://pic2.zhimg.com/v2-fbd7af8a74078358a490e2b8008c7d91_r.jpg">什么，朕的江山要亡了？？？之前都是媒体捕风捉影，从来没见官方限制出口那么硬气。从这时起，中国终于开始厚积薄发了。西方国家对中国搞技术出口封锁那么多年。。。中国的发展真是充满心酸与泪水啊，感谢那群默默无闻的科研人员。<img src="https://pic4.zhimg.com/v2-91e3491cee79768b6bd8431fadf6b343_b.jpg" data-rawwidth="640" data-rawheight="368" class="origin_image zh-lightbox-thumb" width="640" data-original="https://pic4.zhimg.com/v2-91e3491cee79768b6bd8431fadf6b343_r.jpg">请为照片中的代表，5位王者级操作的工程师点赞。(如果不是工程师是监理的话，就当代表吧)`,
+        tag:`知乎`,
+        category:'扯蛋'
+    });
+    model.article.create({
+        title:'有哪些「还有这种操作？」的故事？1',
+        content:`看完电影已经晚上12点半，走出电影院门口，我说：要不今晚别回学校了吧。妹子低头没说话。
+我一摸口袋，哇擦 忘带身份证了。
+随后我说：我身份证没带，算了，我送你回学校吧。妹子还是没说话。
+两个人一言不发的沿着步行街走了几百米。
+忽然妹子说：你觉得我长发好看还是短发好看？
+我也没心思回答，说到：我又没见过你短发。
+这时妹子从包里拿出身份证说：你看！ 你看！   `,
+        tag:`知乎`,
+        category:'扯蛋'
+    });
+    model.article.create({
+        title:'有哪些「还有这种操作？」的故事？2',
+        content:`上小学时候吧，我和我爸窝在家里看《英雄本色》，电视上发哥正笑眯眯地用美元点一支烟，当时看得我...我的天哪！我要是个姑娘我早湿一裤裆了！我爸瞅了瞅我，问：＂酷不酷？想不想学？＂好吧不是这么说的，反正是那么个意思。我：“不太好吧？”我爸：“没事，别让你妈知道就行。”到饭点我爸被我妈轰下去买盐，我爸给了我一个眼神，我立马屁颠屁颠跟出去了，到了小卖部我爸让我在外面等着，等了好一会我爸才偷偷摸摸出来塞给我一颗烟，我小心肝扑通扑通的，两只手颤颤巍巍像电视里捧圣旨那样捧着那颗烟，努力像发哥那样斜着脑壳露出蜜汁微笑，然后凑到嘴前吸了一大口。然后我就开始咳嗽、剧烈的咳嗽，鼻腔里像被火烧过，从喉咙到肺都像有人用针刺那种感觉，我爸给我拍了拍背，递给我一瓶水，安慰我：“没事，第一次都这样，明天我再给你一根就好多了。”第二天我爸偷偷摸摸问我：“还想不想试试？” 我咬着牙说：“试试就试试” 还是咳嗽、剧烈的咳嗽，鼻腔里像被火烧过，从喉咙到肺都像有人用针刺......我爸很疑惑的样子：“哎呀，你这都第二次了不应该这样啊？”突然他一拍头：“我知道了，有的人嗓子对烟过敏，抽不来烟的。别人抽烟没事，有的人一抽烟嗓子就烧得特别难受。”我一边咳嗽一边拼命点头：“我就是这样....咳.....”这么多年来我一直觉得自己体质特殊，直到我爸有一次喝多了告诉我，我第一次抽的烟里加了辣椒面。 `,
+        tag:`知乎`,
+        category:'扯蛋'
+    });
+    model.article.create({
         title: '炮灰都不如 ---我们如何看待大学计算机教育',
         content: `dsh0416写了一篇文章，标题是《量产型炮灰工程师》，对培训班出来的同学做了一些评论，原文在这里https://ruby-china.org/topics/33036 ，对于dsh0416说的一些内容，我不太同意，写一点自己的想法，仅供参考。
 

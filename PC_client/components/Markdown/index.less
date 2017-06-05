@@ -1,13 +1,33 @@
-:local(.index){
+:local(.index) {
   outline: none;
-  font-size:14px;
-  line-height:30px;
-  padding:0px;
-  color:#545454;
-  .editor{
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0px;
+  color: #545454;
+  .editor {
     outline: none;
   }
-  .CodeMirror-scroll{
-    padding:20px;
+  .CodeMirror-scroll {
+    padding: 20px;
+    padding-right:45px;
+    //overflow: hidden;
+  }
+  .showController {
+    box-sizing: border-box;
+    bottom: 0px;
+    padding:10px;
+  }
+  .btnGroup {
+    float:right;
+    .btn{
+      margin-left:10px;
+      transition-duration: .5s;
+      outline: none;
+    }
+  }
+  .submit {
+    background-color: #db4d52;
+    color: #fff;
+    border-color: #db4d52;
   }
 }
