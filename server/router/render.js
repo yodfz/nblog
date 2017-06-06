@@ -4,9 +4,13 @@
  * @type {{}}
  */
 var router = require('koa-router')();
+var path = require("path");
+var template = require('art-template');
 
 router.get('/', ctx=> {
-    ctx.body = 'Hello KOA2,this is Test Code.';
+    ctx.body = template(path.resolve(__dirname, '../template/test.html'), {
+        user:{'name': 'Hello World'}
+    });
 });
 
 

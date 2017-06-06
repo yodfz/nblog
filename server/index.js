@@ -14,7 +14,8 @@ app.use(serve(path.join(__dirname, '/public')));
 // api 路由
 app.use(apiRoute.routes())
     .use(renderRoute.allowedMethods());
-// // 渲染 路由
+
+// 渲染 路由
 app.use(renderRoute.routes())
     .use(renderRoute.allowedMethods());
 

@@ -60,15 +60,17 @@ export default class Detail extends Component {
         //     category: '',
         // }, this.props.data));
         const model=this.props.data;
-        return (<div className={styles.Detail}>
-            <div className="title">
-                <span className="pal tag">H1</span>
-                <input type="text" id="title" value={model.title} onChange={this.handleChange}/>
+        return (
+            <div className={styles.Detail}>
+                <div className="title">
+                    <span className="pal tag">H1</span>
+                    <input type="text" id="title" value={model.title} onChange={this.handleChange}/>
+                </div>
+                <div className="content">
+                    <MarkDown content={model.content}/>
+                    {/*<textarea name="" id="" cols="30" rows="10"></textarea>*/}
+                </div>
             </div>
-            <div className="content">
-                <MarkDown content={model.content}/>
-                {/*<textarea name="" id="" cols="30" rows="10"></textarea>*/}
-            </div>
-        </div>);
+        );
     }
 }

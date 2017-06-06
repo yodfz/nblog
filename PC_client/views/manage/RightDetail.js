@@ -1,5 +1,6 @@
 import React, {Component,PropTypes} from 'react';
 import styles from './RightDetail.less';
+
 export default class RightDetail  extends Component {
     static defaultProps = {
     };

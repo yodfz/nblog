@@ -42,4 +42,15 @@ router.post(apiPre + 'upload', async (ctx)=> {
     // })
 });
 
+router.post(apiPre + 'login', async (ctx) => {
+    var requestData = ctx.request.body.fields;
+    if(requestData.username === 'admin' && requestData.password === '123456'){
+        ctx.body = createMessage({
+            redirectUrl: 'http://localhost:3900/manage'
+        });
+    } else {
+        ctx.body = createMessage({}, {}, '911', '账户名或密码错误');
+    }
+});
+
 module.exports = router;
