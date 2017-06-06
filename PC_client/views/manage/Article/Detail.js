@@ -62,7 +62,7 @@ export default class Detail extends Component {
     }
 
     handleSetting () {
-        console.log(this.state.showSetting);
+        this.eventUpdateContent();
         this.setState({showSetting:!this.state.showSetting});
     }
 
