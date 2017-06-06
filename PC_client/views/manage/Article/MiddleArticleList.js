@@ -46,6 +46,14 @@ export default class MiddleArticleList extends Component {
     }
 
     componentDidUpdate () {
+        // replace hight text
+        const key = this.searchKey;
+        let items = document.querySelectorAll('#articleList h3');
+        if (items && key) {
+            Array.prototype.map.call(items, p=> {
+                p.innerHTML = p.innerHTML.replace(key, '<span class="heightText">' + key + '</span>');
+            })
+        }
     }
 
     componentWillUnmount () {
@@ -58,20 +66,31 @@ export default class MiddleArticleList extends Component {
     }
 
     handleSearchTextOnBlur () {
-        this.setState({
-            isFocus: false
-        });
+        if (this.state.searchTextInput) {
+
+        } else {
+            this.setState({
+                isFocus: false
+            });
+        }
+
     }
 
     handleKeyDown (event) {
-        if(event.keyCode==13){
-
+        if (event.keyCode == 13) {
+            this.searchKey = event.target.value;
+            this.props.getArticle(1, event.target.value);
         }
     }
 
     handleAddArticle () {
         this.props.addArticle();
         this.props.selectArticle(0);
+    }
+
+    handleChange (event) {
+        let id = event.target.id;
+        this.setState({[id]: event.target.value});
     }
 
     render () {
@@ -84,6 +103,7 @@ export default class MiddleArticleList extends Component {
                     <div className="input">
                         <div className={"ShowSearchText fs12 " + (this.state.isFocus ? 'focused' : '')}>
                             <Input id="searchTextInput" className="searchTextInput"
+                                   onChange={this.handleChange.bind(this)}
                                    onFocus={this.handleSearchTextOnFocus.bind(this)}
                                    onBlur={this.handleSearchTextOnBlur.bind(this)}
                                    onKeyDown={this.handleKeyDown.bind(this)}
@@ -97,7 +117,7 @@ export default class MiddleArticleList extends Component {
                     </div>
                 </div>
                 {/*{this.props.state.status}*/}
-                <ArticleList data={this.props.state.data} selectIdx={this.props.state.selectIdx}
+                <ArticleList id="articleList" data={this.props.state.data} selectIdx={this.props.state.selectIdx}
                              select={this.props.selectArticle}/>
             </div>
         );

@@ -5,8 +5,12 @@ import services from '../../services';
 
 export function* GetArticleList (action) {
     yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.FETCHING}});
-    let data = yield call(services.article_list, {pageIndex:action.payLoad.pageIndex});
+    console.log(action);
+    let data = yield call(services.article_list, {pageIndex: action.payLoad.pageIndex, key: action.payLoad.key});
     data = data.data;
+    if(!action.payLoad.pageIndex||action.payLoad.pageIndex<=1){
+        yield put({type:actions.CLEAR_ARTICLE});
+    }
     if (data.errorNo == 0) {
         yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.SUCCESS}});
         yield put({type: actions.APPEND_ARTICLE_LIST, payLoad: {data: data.data}});

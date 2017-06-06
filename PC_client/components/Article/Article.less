@@ -1,35 +1,45 @@
-:local(.List){
+:local(.List) {
   position: relative;
   box-sizing: border-box;
   height: e("calc(100% -  66px)");
   overflow-y: auto;
 }
 
-:local(.ListItem){
-  padding-left:50px;
-  padding-right:10px;
-  border-bottom:1px solid #aaa;
-  font-size:12px;
-  padding-bottom:20px;
+:local(.setting) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index:100;
+}
+
+:local(.ListItem) {
+  padding-left: 50px;
+  padding-right: 10px;
+  border-bottom: 1px solid #aaa;
+  font-size: 12px;
+  padding-bottom: 20px;
   transition-duration: .5s;
-  border-left:5px solid transparent;
-  .par{
-    right:10px;
+  border-left: 5px solid transparent;
+  .par {
+    right: 10px;
   }
   &.selected {
-    border-left-color:#db4d52;
+    border-left-color: #db4d52;
     background-color: #fff;
   }
-  h3{
-    padding-top:20px;
-    height:35px;
+  h3 {
+    padding-top: 20px;
+    height: 35px;
     //overflow: hidden;
     //text-overflow:ellipsis ;
     //white-space:nowrap;
     //line-height:35px;
   }
-  .description{
-    line-height:23px;
-    color:#b7bdc4;
+  .description {
+    line-height: 23px;
+    color: #b7bdc4;
   }
 }

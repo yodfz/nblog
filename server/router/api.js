@@ -17,7 +17,8 @@ router.get(apiPre + 'article', async (ctx)=> {
     //         total: data.total
     //     }
     // );
-    let data = await controller_api_article.list();
+    console.log(ctx.request.query);
+    let data = await controller_api_article.list(ctx.request.query.pageIndex||1,ctx.request.query.key);
     // controller_api_article.list().then(data=> {
     ctx.body = createMessage(data.rows, {total: data.total});
     // })

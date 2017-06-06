@@ -8,7 +8,9 @@ module.exports = {
     create () {
 
     },
-    list: async function (pageIndex = 1, search = {}) {
+    list: async function (pageIndex = 1, key = '') {
+        let search = (key ? {title: {$like: `%${key}%`}} : {});
+        console.log(pageIndex,search);
         let data = await model.article.findAndCountAll({
             where: search,
             offset: (pageIndex - 1) * $config.pageSize,

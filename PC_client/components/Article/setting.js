@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import {Icon} from '../UI';
-console.log(Icon);
-export default class Detail extends Component {
+import styles from './Article.less';
+
+export default class setting extends Component {
     static defaultProps = {};
     static propTypes = {};
 
@@ -29,9 +29,9 @@ export default class Detail extends Component {
     }
 
     render () {
-        return (<div className="ArticleDetail">
-            <input type="text" className="title"/>
-            <Icon name="info"/>
-        </div>);
+        return (
+            <div className={styles.setting} onClick={this.props.onClick}>
+
+            </div>);
     }
 }

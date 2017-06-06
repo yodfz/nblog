@@ -14,8 +14,8 @@ const selectArticle = ($id)=> {
  * @param $pageIndex
  * @returns {{type, payLoad: {pageIndex: *}}}
  */
-const getArticle = ($pageIndex) => {
-    return {type: GET_ARTICLE_LIST, payLoad: {pageIndex: $pageIndex}};
+const getArticle = ($pageIndex, $key) => {
+    return {type: GET_ARTICLE_LIST, payLoad: {pageIndex: $pageIndex, key: $key}};
 };
 
 /**
