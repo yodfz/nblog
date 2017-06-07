@@ -128,7 +128,9 @@ export default class MiddleArticleList extends Component {
                 </div>
                 {/*{this.props.state.status}*/}
                 {loading}
-                <ArticleList id="articleList" data={this.props.state.data} selectIdx={this.props.state.selectIdx}
+                <ArticleList id="articleList"
+                             data={this.props.state.data}
+                             selectIdx={this.props.state.selectIdx}
                              select={this.props.selectArticle}/>
             </div>
         );

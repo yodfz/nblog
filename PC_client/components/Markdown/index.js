@@ -74,10 +74,6 @@ export default class Markdown extends Component {
         // console.log(window.getSelection().toString());
     }
 
-    handleSave () {
-
-    }
-
     handleUpdatState () {
 
     }
@@ -86,13 +82,7 @@ export default class Markdown extends Component {
         return (<div ref="editor" className={styles.index}>
             <textarea name="" id="" ref="MarkdownEditor" cols="30" rows="10"
                       defaultValue={this.props.content}></textarea>
-            <div className="showController">
-                <span className="message"></span>
-                <span className="btnGroup">
-                     <button className="btn submit" onClick={this.handleSave.bind(this)}>确认</button>
-                {/*<button className="btn cancel">重置</button>*/}
-                </span>
-            </div>
+
             {/*<div className="editor" onClick={this.handleMouseClick.bind(this)} ref="MarkdownEditor" contentEditable="true">*/}
             {/*</div>*/}
         </div>);

@@ -1,4 +1,5 @@
 import {ADD_ARTICLE, SAVE_ARTICLE, GET_ARTICLE_LIST, SELECT_ARTICLE} from '../actionsType';
+console.log(SAVE_ARTICLE);
 
 /**
  * 列表选中文章
@@ -26,8 +27,17 @@ const addArticle = () => {
     return {type: ADD_ARTICLE, payLoad: {}};
 };
 
+/**
+ * 保存文章
+ */
+const saveArticle = ($data) => {
+    console.log($data);
+    return {type: SAVE_ARTICLE, payLoad: {data: $data}};
+};
+
 export {
     addArticle,
     selectArticle,
-    getArticle
+    getArticle,
+    saveArticle
 }

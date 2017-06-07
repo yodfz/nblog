@@ -1,6 +1,7 @@
 import {
     SELECT_ARTICLE,
     UPDATE_ARTICLE_STATE,
+    UPDATE_ARTICLE_SAVEING,
     APPEND_ARTICLE_LIST,
     CLEAR_ARTICLE,
     ADD_ARTICLE
@@ -9,6 +10,8 @@ import {
 const defaultState = {
     // 当前状态
     status: '',
+    // 文章详情状态
+    saveing: '',
     // 选中的文章 0 为创建的
     select: {},
     // 选中文章的idx
@@ -35,6 +38,10 @@ export default (state = defaultState, action)=> {
             break;
         case UPDATE_ARTICLE_STATE: {
             return Object.assign({}, state, {status: action.payLoad.state});
+        }
+            break;
+        case UPDATE_ARTICLE_SAVEING: {
+            return Object.assign({}, state, {saveing: action.payLoad});
         }
             break;
         case APPEND_ARTICLE_LIST: {
