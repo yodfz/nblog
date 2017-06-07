@@ -39,7 +39,7 @@ export default class ListItem extends Component {
                      className={styles.ListItem + ' ' + (this.props.className || '')}>
             <h3>{this.model.title}</h3>
             <p className="description">{this.model.description}</p>
-            <span className="description">{this.model.tag.split(' ').map(p=> {
+            <span className="description">{this.model.tag&&this.model.tag.split(' ').map(p=> {
                 return '#' + p + ' ';
             })}</span>
             <span className="description par">{formatDate(this.model.createdAt)}</span>

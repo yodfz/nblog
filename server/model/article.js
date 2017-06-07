@@ -27,7 +27,7 @@ module.exports = (sequelize, SQ)=> {
     return sequelize.define('article', {
         // {indexes: [{unique: true, fields: ['someUnique']}]},
         // idx
-        idx: {type: SQ.INTEGER, primaryKey: true},//SQ.INTEGER,
+        idx: {type: SQ.INTEGER, primaryKey: true, autoIncrement: true},//SQ.INTEGER,
         // 标题
         title: SQ.STRING,
         // 描述
@@ -38,6 +38,7 @@ module.exports = (sequelize, SQ)=> {
         tag: SQ.STRING,
         // 类别
         category: SQ.STRING,
+        viewCount: {type: SQ.INTEGER, defaultValue: 0},
         // 创建时间
         createDate: {type: SQ.DATE, defaultValue: SQ.NOW},
     }, {

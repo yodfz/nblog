@@ -34,7 +34,7 @@ export function* SaveArticle (action) {
         //     debugger;
         //
     } else {
-        yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: actions.STATE.ERROR});
+        yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: data.errorMessage});
         //     debugger;
         //
     }

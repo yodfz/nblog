@@ -33,7 +33,8 @@ export default (state = defaultState, action)=> {
                 return Object.assign({}, state, {select: {}});
             }
             let selectArticle = state.data.find(p=>p.idx == action.payLoad.id);
-            return Object.assign({}, state, {select: selectArticle, selectIdx: selectArticle.idx});
+            return Object.assign({}, state,
+                {select: selectArticle, selectIdx: selectArticle.idx, saveing: ''});
         }
             break;
         case UPDATE_ARTICLE_STATE: {
