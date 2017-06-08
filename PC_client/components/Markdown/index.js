@@ -20,6 +20,7 @@ export default class Markdown extends Component {
             element: this.refs.MarkdownEditor// document.getElementById('editor')
         });
         this.editor.render();
+        this.props.bindCodemirror(this.editor.codemirror);
         this.refs.editor.addEventListener("drop", function (e) {console.log('drop');});
         this.refs.editor.addEventListener("dragover", function (e) {console.log('dragover');});
         this.refs.editor.addEventListener("paste", function (e) {
@@ -59,6 +60,7 @@ export default class Markdown extends Component {
         // this.editor.render();
         // console.log();
         this.editor.codemirror.setValue(this.props.content);
+        this.props.bindCodemirror(this.editor.codemirror);
         this.content = this.props.content;
         let previewactive = document.querySelector('.editor-preview-active');
         if (previewactive) {
@@ -73,17 +75,15 @@ export default class Markdown extends Component {
         // console.log(window.getSelection().toString());
     }
 
+    handleUpdatState () {
+
+    }
+
     render () {
         return (<div ref="editor" className={styles.index}>
             <textarea name="" id="" ref="MarkdownEditor" cols="30" rows="10"
                       defaultValue={this.props.content}></textarea>
-            <div className="showController">
-                <span className="message"></span>
-                <span className="btnGroup">
-                     <button className="btn submit">确认</button>
-                <button className="btn cancel">重置</button>
-                </span>
-            </div>
+
             {/*<div className="editor" onClick={this.handleMouseClick.bind(this)} ref="MarkdownEditor" contentEditable="true">*/}
             {/*</div>*/}
         </div>);

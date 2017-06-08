@@ -31,7 +31,7 @@ export default class List extends Component {
     }
 
     render () {
-        return (<div className={styles.List}>
+        return (<div className={styles.List} id={this.props.id}>
             {this.props.data.map(item=> {
                 return <ListItem data={item} className={this.props.selectIdx==item.idx?'selected':''} select={this.props.select} key={item.idx}/>;
             })}

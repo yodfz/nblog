@@ -6,6 +6,18 @@
   width: 280px;
   background-color: #fbfbfb;
   border-right: 1px solid #dedede;
+  .loading{
+    position: relative;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+    font-size:12px;
+    color:#545454;
+    .icon-animation{
+      position: absolute;
+      left:70px;
+    }
+  }
   .ShowSearchText {
     position: relative;
     .td();
@@ -19,6 +31,9 @@
     &.focused{
       .iconfont {
         left: -5px;
+      }
+      .searchTextInput{
+        padding-left: 26px;
       }
     }
     span {

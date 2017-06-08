@@ -5,14 +5,34 @@
 var model = require('../../model');
 var $config = require('../../config');
 module.exports = {
-    create () {
+    save: async function (data) {
+        let isCreate = data.idx <= 0;
+        // try {
+            let $data = null;
+            if (isCreate) {
+                delete data.idx;
+                $data = await model.article.create(data, {isNewRecord:true});
+                console.log($data);
+            } else {
+                let updateData = Object.assign({}, data);
+                delete updateData.idx;
+                $data = await model.article.update(updateData, {
+                    where: {idx: data.idx}
+                });
+            }
+            return $data;
+        // } catch (err) {
+        //     return {info: '数据库操作失败', errorNo: 1};
+        // }
 
     },
-    list: async function (pageIndex = 1, search = {}) {
+    list: async function (pageIndex = 1, key = '') {
+        let search = (key ? {title: {$like: `%${key}%`}} : {});
         let data = await model.article.findAndCountAll({
             where: search,
             offset: (pageIndex - 1) * $config.pageSize,
-            limit: $config.pageSize
+            limit: $config.pageSize,
+            order: [['idx', 'DESC']]
         });
         return ({rows: data.rows, total: data.count});
 

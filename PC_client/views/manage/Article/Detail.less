@@ -4,6 +4,21 @@
     height:65px;
     line-height:64px;
     border-bottom:1px solid #dedede;
+    .peizhi{
+      position: absolute;
+      top:18px;
+      right:10px;
+      font-size:20px;
+      color:#666;
+      cursor: pointer;
+      border:0;
+      background-color: transparent;
+      outline:none;
+    }
+
+    .peizhi:hover{
+      color:#db4d52;
+    }
     .pal{
       left:10px;
     }
@@ -20,4 +35,71 @@
       color:#333;
     }
   }
+
+  .showController {
+    box-sizing: border-box;
+    bottom: 0px;
+    padding:10px;
+  }
+  .btnGroup {
+    float:right;
+    .btn{
+      margin-left:10px;
+      transition-duration: .5s;
+      outline: none;
+    }
+  }
+  .submit {
+    opacity:.8;
+    background-color: #db4d52;
+    color: #fff;
+    border-color: #db4d52;
+  }
+  .submit:hover{
+    opacity:1;
+  }
+  .message{
+    //opacity:.8;
+    font-size:12px;
+    color:#98b123;
+  }
+}
+
+
+:local(.setting) {
+  position: absolute;
+  left:0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  //background-color: rgba(240, 240, 240, .7);
+  .show{
+    position: absolute;
+    width:350px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-left:1px solid #dedede;
+    background-color: #fbfbfb;//rgba(0, 0, 0, .7);
+    ul{
+      list-style: none;
+      li{
+        min-height:35px;
+        line-height:35px;
+      }
+      textarea,input{
+        border:1px solid #dedede;
+        border-radius: 5px;
+        padding:5px;
+        width:100%;
+      }
+
+    }
+    padding:10px 30px;
+    color:#545454;
+    font-size:12px;
+    box-sizing: border-box;
+
+  }
+  z-index:100;
 }

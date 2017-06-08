@@ -9,9 +9,10 @@ url.map(p=> {
         return axios(Object.assign({}, {
             method: p.method || 'GET',
             url: p.url,
-            data: data,
+            // params: data,
+            // data: data,
             headers: opt.headers || {}
-        }, opt));
+        }, opt, (p.method == 'POST' ? {data: data} : {params: data})));
     };
 });
 

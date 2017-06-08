@@ -8,6 +8,7 @@ import styles from './MiddleArticleList.less';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
+import {STATE} from '../../../store/actionsType';
 import {getArticle, selectArticle, addArticle} from '../../../store/actions/Article';
 
 @connect(
@@ -46,6 +47,14 @@ export default class MiddleArticleList extends Component {
     }
 
     componentDidUpdate () {
+        // replace hight text
+        const key = this.searchKey;
+        let items = document.querySelectorAll('#articleList h3');
+        if (items && key) {
+            Array.prototype.map.call(items, p=> {
+                p.innerHTML = p.innerHTML.replace(key, '<span class="heightText">' + key + '</span>');
+            })
+        }
     }
 
     componentWillUnmount () {
@@ -58,14 +67,20 @@ export default class MiddleArticleList extends Component {
     }
 
     handleSearchTextOnBlur () {
-        this.setState({
-            isFocus: false
-        });
+        if (this.state.searchTextInput) {
+
+        } else {
+            this.setState({
+                isFocus: false
+            });
+        }
+
     }
 
     handleKeyDown (event) {
-        if(event.keyCode==13){
-
+        if (event.keyCode == 13) {
+            this.searchKey = event.target.value;
+            this.props.getArticle(1, event.target.value);
         }
     }
 
@@ -74,16 +89,31 @@ export default class MiddleArticleList extends Component {
         this.props.selectArticle(0);
     }
 
+    handleChange (event) {
+        let id = event.target.id;
+        this.setState({[id]: event.target.value});
+    }
+
     render () {
         // if (this.props.state.data.length == 0) {
         //     this.props.getArticle();
         // }
+        let loading = (() => {
+            if (this.state.status) {
+                return <div className='loading'>
+                    <Icon name="loading1"/>
+                    &nbsp;&nbsp;正在获取文章中...
+                </div>;
+            }
+            return null;
+        })();
         return (
             <div className={"fl vh100 " + styles.MiddleArticleList}>
                 <div className={styles.top}>
                     <div className="input">
                         <div className={"ShowSearchText fs12 " + (this.state.isFocus ? 'focused' : '')}>
                             <Input id="searchTextInput" className="searchTextInput"
+                                   onChange={this.handleChange.bind(this)}
                                    onFocus={this.handleSearchTextOnFocus.bind(this)}
                                    onBlur={this.handleSearchTextOnBlur.bind(this)}
                                    onKeyDown={this.handleKeyDown.bind(this)}
@@ -97,7 +127,10 @@ export default class MiddleArticleList extends Component {
                     </div>
                 </div>
                 {/*{this.props.state.status}*/}
-                <ArticleList data={this.props.state.data} selectIdx={this.props.state.selectIdx}
+                {loading}
+                <ArticleList id="articleList"
+                             data={this.props.state.data}
+                             selectIdx={this.props.state.selectIdx}
                              select={this.props.selectArticle}/>
             </div>
         );

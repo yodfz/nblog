@@ -1,9 +1,10 @@
-import {watchGetArticleList} from './article';
+import {watchGetArticleList, watchSaveArticle} from './article';
 import {fork} from 'redux-saga/effects';
-export default [watchGetArticleList];
+export default [watchGetArticleList, watchSaveArticle];
 
 export function* sagas () {
     yield [
-        fork(watchGetArticleList)
+        fork(watchGetArticleList),
+        fork(watchSaveArticle)
     ];
 };
