@@ -8,19 +8,19 @@ module.exports = {
     save: async function (data) {
         let isCreate = data.idx <= 0;
         // try {
-            let $data = null;
-            if (isCreate) {
-                delete data.idx;
-                $data = await model.article.create(data, {isNewRecord:true});
-                console.log($data);
-            } else {
-                let updateData = Object.assign({}, data);
-                delete updateData.idx;
-                $data = await model.article.update(updateData, {
-                    where: {idx: data.idx}
-                });
-            }
-            return $data;
+        let $data = null;
+        if (isCreate) {
+            delete data.idx;
+            $data = await model.article.create(data, {isNewRecord: true});
+            console.log($data);
+        } else {
+            let updateData = Object.assign({}, data);
+            delete updateData.idx;
+            $data = await model.article.update(updateData, {
+                where: {idx: data.idx}
+            });
+        }
+        return $data;
         // } catch (err) {
         //     return {info: '数据库操作失败', errorNo: 1};
         // }
@@ -55,9 +55,16 @@ module.exports = {
         //     }
         // })
     },
-    delete () {
-
-    },
+    delete: async function ($id) {
+        let data = await model.article.destroy({
+            where: {
+                idx: $id
+            },
+            truncate: true /* this will ignore where and truncate the table instead */
+        });
+        return data;
+    }
+    ,
     update () {
 
     },

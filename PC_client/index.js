@@ -21,7 +21,14 @@ import NoMatch from './views/manage/NoMatch';
 const sagaMiddleware = createSagaMiddleware();
 let store = createStore(appStore, applyMiddleware(sagaMiddleware));
 // sagaMiddleware.run(watchSagas.watchGetArticleList);
-sagaMiddleware.run(sagas);
+let run = function () {
+    try {
+        sagaMiddleware.run(sagas);
+    } catch (err) {
+        run();
+    }
+};
+run();
 
 render(
     <Provider store={store}>

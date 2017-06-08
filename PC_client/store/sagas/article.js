@@ -14,6 +14,7 @@ export function* GetArticleList (action) {
     if (data.errorNo == 0) {
         yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.SUCCESS}});
         yield put({type: actions.APPEND_ARTICLE_LIST, payLoad: {data: data.data}});
+
     } else {
         yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.ERROR}});
     }
@@ -31,6 +32,8 @@ export function* SaveArticle (action) {
     data = data.data;
     if (data.errorNo == 0) {
         yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: actions.STATE.SUCCESS});
+        // 更新列表中数据
+        yield put({type:actions.UPDATE_ARTICLE_DETAIL,payLoad:{data:action.payLoad.data}});
         //     debugger;
         //
     } else {
@@ -48,4 +51,14 @@ export function* watchGetArticleList () {
 }
 export function* watchSaveArticle () {
     yield* takeEvery(actions.SAVE_ARTICLE, SaveArticle);
+}
+
+export function* wathcDeleteArticle () {
+    yield* takeEvery(actions.REMOVE_ARTICLE, function* (action) {
+        let data = yield call(services.article_delete, action.payLoad.data);
+        if (data.errorNo == 0) {
+            yield put({type: actions.REMOVE_ARTICLE_INLIST, payLoad: action.payLoad.data});
+        }
+        // yield put({type:actions.REMOVE_ARTICLE,payLoad:})
+    });
 }

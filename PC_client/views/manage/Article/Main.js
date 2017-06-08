@@ -8,14 +8,14 @@ import Detail from './Detail';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {selectArticle, saveArticle} from '../../../store/actions/Article.js';
+import {selectArticle, saveArticle, deleteArticle} from '../../../store/actions/Article.js';
 
 import styles from './Main.less';
 @connect(
     state=> {
         return {state: state.Article}
     },
-    dispatch=>bindActionCreators({selectArticle, saveArticle}, dispatch)
+    dispatch=>bindActionCreators({selectArticle, saveArticle, deleteArticle}, dispatch)
 )
 export default class ArticleMain extends Component {
     static defaultProps = {};
@@ -50,6 +50,7 @@ export default class ArticleMain extends Component {
         let children = (() => {
             if (this.props.state.selectIdx != -1) {
                 return <Detail data={this.props.state.select} save={this.props.saveArticle}
+                               delete={this.props.deleteArticle}
                                saveing={this.props.state.saveing}
 
                 />;

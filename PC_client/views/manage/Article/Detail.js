@@ -77,6 +77,23 @@ export default class Detail extends Component {
                 {idx: this.props.data.idx, content: this.codemirror.getValue()}));
     }
 
+    handleDelete () {
+        let that = this;
+        window.messageBox.showMsg({
+            title: '',
+            content: '是否删除这篇文章？一旦删除，无法找回。',
+            ok: function (e) {
+                // alert('ok');
+                that.props.delete(that.props.data.idx);
+            },
+            cancel: function (e) {
+                // alert('cancel')
+            },
+            type: 0,
+            buttonText: '确定删除'
+        });
+    }
+
 
     eventUpdateContent () {
         this.setState({content: this.codemirror.getValue()});
@@ -95,12 +112,21 @@ export default class Detail extends Component {
         return STATUS;
     }
 
+    returnMonthStringFormNumber (number) {
+        const str = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
+        return str[number];
+    }
+
+    returnWeekStringFormNumber (number) {
+        const str = ['天', '一', '二', '三', '四', '五', '六'];
+        return str[number];
+    }
+
     render () {
         const model = Object.assign({}, this.props.data, this.state);
         let showSettingView;
-        if (this.state.showSetting || true) {
+        if (this.state.showSetting) {
             let $dateTime = new Date(this.props.data.createdAt);
-            console.log($dateTime,this.props.data.createdAt)
             showSettingView =
                 <div className={styles.setting} onClick={this.handleSetting.bind(this)}>
                     <div className="show" onClick={e=> {
@@ -111,30 +137,41 @@ export default class Detail extends Component {
                                 {$dateTime.getDate() < 10 ? '0' : ''}{$dateTime.getDate()}
                             </span>
                             <span className="monthAndYear">
-                                {$dateTime.getMonth()}
+                                {this.returnMonthStringFormNumber($dateTime.getMonth() + 1)}月
+                                &nbsp;
                                 {$dateTime.getFullYear()}
                             </span>
                             <span className="weekAndTime">
-                                {$dateTime.getDay()}
-                                {$dateTime.getHours()}
-                                {$dateTime.getMinutes()}
+                                星期{this.returnWeekStringFormNumber($dateTime.getDay())}
+                                &nbsp;{$dateTime.getHours()}:{$dateTime.getMinutes()}
                             </span>
                         </div>
                         <ul>
                             <li>描述</li>
                             <li>
-                                <textarea name="" id="" cols="30" rows="5"></textarea>
+                                <textarea
+                                    id="description" value={model.description} onChange={this.handleChange.bind(this)}
+                                    cols="30" rows="5"></textarea>
                             </li>
                             <li>分类</li>
                             <li>
-                                <input type="text"/>
+                                <input type="text"
+                                       id="category" value={model.category}
+                                       onChange={this.handleChange.bind(this)}
+                                />
                             </li>
                             <li>标签</li>
                             <li>
-                                <input type="text"/>
+                                <input type="text"
+                                       id="tag" value={model.tag}
+                                       onChange={this.handleChange.bind(this)}
+                                />
                             </li>
                             <li>字符数: {model.content.length}</li>
-                            <li>阅读量: {model.viewCount||0}</li>
+                            <li>阅读量: {model.viewCount || 0}</li>
+                            <li className="hText">复制文章链接</li>
+                            <li className="hText">导出为PDF</li>
+                            <li className="hText">导出为Markdown</li>
                         </ul>
                     </div>
                 </div>;
@@ -157,7 +194,7 @@ export default class Detail extends Component {
                     <span className="message">{this.formatString(this.props.saveing)}</span>
                     <span className="btnGroup">
                         <button className="btn submit" onClick={this.handleSave.bind(this)}>确认</button>
-                        <button className="btn delete">删除</button>
+                        <button className="btn delete" onClick={this.handleDelete.bind(this)}>删除</button>
                     </span>
                 </div>
             </div>

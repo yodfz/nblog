@@ -73,6 +73,27 @@
   bottom: 0;
   right: 0;
   //background-color: rgba(240, 240, 240, .7);
+  .showTime{
+    position: relative;
+    padding:0 0 8px 0;
+    margin:0 0 10px 0;
+    border-bottom:1px solid #dedede;
+    .date{
+      font-size:34px;
+    }
+    .monthAndYear{
+      position: absolute;
+      top:6px;
+      left:50px;
+      font-weight:bold;
+    }
+    .weekAndTime{
+      position: absolute;
+      left:50px;
+      top:22px;
+      color:#ccd0d5;
+    }
+  }
   .show{
     position: absolute;
     width:350px;
@@ -92,8 +113,12 @@
         border-radius: 5px;
         padding:5px;
         width:100%;
+        outline:none;
+        resize:none;
       }
-
+      .hText{
+        font-weight:bold;
+      }
     }
     padding:10px 30px;
     color:#545454;

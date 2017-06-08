@@ -4,7 +4,9 @@ import {
     UPDATE_ARTICLE_SAVEING,
     APPEND_ARTICLE_LIST,
     CLEAR_ARTICLE,
-    ADD_ARTICLE
+    ADD_ARTICLE,
+    UPDATE_ARTICLE_DETAIL,
+    REMOVE_ARTICLE_INLIST
 } from '../actionsType';
 
 const defaultState = {
@@ -59,6 +61,21 @@ export default (state = defaultState, action)=> {
                     title: ''
                 }, ...state.data]
             });
+        }
+            break;
+        case REMOVE_ARTICLE_INLIST: {
+            let $index = state.data.findIndex(p=>p.idx == action.payLoad);
+            state.data.splice($index, 1);
+            return Object.assign({}, state, {data: [...state.data]});
+        }
+            break;
+        case UPDATE_ARTICLE_DETAIL: {
+            let $item = state.data.findIndex(p=>p.idx == action.payLoad.data.idx);
+            console.log(action.payLoad.data);
+            if ($item >= 0) {
+                state.data[$item] = Object.assign({},state.data[$item], action.payLoad.data);
+            }
+            return Object.assign({}, state, {data: [...state.data]});
         }
             break;
         default:

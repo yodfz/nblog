@@ -42,6 +42,20 @@ router.post(apiPre + 'article/save', async (ctx)=> {
     }
 });
 
+router.post(apiPre + 'article/delete', async (ctx)=> {
+    let data = ctx.request.body.idx;
+    // if (!data.title) {
+    //     ctx.body = createMessage({}, {}, 1, '标题不得为空!');
+    //     return;
+    // }
+    // if (!data.content) {
+    //     ctx.body = createMessage({}, {}, 1, '正文内容不得为空!');
+    //     return;
+    // }
+    let $data = await controller_api_article.delete(data);
+    ctx.body = createMessage($data, {});
+});
+
 router.post(apiPre + 'upload', async (ctx)=> {
     // const data = yield controller_api_article.list();
     // ctx.body = createMessage(

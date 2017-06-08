@@ -1,6 +1,4 @@
-import {ADD_ARTICLE, SAVE_ARTICLE, GET_ARTICLE_LIST, SELECT_ARTICLE} from '../actionsType';
-console.log(SAVE_ARTICLE);
-
+import {ADD_ARTICLE, SAVE_ARTICLE, GET_ARTICLE_LIST, SELECT_ARTICLE, REMOVE_ARTICLE} from '../actionsType';
 /**
  * 列表选中文章
  * @param $id 被选中文章的id
@@ -35,8 +33,18 @@ const saveArticle = ($data) => {
     return {type: SAVE_ARTICLE, payLoad: {data: $data}};
 };
 
+/**
+ * 删除文章
+ * @param $idx
+ * @returns {{type, payLoad: *}}
+ */
+const deleteArticle = ($idx)=> {
+    return {type: REMOVE_ARTICLE, payLoad: $idx};
+};
+
 export {
     addArticle,
+    deleteArticle,
     selectArticle,
     getArticle,
     saveArticle
