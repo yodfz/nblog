@@ -8,7 +8,7 @@ var path = require("path");
 var template = require('art-template');
 
 router.get('/', ctx=> {
-    ctx.body = template(path.resolve(__dirname, '../template/test.html'), {
+    ctx.body = template(path.resolve(__dirname, '../template/login.html'), {
         user:{'name': 'Hello World'}
     });
 });
