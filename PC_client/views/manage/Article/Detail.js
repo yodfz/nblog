@@ -4,7 +4,7 @@ import MarkDown from '../../../components/Markdown';
 import ArticleSetting from '../../../components/Article/setting';
 import {Icon} from '../../../components/UI';
 import {STATE} from '../../../store/actionsType';
-
+let nowIdx=-1;
 export default class Detail extends Component {
     static defaultProps = {};
     static propTypes = {};
@@ -39,14 +39,18 @@ export default class Detail extends Component {
         // return false;
     }
 
-    componentWillReceiveProps () {
-        this.setState({
-            showSetting: false
-        });
+    componentWillReceiveProps (nextProps) {
+        // this.setState({
+        //     showSetting: false
+        // });
+        // fixbug:由于点开侧边栏不再切换数据造成的问题
+        // this.state = {};
+        this.setState(nextProps.data);
         console.log('componentWillReceiveProps');
     }
 
     componentWillUpdate () {
+        // nowIdx = this.props.data.idx;
     }
 
     componentDidUpdate () {
@@ -124,6 +128,7 @@ export default class Detail extends Component {
 
     render () {
         const model = Object.assign({}, this.props.data, this.state);
+        console.log('render',nowIdx);
         let showSettingView;
         if (this.state.showSetting) {
             let $dateTime = new Date(this.props.data.createdAt);
