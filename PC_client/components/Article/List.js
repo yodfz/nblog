@@ -17,6 +17,10 @@ export default class List extends Component {
     componentDidMount () {
     }
 
+    componentWillReceiveProps (nextProps) {
+        console.log('article list componentWillReceiveProps');
+    }
+
     shouldComponentUpdate () {
         return true;
     }
@@ -31,6 +35,7 @@ export default class List extends Component {
     }
 
     render () {
+        console.log(this.props.data);
         return (<div className={styles.List} id={this.props.id}>
             {this.props.data.map(item=> {
                 return <ListItem data={item} className={this.props.selectIdx==item.idx?'selected':''} select={this.props.select} key={item.idx}/>;

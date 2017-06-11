@@ -25,6 +25,8 @@ const defaultState = {
 
 
 export default (state = defaultState, action)=> {
+    console.log(action);
+
     switch (action.type) {
         case CLEAR_ARTICLE: {
             return Object.assign({}, state, {data: []});
@@ -71,6 +73,7 @@ export default (state = defaultState, action)=> {
             break;
         case UPDATE_ARTICLE_DETAIL: {
             let $item = state.data.findIndex(p=>p.idx == action.payLoad.data.idx);
+            console.log(UPDATE_ARTICLE_DETAIL,$item);
             if ($item >= 0) {
                 state.data[$item] = Object.assign({},state.data[$item], action.payLoad.data);
             }

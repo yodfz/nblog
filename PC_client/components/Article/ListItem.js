@@ -7,7 +7,6 @@ export default class ListItem extends Component {
 
     constructor (props) {
         super(props);
-        this.model = props.data;
         this.select = props.select;
     };
 
@@ -31,6 +30,7 @@ export default class ListItem extends Component {
     }
 
     render () {
+        this.model = this.props.data;
         const formatDate = (str) => {
             let $date = new Date(str);
             return $date.getFullYear() + '-' + ($date.getMonth() + 1) + '-' + $date.getDate();

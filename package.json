@@ -4,6 +4,8 @@
   "description": "> 学习型项目",
   "main": "index.js",
   "scripts": {
+    "installdb": "node ./server/db/installDB.js",
+    "server": "node ./server/index.js",
     "devpc": "sudo webpack-dev-server --content-base ./PC_client --config ./build/webpack.pc.config.js --history-api-fallback --inline --port 3900"
   },
   "repository": {

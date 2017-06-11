@@ -23,6 +23,8 @@ export function* GetArticleList (action) {
 
 export function* SaveArticle (action) {
     // console.log('savearticle', action);
+
+
     yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: actions.STATE.FETCHING});
     // debugger;
     //
