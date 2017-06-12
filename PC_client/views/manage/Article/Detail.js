@@ -3,7 +3,9 @@ import styles from './Detail.less';
 import MarkDown from '../../../components/Markdown';
 import ArticleSetting from '../../../components/Article/setting';
 import {Icon} from '../../../components/UI';
+import ShowTime from '../../../components/Time/showTime';
 import {STATE} from '../../../store/actionsType';
+import utils from '../../../core/utils';
 let nowIdx = -1;
 export default class Detail extends Component {
     static defaultProps = {};
@@ -118,15 +120,7 @@ export default class Detail extends Component {
         return STATUS;
     }
 
-    returnMonthStringFormNumber (number) {
-        const str = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
-        return str[number];
-    }
 
-    returnWeekStringFormNumber (number) {
-        const str = ['天', '一', '二', '三', '四', '五', '六'];
-        return str[number];
-    }
 
     render () {
         const model = Object.assign({}, this.props.data, this.state);
@@ -139,20 +133,8 @@ export default class Detail extends Component {
                     <div className="show" onClick={e=> {
                         e.stopPropagation()
                     }}>
-                        <div className="showTime">
-                            <span className="date">
-                                {$dateTime.getDate() < 10 ? '0' : ''}{$dateTime.getDate()}
-                            </span>
-                            <span className="monthAndYear">
-                                {this.returnMonthStringFormNumber($dateTime.getMonth() + 1)}月
-                                &nbsp;
-                                {$dateTime.getFullYear()}
-                            </span>
-                            <span className="weekAndTime">
-                                星期{this.returnWeekStringFormNumber($dateTime.getDay())}
-                                &nbsp;{$dateTime.getHours()}:{$dateTime.getMinutes()}
-                            </span>
-                        </div>
+                        <ShowTime date={$dateTime} />
+
                         <ul>
                             <li>描述</li>
                             <li>
