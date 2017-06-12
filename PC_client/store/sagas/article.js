@@ -14,6 +14,7 @@ export function* GetArticleList (action) {
     if (data.errorNo == 0) {
         yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.SUCCESS}});
         yield put({type: actions.APPEND_ARTICLE_LIST, payLoad: {data: data.data}});
+        yield put({type: actions.UPDATE_ARTICLE_PAGEINDEX, payLoad: action.payLoad.pageIndex||1});
 
     } else {
         yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.ERROR}});
@@ -35,7 +36,7 @@ export function* SaveArticle (action) {
     if (data.errorNo == 0) {
         yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: actions.STATE.SUCCESS});
         // 更新列表中数据
-        yield put({type:actions.UPDATE_ARTICLE_DETAIL,payLoad:{data:action.payLoad.data}});
+        yield put({type: actions.UPDATE_ARTICLE_DETAIL, payLoad: {data: action.payLoad.data}});
         //     debugger;
         //
     } else {

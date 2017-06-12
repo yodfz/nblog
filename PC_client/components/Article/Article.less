@@ -3,6 +3,31 @@
   box-sizing: border-box;
   height: e("calc(100% -  66px)");
   overflow-y: auto;
+  .loadMoreButton{
+    border:0px;
+    width:100%;
+    background-color: #fbfbfb;
+    height:35px;
+    line-height:35px;
+    outline:none;
+  }
+  .loadMoreButton:hover{
+    background-color: #efefef;
+    cursor: pointer;
+  }
+
+  .loadMore{
+    position: relative;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+    font-size:12px;
+    color:#545454;
+    .icon-animation{
+      position: absolute;
+      left:70px;
+    }
+  }
 }
 
 
@@ -33,4 +58,5 @@
     line-height: 23px;
     color: #b7bdc4;
   }
+
 }

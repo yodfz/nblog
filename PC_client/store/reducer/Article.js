@@ -6,7 +6,9 @@ import {
     CLEAR_ARTICLE,
     ADD_ARTICLE,
     UPDATE_ARTICLE_DETAIL,
-    REMOVE_ARTICLE_INLIST
+    REMOVE_ARTICLE_INLIST,
+    REMOVE_ARTICLE,
+    UPDATE_ARTICLE_PAGEINDEX
 } from '../actionsType';
 
 const defaultState = {
@@ -18,6 +20,12 @@ const defaultState = {
     select: {},
     // 选中文章的idx
     selectIdx: -1,
+    // 是否可以加载更多文章
+    isMore: true,
+    // 正在加载更多
+    loadMore: false,
+    // 当前加载页码
+    pageIndex: 0,
     // 文章列表数据
     data: [],
     detail: {}
@@ -49,6 +57,10 @@ export default (state = defaultState, action)=> {
             return Object.assign({}, state, {saveing: action.payLoad});
         }
             break;
+        case UPDATE_ARTICLE_PAGEINDEX: {
+            return Object.assign({}, state, {pageIndex: action.payLoad});
+        }
+            break;
         case APPEND_ARTICLE_LIST: {
             return Object.assign({}, state, {data: [...state.data, ...action.payLoad.data]});
         }
@@ -71,11 +83,15 @@ export default (state = defaultState, action)=> {
             return Object.assign({}, state, {data: [...state.data]});
         }
             break;
+        case REMOVE_ARTICLE: {
+            return Object.assign({}, state, {data: [], pageIndex: 0});
+        }
+            break;
         case UPDATE_ARTICLE_DETAIL: {
             let $item = state.data.findIndex(p=>p.idx == action.payLoad.data.idx);
-            console.log(UPDATE_ARTICLE_DETAIL,$item);
+            console.log(UPDATE_ARTICLE_DETAIL, $item);
             if ($item >= 0) {
-                state.data[$item] = Object.assign({},state.data[$item], action.payLoad.data);
+                state.data[$item] = Object.assign({}, state.data[$item], action.payLoad.data);
             }
             return Object.assign({}, state, {data: [...state.data]});
         }

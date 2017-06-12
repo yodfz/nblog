@@ -98,15 +98,15 @@ export default class MiddleArticleList extends Component {
         // if (this.props.state.data.length == 0) {
         //     this.props.getArticle();
         // }
-        let loading = (() => {
-            if (this.state.status) {
-                return <div className='loading'>
-                    <Icon name="loading1"/>
-                    &nbsp;&nbsp;正在获取文章中...
-                </div>;
-            }
-            return null;
-        })();
+        // let loading = (() => {
+        //     if (this.state.status) {
+        //         return <div className='loading'>
+        //             <Icon name="loading1"/>
+        //             &nbsp;&nbsp;正在获取文章中...
+        //         </div>;
+        //     }
+        //     return null;
+        // })();
         return (
             <div className={"fl vh100 " + styles.MiddleArticleList}>
                 <div className={styles.top}>
@@ -127,7 +127,7 @@ export default class MiddleArticleList extends Component {
                     </div>
                 </div>
                 {/*{this.props.state.status}*/}
-                {loading}
+                {/*{loading}*/}
                 <ArticleList id="articleList"
                              data={this.props.state.data}
                              selectIdx={this.props.state.selectIdx}
