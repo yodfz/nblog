@@ -52,8 +52,12 @@ router.post(apiPre + 'article/delete', async (ctx)=> {
     //     ctx.body = createMessage({}, {}, 1, '正文内容不得为空!');
     //     return;
     // }
-    let $data = await controller_api_article.delete(data);
-    ctx.body = createMessage($data, {});
+    if (data) {
+        let $data = await controller_api_article.delete(data);
+        ctx.body = createMessage($data, {});
+    } else {
+        ctx.body = createMessage({}, {}, 3, '参数idx为空');
+    }
 });
 
 router.post(apiPre + 'upload', async (ctx)=> {
@@ -77,7 +81,7 @@ router.post(apiPre + 'upload', async (ctx)=> {
 
 router.post(apiPre + 'login', async (ctx) => {
     var requestData = ctx.request.body.fields;
-    if(requestData.username === 'admin' && requestData.password === '123456'){
+    if (requestData.username === 'admin' && requestData.password === '123456') {
         ctx.body = createMessage({
             redirectUrl: 'http://localhost:3900/manage'
         });

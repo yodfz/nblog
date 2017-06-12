@@ -57,7 +57,8 @@ export function* watchSaveArticle () {
 
 export function* wathcDeleteArticle () {
     yield* takeEvery(actions.REMOVE_ARTICLE, function* (action) {
-        let data = yield call(services.article_delete, action.payLoad.data);
+        console.log(action);
+        let data = yield call(services.article_delete, action.payLoad);
         if (data.errorNo == 0) {
             yield put({type: actions.REMOVE_ARTICLE_INLIST, payLoad: action.payLoad.data});
         }
