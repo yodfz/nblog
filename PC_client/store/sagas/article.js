@@ -6,7 +6,7 @@ import services from '../../services';
 export function* GetArticleList (action) {
     yield put({type: actions.UPDATE_ARTICLE_STATE, payLoad: {state: actions.STATE.FETCHING}});
     console.log(action);
-    let data = yield call(services.article_list, {pageIndex: action.payLoad.pageIndex, key: action.payLoad.key});
+    let data = yield call(services.article_list, {pageIndex: action.payLoad.pageIndex, key: action.payLoad.key?action.payLoad.key:null});
     data = data.data;
     if (!action.payLoad.pageIndex || action.payLoad.pageIndex <= 1) {
         yield put({type: actions.CLEAR_ARTICLE});

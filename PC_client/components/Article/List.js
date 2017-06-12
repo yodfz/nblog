@@ -43,7 +43,7 @@ export default class List extends Component {
     }
 
     handleLoadMore () {
-        this.props.getArticle(this.props.state.pageIndex + 1);
+        this.props.getArticle(this.props.state.pageIndex + 1, this.props.searchkey ? this.props.searchkey : '');
     }
 
 

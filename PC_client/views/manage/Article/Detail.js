@@ -157,20 +157,20 @@ export default class Detail extends Component {
                             <li>描述</li>
                             <li>
                                 <textarea
-                                    id="description" value={model.description} onChange={this.handleChange.bind(this)}
+                                    id="description" value={model.description||''} onChange={this.handleChange.bind(this)}
                                     cols="30" rows="5"></textarea>
                             </li>
                             <li>分类</li>
                             <li>
                                 <input type="text"
-                                       id="category" value={model.category}
+                                       id="category" value={model.category||''}
                                        onChange={this.handleChange.bind(this)}
                                 />
                             </li>
                             <li>标签</li>
                             <li>
                                 <input type="text"
-                                       id="tag" value={model.tag}
+                                       id="tag" value={model.tag||''}
                                        onChange={this.handleChange.bind(this)}
                                 />
                             </li>
