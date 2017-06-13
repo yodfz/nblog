@@ -14,7 +14,12 @@ module.exports = {
             // console.log(file);
             var tmparr = file['name'].split('.');
             var ext = '.' + tmparr[tmparr.length - 1];
-            var ph = path.join('public/upload', Date.parse(new Date()).toString() + ext);
+            var nowdate = new Date();
+            var ph = path.join('public/upload/' +
+                nowdate.getFullYear() +
+                ((nowdate.getMonth() + 1) < 10 ? '0' : '') + (nowdate.getMonth() + 1) +
+                (nowdate.getDate() < 10 ? '0' : '') + nowdate.getDate(),
+                Date.parse(new Date()).toString() + ext);
 
             const reader = fs.createReadStream(file.path);
             const stream = fs.createWriteStream(ph);
