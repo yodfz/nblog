@@ -6,7 +6,7 @@ import {Icon} from '../../../components/UI';
 import ShowTime from '../../../components/Time/showTime';
 import {STATE} from '../../../store/actionsType';
 import utils from '../../../core/utils';
-let nowIdx = -1;
+
 export default class Detail extends Component {
     static defaultProps = {};
     static propTypes = {};
@@ -124,7 +124,6 @@ export default class Detail extends Component {
 
     render () {
         const model = Object.assign({}, this.props.data, this.state);
-        console.log('render', nowIdx);
         let showSettingView;
         if (this.state.showSetting) {
             let $dateTime = new Date(this.props.data.createdAt);

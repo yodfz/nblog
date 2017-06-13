@@ -64,7 +64,8 @@
   top: 0;
   bottom: 0;
   right: 0;
-  //background-color: rgba(240, 240, 240, .7);
+  background-color: rgba(0, 0, 0, .5);
+  .fadeIn();
   .showTime{
     position: relative;
     padding:0 0 8px 0;
@@ -94,6 +95,7 @@
     right: 0;
     border-left:1px solid #dedede;
     background-color: #fbfbfb;//rgba(0, 0, 0, .7);
+    .slideIn-right();
     ul{
       list-style: none;
       li{
@@ -119,4 +121,24 @@
 
   }
   z-index:100;
+}
+
+.slideIn-right(){
+  transform: translateZ(0);
+  animation: .3s slide-in;
+  -webkit-animation: .3s slide-in;
+}
+
+@keyframes slide-in {
+  from { right: -350px } to { right: 0 }
+}
+
+.fadeIn() {
+  transform: translateZ(0);
+  animation: .3s fade-in;
+  -webkit-animation: .3s fade-in;
+}
+
+@keyframes fade-in {
+  from { opacity: 0 } to { opacity: 1 }
 }

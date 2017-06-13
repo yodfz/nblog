@@ -13,7 +13,7 @@ app.use(serve(path.join(__dirname, '/public')));
 
 // api 路由
 app.use(apiRoute.routes())
-    .use(renderRoute.allowedMethods());
+    .use(apiRoute.allowedMethods());
 
 // 渲染 路由
 app.use(renderRoute.routes())
