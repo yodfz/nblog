@@ -59,7 +59,9 @@ export default class PhotoIndex extends Component {
                                 图片上传
                             </li>
                             <li>
-
+                                <div className="uploadImage">
+                                    +
+                                </div>
                             </li>
                             <li>标题</li>
                             <li>
@@ -67,7 +69,13 @@ export default class PhotoIndex extends Component {
                                        id="title" value={model.title || ''}
                                 />
                             </li>
-
+                            <li>描述信息</li>
+                            <li></li>
+                            <li>
+                                <button className="btn submit w100">
+                                    添加图片
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>;
