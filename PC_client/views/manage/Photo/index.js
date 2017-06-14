@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import styles from './index.less';
+import services from '../../../services';
 import articleStyles from '../Article/Detail.less';
 import utils from '../../../core/utils';
 
@@ -49,31 +50,37 @@ export default class PhotoIndex extends Component {
 
     handleUpload () {
         let that = this;
+
         this.refs.fileUploadControl.onchange = function () {
             let file = that.refs.fileUploadControl.files[0];
             if (window.FileReader) {
-                console.log(file);
                 if (file.size >= (1024 * 1024 * 5)) {
                     window.alert('你选择的图片过大,当前图片大小:' + (file.size / (1024 * 1024)).toFixed(0) + 'MB,请选择小于5MB图片!');
                     return;
                 }
                 if (file.type.startsWith('image/')) {
-                    let fr = new FileReader();
-                    fr.onloadend = function (e) {
-                        // console.log(e.target.result);
-                        let postFormData = new FormData();
-                        postFormData.append('file', e.target.result);
-                        services.upload(postFormData, {
-                            method: 'POST',
-                            onUploadProgress: (progressEvent)=> {
-                                console.log(progressEvent);
-                            }
-                        }).then(data=> {
-                            console.log(data);
-                            // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
-                        });
-                    };
-                    fr.readAsArrayBuffer(file);
+
+                    let postFormData = new FormData();
+                    postFormData.append('file', file);
+                    services.upload(postFormData, {
+                        method: 'POST',
+                        onUploadProgress: (progressEvent)=> {
+                            console.log(progressEvent);
+                            // loaded: 306203, total: 306203
+                        }
+                    }).then(data=> {
+                        that.refs.fileUploadControl.value = '';
+                        // {"errorNo":0,"errorMessage":"","data":"/upload/20170614/1497423078000.jpg"}
+                        console.log(data);
+                        // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
+                    });
+
+                    // let fr = new FileReader();
+                    // fr.onloadend = function (e) {
+                    //     // console.log(e.target.result);
+                    //
+                    // };
+                    // fr.readAsArrayBuffer(file);
 
 
                     //  onUploadProgress: function (progressEvent) {
@@ -111,6 +118,9 @@ export default class PhotoIndex extends Component {
                                 </div>
                                 <input type="file" id="fileUploadControl"
                                        ref="fileUploadControl"/>
+                            </li>
+                            <li>
+                                <span id="uploadProgress"></span>
                             </li>
                             <li>标题</li>
                             <li>

@@ -38,7 +38,26 @@ router.get(apiPre + 'photo', async (ctx)=> {
     ctx.body = createMessage(data.rows, {total: data.total});
 });
 router.post(apiPre + 'photo/save', async (ctx)=> {
-
+    let data = ctx.request.body;
+    if (!data.img) {
+        ctx.body = createMessage({}, {}, 1, '图片不得为空');
+        return;
+    }
+    let $data = await controller_api_photo.save(data);
+    if ($data.errorNo == 1) {
+        ctx.body = createMessage({}, {}, 2, $data.info);
+    } else {
+        ctx.body = createMessage($data, {});
+    }
+});
+router.post(apiPre + 'photo/delete', async (ctx)=> {
+    let data = ctx.request.body.idx;
+    if (data) {
+        let $data = await controller_api_photo.delete(data);
+        ctx.body = createMessage($data, {});
+    } else {
+        ctx.body = createMessage({}, {}, 3, '参数idx为空');
+    }
 });
 
 router.post(apiPre + 'upload', async (ctx)=> {
