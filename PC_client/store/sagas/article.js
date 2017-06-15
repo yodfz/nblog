@@ -22,27 +22,21 @@ export function* GetArticleList (action) {
 
 }
 
+/**
+ * 保存文章
+ * @param action
+ * @constructor
+ */
 export function* SaveArticle (action) {
-    // console.log('savearticle', action);
-
-
     yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: actions.STATE.FETCHING});
-    // debugger;
-    //
     let data = yield call(services.article_save, action.payLoad.data);
-    // debugger;
-    //
     data = data.data;
     if (data.errorNo == 0) {
         yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: actions.STATE.SUCCESS});
         // 更新列表中数据
         yield put({type: actions.UPDATE_ARTICLE_DETAIL, payLoad: {data: action.payLoad.data}});
-        //     debugger;
-        //
     } else {
         yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: data.errorMessage});
-        //     debugger;
-        //
     }
 };
 
@@ -50,18 +44,17 @@ export function* SaveArticle (action) {
  * 监听请求数据事件
  */
 export function* watchGetArticleList () {
-    yield* takeEvery(actions.GET_ARTICLE_LIST, GetArticleList);
+    yield takeEvery(actions.GET_ARTICLE_LIST, GetArticleList);
 }
 export function* watchSaveArticle () {
-    yield* takeEvery(actions.SAVE_ARTICLE, SaveArticle);
+    yield takeEvery(actions.SAVE_ARTICLE, SaveArticle);
 }
 
 export function* wathcDeleteArticle () {
-    yield* takeEvery(actions.REMOVE_ARTICLE, function* (action) {
-        console.log(action);
-        let data = yield call(services.article_delete, action.payLoad);
-        if (data.errorNo == 0) {
-            yield put({type: actions.REMOVE_ARTICLE_INLIST, payLoad: action.payLoad.data});
+    yield takeEvery(actions.REMOVE_ARTICLE, function* (action) {
+        let data = yield call(services.article_delete, {idx:action.payLoad});
+        if (data.data.errorNo == 0) {
+            yield put({type: actions.REMOVE_ARTICLE_INLIST, payLoad: action.payLoad});
         }
         // yield put({type:actions.REMOVE_ARTICLE,payLoad:})
     });

@@ -23,7 +23,6 @@ var db = {};
 var files = fs.readdirSync(__dirname + '/./');
 const killFile = ['index'];
 files.map(file=> {
-    console.log(file);
     let filename = file.split('.')[0];
     if (killFile.indexOf(filename) == -1) {
         db[filename] = require('./' + filename)(sequelize, Sequelize);

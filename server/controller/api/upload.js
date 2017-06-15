@@ -14,13 +14,22 @@ module.exports = {
             // console.log(file);
             var tmparr = file['name'].split('.');
             var ext = '.' + tmparr[tmparr.length - 1];
-            var ph = path.join('public/upload', Date.parse(new Date()).toString() + ext);
+            var nowdate = new Date();
+            var $path = __dirname + '/../../public/upload/' +
+                nowdate.getFullYear() +
+                ((nowdate.getMonth() + 1) < 10 ? '0' : '') + (nowdate.getMonth() + 1) +
+                (nowdate.getDate() < 10 ? '0' : '') + nowdate.getDate();
+            if (!fs.existsSync($path)) {
+                fs.mkdirSync($path);
+            }
+            var ph = path.join($path,
+                Date.parse(new Date()).toString() + ext);
 
             const reader = fs.createReadStream(file.path);
             const stream = fs.createWriteStream(ph);
             reader.pipe(stream);
             // console.log('uploading %s -> %s', file.name, stream.path);
-            return {url: ph.replace('public/', '/')};
+            return {url: ph.replace(path.join(__dirname,'/../../public/'), '/')};
         } else {
             return null;
         }

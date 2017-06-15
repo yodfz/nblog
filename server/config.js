@@ -1,4 +1,16 @@
 module.exports = {
+    web: {
+        // 标题
+        title:'',
+        // 关键字
+        key:'',
+        // 描述信息
+        description:'',
+        // 备案号
+        beian:'浙ICP备0000000',
+        // 是否开启评论
+        isComment:true,
+    },
     // api 路由前缀
     apiPre: '/api/v1/',
     port: 7800,

@@ -79,14 +79,16 @@ export default (state = defaultState, action)=> {
             break;
         case REMOVE_ARTICLE_INLIST: {
             let $index = state.data.findIndex(p=>p.idx == action.payLoad);
+            console.log('index',$index,'payLoad',action.payLoad);
             state.data.splice($index, 1);
+            console.log(state.data,'index',$index);
             return Object.assign({}, state, {data: [...state.data]});
         }
             break;
-        case REMOVE_ARTICLE: {
-            return Object.assign({}, state, {data: [], pageIndex: 0});
-        }
-            break;
+        // case REMOVE_ARTICLE: {
+        //     return Object.assign({}, state, {data: [], pageIndex: 0});
+        // }
+        //     break;
         case UPDATE_ARTICLE_DETAIL: {
             let $item = state.data.findIndex(p=>p.idx == action.payLoad.data.idx);
             console.log(UPDATE_ARTICLE_DETAIL, $item);
