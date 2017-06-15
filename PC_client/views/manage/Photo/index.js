@@ -6,15 +6,29 @@ import utils from '../../../core/utils';
 
 import ShowTime from '../../../components/Time/showTime';
 
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import {getPhotoList, updatePhotoDetail} from '../../../store/actions/Photo';
+
+console.log(getPhotoList);
+
+@connect(
+    state=> {
+        return {state: state.Article}
+    },
+    dispatch=>bindActionCreators({getPhotoList, updatePhotoDetail}, dispatch)
+)
 export default class PhotoIndex extends Component {
     static defaultProps = {};
     static propTypes = {};
 
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
-            showSetting: false
-        }
+            showSetting: true
+        };
+        this.props.getPhotoList();
     };
 
     componentWillMount () {
@@ -50,6 +64,7 @@ export default class PhotoIndex extends Component {
 
     handleUpload () {
         let that = this;
+        let numberInvert = null;
 
         this.refs.fileUploadControl.onchange = function () {
             let file = that.refs.fileUploadControl.files[0];
@@ -61,17 +76,47 @@ export default class PhotoIndex extends Component {
                 if (file.type.startsWith('image/')) {
 
                     let postFormData = new FormData();
+                    let nowNumber = 0;
+                    let resultNumber = 0;
+                    let uploadProgressSpan = document.querySelector('#uploadProgress');
                     postFormData.append('file', file);
+                    numberInvert && clearInterval(numberInvert);
+                    numberInvert = setInterval(function () {
+                        if (nowNumber < resultNumber) {
+                            if ((resultNumber - nowNumber) < 1) {
+                                nowNumber += 0.01;
+                            } else if ((resultNumber - nowNumber) > 10) {
+                                nowNumber += 1;
+                            } else {
+                                nowNumber += 0.1;
+                            }
+                        } else {
+                            return;
+                        }
+                        if (nowNumber > resultNumber) nowNumber = resultNumber;
+                        if (nowNumber >= 100 || resultNumber == 100) {
+                            nowNumber = 100;
+                        }
+                        uploadProgressSpan.innerText = nowNumber.toFixed(2) + '%';
+                        that.refs.progresswidth.style.width = nowNumber.toFixed(2) + '%';
+                        if (nowNumber >= 100) {
+                            clearInterval(numberInvert);
+                        }
+                    }, 30);
                     services.upload(postFormData, {
                         method: 'POST',
                         onUploadProgress: (progressEvent)=> {
-                            console.log(progressEvent);
+                            resultNumber = ((progressEvent.loaded / progressEvent.total).toFixed(4)) * 100;
                             // loaded: 306203, total: 306203
                         }
                     }).then(data=> {
                         that.refs.fileUploadControl.value = '';
+                        // window.config.uploadImage
                         // {"errorNo":0,"errorMessage":"","data":"/upload/20170614/1497423078000.jpg"}
                         console.log(data);
+                        let imageUrl = window.config.uploadImage + data.data;
+                        thath.props.updatePhotoDetail({url: imageUrl});
+
                         // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
                     });
 
@@ -120,7 +165,11 @@ export default class PhotoIndex extends Component {
                                        ref="fileUploadControl"/>
                             </li>
                             <li>
-                                <span id="uploadProgress"></span>
+                                <div className="progress">
+                                    <div className="width" ref="progresswidth">
+                                        <span id="uploadProgress"></span>
+                                    </div>
+                                </div>
                             </li>
                             <li>标题</li>
                             <li>

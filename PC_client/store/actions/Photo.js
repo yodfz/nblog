@@ -1,4 +1,4 @@
-import {CREATE_PHOTO_DETAIL} from '../actionsType';
+import {CREATE_PHOTO_DETAIL, GET_ARTICLE_LIST, UPDATE_PHOTO_DETAIL} from '../actionsType';
 
 /**
  * 创建相片
@@ -8,6 +8,31 @@ const createPhotoDetail = () => {
     return {type: CREATE_PHOTO_DETAIL};
 };
 
+/**
+ * 获取相册列表
+ */
+const getPhotoList = ($pageIndex, $key) => {
+    return {
+        type: GET_ARTICLE_LIST, payLoad: {
+            pageIndex: $pageIndex,
+            key: $key
+        }
+    };
+};
+
+/**
+ * 更新详情框中的Img数据
+ * @param $obj
+ * @returns {{type, payLoad: *}}
+ */
+const updatePhotoDetail = ($obj) => {
+    return {
+        type: UPDATE_PHOTO_DETAIL, payLoad: $obj
+    };
+};
+
 export {
-    createPhotoDetail
+    createPhotoDetail,
+    getPhotoList,
+    updatePhotoDetail
 }

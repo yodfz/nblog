@@ -26,7 +26,7 @@ module.exports = {
         resetDB: false
     },
     // 分页 每页20条
-    pageSize: 20,
+    pageSize: 10,
     // session配置
     session: {
         key: 'koa:sess', /** (string) cookie key (default is koa:sess) */

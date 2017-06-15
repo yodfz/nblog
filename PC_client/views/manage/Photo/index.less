@@ -13,6 +13,24 @@
     color:#ccc;
     cursor: pointer;
   }
+
+  .progress{
+    position: relative;
+    width:100%;
+    text-align: right;
+    .uploadProgress{
+      position: relative;
+      margin-top:10px;
+      font-size:10px;
+    }
+    .width{
+      margin-top:10px;
+      width:0%;
+      //transition-duration: .3s;
+      height:2px;
+      background-color: #3879d9;
+    }
+  }
   #fileUploadControl{
     display: none;
   }
