@@ -1,0 +1,10 @@
+# webstrom
+.idea
+
+# 数据库:
+server/db/*.sqlite
+
+# node依赖包
+node_modules
+
+.DS_Store
