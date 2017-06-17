@@ -1,7 +1,6 @@
 import url from './url';
 import axios from 'axios';
 let fn = {};
-console.log(axios);
 url.map(p=> {
     fn[p.key] = function (data, opt = {}) {
         // let params = {

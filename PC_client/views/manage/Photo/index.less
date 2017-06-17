@@ -4,7 +4,8 @@
   box-sizing: border-box;
   padding:60px 20px 20px 20px;
   .uploadImage{
-    border:1px dashed #ccc;
+    position: relative;
+    //border:1px dashed #ccc;
     border-radius: 5px;
     height:150px;
     text-align: center;
@@ -12,8 +13,31 @@
     font-size:40px;
     color:#ccc;
     cursor: pointer;
+    z-index:1;
   }
-
+  #fileUploadImage{
+    position: absolute;
+    top:1px;
+    border-width:0px;
+    border-style:none;
+    border-radius: 5px;
+    height:150px;
+    width:100%;
+    z-index:2;
+  }
+  .width{
+    position: absolute;
+    top:0;
+    cursor: pointer;
+    right:0;
+    //margin-top:10px;
+    width:100%;
+    transition-duration: .3s;
+    height:152px;
+    background-color: rgba(255, 255, 255, .5);
+    z-index:11;
+    //background-color: #3879d9;
+  }
   .progress{
     position: relative;
     width:100%;
@@ -23,13 +47,7 @@
       margin-top:10px;
       font-size:10px;
     }
-    .width{
-      margin-top:10px;
-      width:0%;
-      //transition-duration: .3s;
-      height:2px;
-      background-color: #3879d9;
-    }
+
   }
   #fileUploadControl{
     display: none;

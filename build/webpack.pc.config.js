@@ -44,7 +44,8 @@ module.exports = {
                         "transform-object-rest-spread",
                         "transform-runtime",
                         "transform-async-to-generator",
-                        "transform-decorators-legacy"
+                        "transform-decorators-legacy",
+                        "transform-function-bind"
                     ]
                 }
             },
