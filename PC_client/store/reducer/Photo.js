@@ -8,6 +8,7 @@ const defaultState = {
     photo: {},
     data: [],
     status: '',
+    detailStatus:'',
     pageIndex: 0
 };
 

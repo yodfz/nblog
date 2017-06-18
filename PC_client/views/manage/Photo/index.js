@@ -24,10 +24,10 @@ export default class PhotoIndex extends Component {
 
     constructor (props) {
         super(props);
-        this.state = {
+        this.state = Object.assign({}, {
             showSetting: true,
             isUpload: false
-        };
+        }, props.state.photo);
         this.props.getPhotoList();
     };
 
@@ -42,7 +42,12 @@ export default class PhotoIndex extends Component {
     }
 
     componentWillReceiveProps (nextProps) {
-
+        // console.log(nextProps.data.idx, this.state.idx);
+        console.log(nextProps.data);
+        if (nextProps.data && nextProps.data.idx != this.state.idx) {
+            this.setState(nextProps.data);
+            // console.log('componentWillReceiveProps');
+        }
     }
 
     componentWillUpdate () {
@@ -124,7 +129,8 @@ export default class PhotoIndex extends Component {
                         // {"errorNo":0,"errorMessage":"","data":"/upload/20170614/1497423078000.jpg"}
                         console.log(data);
                         let imageUrl = window.config.uploadImage + data.data;
-                        that.props.updatePhotoDetail({url: imageUrl});
+                        // that.props.updatePhotoDetail({url: imageUrl});
+                        this.setState({url: imageUrl});
                         that.state.isUpload = false;
                         // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
                     });
@@ -197,14 +203,14 @@ export default class PhotoIndex extends Component {
                             <li>描述信息</li>
                             <li><input type="text"
                                        id="description" value={model.description}
-                                       onChange={handle.handleOnChange.bind(this)}
+                                       onChange={this::handle.handleOnChange}
                             /></li>
                             <li>
-                                {this.props.state.status}
+                                {this.props.state.detailStatus}
                             </li>
                             <li>
                                 <button className="btn submit w100"
-                                        onClick={this.handleSave.bind(this)}
+                                        onClick={::this.handleSave}
                                 >
                                     添加图片
                                 </button>

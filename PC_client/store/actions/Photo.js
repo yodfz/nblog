@@ -1,4 +1,8 @@
-import {CREATE_PHOTO_DETAIL, GET_ARTICLE_LIST, UPDATE_PHOTO_DETAIL} from '../actionsType';
+import {
+    CREATE_PHOTO_DETAIL, GET_ARTICLE_LIST,
+    UPDATE_PHOTO_DETAIL,
+    SAVE_PHOTO_DETAIL
+} from '../actionsType';
 
 /**
  * 创建相片
@@ -31,8 +35,21 @@ const updatePhotoDetail = ($obj) => {
     };
 };
 
+/**
+ * 保存数据
+ * @param $obj
+ */
+const savePhotoDetail = ($obj)=> {
+    console.log($obj);
+    return {
+        type: SAVE_PHOTO_DETAIL,
+        payLoad: $obj
+    }
+};
+
 export {
     createPhotoDetail,
     getPhotoList,
-    updatePhotoDetail
+    updatePhotoDetail,
+    savePhotoDetail
 }

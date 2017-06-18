@@ -19,3 +19,19 @@ export function* watchSavePhoto () {
         }
     });
 }
+
+export function* watchPhotoList () {
+    yield takeEvery(actions.GET_ARTICLE_LIST, function* (action) {
+        yield  put({type: actions.UPDATE_PHOTO_LIST_STATUS, payLoad: actions.STATE.FETCHING});
+        let data = yield call(services.photo_list, action.payLoad);
+        data = data.data;
+        if (!action.payLoad.pageIndex || action.payLoad.pageIndex <= 1) {
+            // yield put({type: actions.CLEAR_ARTICLE});
+        }
+        if (data.errorNo == 0) {
+            yield put({type: actions.APPEND_PHOTO_LIST, payLoad: {data: data.data}});
+        } else {
+
+        }
+    });
+}
