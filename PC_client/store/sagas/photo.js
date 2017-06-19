@@ -34,8 +34,9 @@ export function* watchPhotoList () {
                 yield put({type: actions.CLEAR_PHOTO_LIST});
             }
             if (data.errorNo == 0) {
+                yield put({type: actions.UPDATE_PHOTO_PAGEINDEX, payLoad: action.payLoad.pageIndex || 1});
                 yield put({type: actions.UPDATE_PHOTO_LIST_STATUS, payLoad: actions.STATE.SUCCESS});
-                yield put({type: actions.APPEND_PHOTO_LIST, payLoad: {data: data.data}});
+                yield put({type: actions.APPEND_PHOTO_LIST, payLoad: {data: data.data, total: data.total}});
             } else {
                 yield  put({type: actions.UPDATE_PHOTO_LIST_STATUS, payLoad: actions.STATE.ERROR});
             }

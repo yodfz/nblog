@@ -30,7 +30,9 @@ export default class PhotoIndex extends Component {
             showSetting: false,
             isUpload: false
         }, props.state.photo);
-        this.props.getPhotoList();
+        if (props.state.data.length == 0) {
+            this.props.getPhotoList();
+        }
     };
 
     componentWillMount () {
@@ -75,6 +77,11 @@ export default class PhotoIndex extends Component {
 
     handleSelect () {
 
+    }
+
+    handleLoadMore () {
+        console.log(this.props.state.pageIndex);
+        this.props.getPhotoList(this.props.state.pageIndex + 1);
     }
 
     handleUpload () {
@@ -232,36 +239,46 @@ export default class PhotoIndex extends Component {
 
         if (this.props.state.status != STATE.FETCHING) {
             loadingButton = <button
-                className="loadMoreButton">更多</button>;
+                className="loadMoreButton"
+                onClick={::this.handleLoadMore}>更多</button>;
         }
 
         return (
             <div className={styles.index}>
                 <div className="nav">
+                    <span>共计{this.props.state.total}张相片</span>
                     <button className="btn submit" onClick={e=> {
                         this.setState({showSetting: !this.state.showSetting});
                         console.log(this, this.state.showSetting);
                     }}>+ 上传相片
                     </button>
 
-                </div>
-                {
-                    this.props.state.data.map(item=> {
-                        return <div className="photo" key={item.idx}>
-                            <div className="thumbnail" style={{'backgroundImage': 'url(' + item.url + ')'}}>
+                    <button className="btn" onClick={e=> {
+                        this.props.getPhotoList(1);
+                    }}>
+                        刷新
+                    </button>
 
-                            </div>
-                            <p className="title">{item.title}</p>
-                            <p className="info">
-                                {item.description}
-                            </p>
-                            <p>
-                                <a>编辑</a>&nbsp;|&nbsp;
-                                <a className="delete">删除</a>
-                            </p>
-                        </div>;
-                    })
-                }
+                </div>
+                <div className="clear">
+                    {
+                        this.props.state.data.map(item=> {
+                            return <div className="photo" key={item.idx}>
+                                <div className="thumbnail" style={{'backgroundImage': 'url(' + item.url + ')'}}>
+
+                                </div>
+                                <p className="title">{item.title}</p>
+                                <p className="info">
+                                    {item.description}
+                                </p>
+                                <p>
+                                    <a>编辑</a>&nbsp;|&nbsp;
+                                    <a className="delete">删除</a>
+                                </p>
+                            </div>;
+                        })
+                    }
+                </div>
                 {loadingButton}
                 {(()=> {
                     if (this.props.state.status == STATE.FETCHING) {

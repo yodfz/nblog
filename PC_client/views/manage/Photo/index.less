@@ -3,6 +3,19 @@
   flex:1;
   box-sizing: border-box;
   padding:60px 20px 20px 20px;
+  .loadMore{
+    position: relative;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+    font-size:12px;
+    color:#545454;
+    .icon-animation{
+      position: absolute;
+      left:30%;
+    }
+  }
+
   .uploadImage{
     position: relative;
     //border:1px dashed #ccc;
@@ -16,6 +29,7 @@
     z-index:1;
   }
   .loadMoreButton{
+    float: left;
     width:100%;
     margin-top:10px;
     border:0px;
@@ -74,11 +88,16 @@
     width:100%;
     left:0;
     height:50px;
+    line-height:50px;
+    font-size:12px;
+    color:#333;
+    text-indent: 25px;
     border-bottom:1px solid #efefef;
-    .submit{
-      position: absolute;
-      right:10px;
-      top:5px;
+    .btn{
+      float: right;
+      //position: absolute;
+      margin-right:10px;
+      margin-top:5px;
     }
   }
   .photo{
