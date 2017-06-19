@@ -39,7 +39,7 @@ router.get(apiPre + 'photo', async (ctx)=> {
 });
 router.post(apiPre + 'photo/save', async (ctx)=> {
     let data = ctx.request.body;
-    if (!data.img) {
+    if (!data.url) {
         ctx.body = createMessage({}, {}, 1, '图片不得为空');
         return;
     }

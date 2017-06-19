@@ -6,7 +6,7 @@ var model = require('../../model');
 var $config = require('../../config');
 module.exports = {
     save: async function (data) {
-        let isCreate = data.idx <= 0;
+        let isCreate = (!data.idx || data.idx <= 0);
         // try {
         let $data = null;
         if (isCreate) {
@@ -19,6 +19,7 @@ module.exports = {
                 where: {idx: data.idx}
             });
         }
+        console.log($data);
         return $data;
         // } catch (err) {
         //     return {info: '数据库操作失败', errorNo: 1};

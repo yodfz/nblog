@@ -8,7 +8,7 @@ module.exports = (sequelize, SQ)=> {
     return sequelize.define('photo', {
         // {indexes: [{unique: true, fields: ['someUnique']}]},
         // idx
-        idx: {type: SQ.INTEGER, primaryKey: true},//SQ.INTEGER,
+        idx: {type: SQ.INTEGER, primaryKey: true, autoIncrement: true},//SQ.INTEGER,
         // 图片地址
         url: SQ.STRING,
         // 描述

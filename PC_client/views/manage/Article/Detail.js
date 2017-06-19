@@ -113,12 +113,12 @@ export default class Detail extends Component {
     eventBindCodemirror ($codemirror) {
         this.codemirror = $codemirror;
     }
-
-    formatString (STATUS) {
-        if (STATUS == STATE.FETCHING) return '保存中,请稍后...';
-        if (STATUS == STATE.SUCCESS) return '保存成功';
-        return STATUS;
-    }
+    //
+    // formatString (STATUS) {
+    //     if (STATUS == STATE.FETCHING) return '保存中,请稍后...';
+    //     if (STATUS == STATE.SUCCESS) return '保存成功';
+    //     return STATUS;
+    // }
 
 
 
@@ -179,7 +179,7 @@ export default class Detail extends Component {
                 <MarkDown content={model.content} bindCodemirror={this.eventBindCodemirror.bind(this)}/>
                 {/*<textarea name="" id="" cols="30" rows="10"></textarea>*/}
                 <div className="showController">
-                    <span className="message">{this.formatString(this.props.saveing)}</span>
+                    <span className="message">{utils.formatString(this.props.saveing)}</span>
                     <span className="btnGroup">
                         <button className="btn submit" onClick={this.handleSave.bind(this)}>确认</button>
                         <button className="btn delete" onClick={this.handleDelete.bind(this)}>删除</button>

@@ -4,6 +4,8 @@ import services from '../../../services';
 import articleStyles from '../Article/Detail.less';
 import utils from '../../../core/utils';
 import handle from '../../../core/handle';
+import {STATE} from '../../../store/actionsType';
+import {Icon} from '../../../components/UI';
 
 import ShowTime from '../../../components/Time/showTime';
 
@@ -25,7 +27,7 @@ export default class PhotoIndex extends Component {
     constructor (props) {
         super(props);
         this.state = Object.assign({}, {
-            showSetting: true,
+            showSetting: false,
             isUpload: false
         }, props.state.photo);
         this.props.getPhotoList();
@@ -67,6 +69,14 @@ export default class PhotoIndex extends Component {
         this.props.savePhotoDetail(this.state);
     }
 
+    handleDelete () {
+
+    }
+
+    handleSelect () {
+
+    }
+
     handleUpload () {
         let that = this;
         let numberInvert = null;
@@ -88,9 +98,8 @@ export default class PhotoIndex extends Component {
 
                     let fr = new FileReader();
                     fr.onloadend = function (e) {
-
                         that.refs.fileUploadImage.src = e.target.result;
-                        console.log(that.refs.fileUploadImage);
+                        // console.log(that.refs.fileUploadImage);
                     };
                     fr.readAsDataURL(file);
                     postFormData.append('file', file);
@@ -128,9 +137,9 @@ export default class PhotoIndex extends Component {
                         // window.config.uploadImage
                         // {"errorNo":0,"errorMessage":"","data":"/upload/20170614/1497423078000.jpg"}
                         console.log(data);
-                        let imageUrl = window.config.uploadImage + data.data;
+                        let imageUrl = window.config.uploadImage + data.data.data;
                         // that.props.updatePhotoDetail({url: imageUrl});
-                        this.setState({url: imageUrl});
+                        that.setState({url: imageUrl, size: file.size});
                         that.state.isUpload = false;
                         // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
                     });
@@ -157,8 +166,9 @@ export default class PhotoIndex extends Component {
 
     render () {
         let model = this.state;
-        console.log(model);
         let showSettingView;
+        let loadingButton;
+
         if (this.state.showSetting) {
             let $dateTime = new Date();
             console.log('load');
@@ -219,6 +229,12 @@ export default class PhotoIndex extends Component {
                     </div>
                 </div>;
         }
+
+        if (this.props.state.status != STATE.FETCHING) {
+            loadingButton = <button
+                className="loadMoreButton">更多</button>;
+        }
+
         return (
             <div className={styles.index}>
                 <div className="nav">
@@ -229,19 +245,32 @@ export default class PhotoIndex extends Component {
                     </button>
 
                 </div>
-                <div className="photo">
-                    <div className="thumbnail" style={{'backgroundImage': 'url(/static/demo/yys.jpg)'}}>
+                {
+                    this.props.state.data.map(item=> {
+                        return <div className="photo" key={item.idx}>
+                            <div className="thumbnail" style={{'backgroundImage': 'url(' + item.url + ')'}}>
 
-                    </div>
-                    <p className="title">九寨沟水</p>
-                    <p className="info">
-                        拍摄机型:Nicon D7100 1/50 2.2光圈
-                    </p>
-                    <p>
-                        <a href="">编辑</a>&nbsp;|&nbsp;
-                        <a href="" className="delete">删除</a>
-                    </p>
-                </div>
+                            </div>
+                            <p className="title">{item.title}</p>
+                            <p className="info">
+                                {item.description}
+                            </p>
+                            <p>
+                                <a>编辑</a>&nbsp;|&nbsp;
+                                <a className="delete">删除</a>
+                            </p>
+                        </div>;
+                    })
+                }
+                {loadingButton}
+                {(()=> {
+                    if (this.props.state.status == STATE.FETCHING) {
+                        return <div className="loadMore">
+                            <Icon name="loading1"/>
+                            &nbsp;&nbsp;正在获取数据中...
+                        </div>
+                    }
+                })()}
                 {showSettingView}
             </div>
         );

@@ -1,5 +1,5 @@
 import {
-    CREATE_PHOTO_DETAIL, GET_ARTICLE_LIST,
+    CREATE_PHOTO_DETAIL, GET_PHOTO_LIST,
     UPDATE_PHOTO_DETAIL,
     SAVE_PHOTO_DETAIL
 } from '../actionsType';
@@ -17,7 +17,7 @@ const createPhotoDetail = () => {
  */
 const getPhotoList = ($pageIndex, $key) => {
     return {
-        type: GET_ARTICLE_LIST, payLoad: {
+        type: GET_PHOTO_LIST, payLoad: {
             pageIndex: $pageIndex,
             key: $key
         }
@@ -40,7 +40,6 @@ const updatePhotoDetail = ($obj) => {
  * @param $obj
  */
 const savePhotoDetail = ($obj)=> {
-    console.log($obj);
     return {
         type: SAVE_PHOTO_DETAIL,
         payLoad: $obj
