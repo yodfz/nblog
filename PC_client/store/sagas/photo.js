@@ -13,7 +13,7 @@ export function* watchSavePhoto () {
         if (data.errorNo == 0) {
             yield put({type: actions.UPDATE_PHOTO_DETAIL_STATUS, payLoad: actions.STATE.SUCCESS});
             // 更新列表中数据
-            yield put({type: actions.UPDATE_PHOTO_DETAIL, payLoad: {data: action.payLoad.data}});
+            yield put({type: actions.APPEND_PHOTO_DETAIL_FOR_LIST, payLoad: {data: data.data}});
         } else {
             yield put({type: actions.UPDATE_PHOTO_DETAIL_STATUS, payLoad: data.errorMessage});
         }

@@ -10,13 +10,13 @@ import ShowTime from '../../../components/Time/showTime';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getPhotoList, updatePhotoDetail} from '../../../store/actions/Photo';
+import {getPhotoList, updatePhotoDetail, savePhotoDetail} from '../../../store/actions/Photo';
 
 @connect(
     state=> {
         return {state: state.Photo}
     },
-    dispatch=>bindActionCreators({getPhotoList, updatePhotoDetail}, dispatch)
+    dispatch=>bindActionCreators({getPhotoList, updatePhotoDetail, savePhotoDetail}, dispatch)
 )
 export default class PhotoIndex extends Component {
     static defaultProps = {};
@@ -64,7 +64,7 @@ export default class PhotoIndex extends Component {
     }
 
     handleSave () {
-
+        this.props.savePhotoDetail(this.state);
     }
 
     handleUpload () {
