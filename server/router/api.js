@@ -15,15 +15,24 @@ router.get(apiPre + 'article', async (ctx)=> {
     ctx.body = createMessage(data.rows, {total: data.total});
 });
 router.post(apiPre + 'article/save', async (ctx)=> {
-    let data = ctx.request.body;
-    let $data = await controller_api_article.save(data);
-    if ($data.errorNo == 1) {
-        ctx.body = createMessage({}, {}, 2, $data.info);
-    } else {
-        ctx.body = createMessage($data, {});
+    if (ctx.session.isLogin) {
+        let data = ctx.request.body;
+        let $data = await controller_api_article.save(data);
+        if ($data.errorNo == 1) {
+            ctx.body = createMessage({}, {}, 2, $data.info);
+        } else {
+            ctx.body = createMessage($data, {});
+        }
     }
+    ctx.body = '';
+    ctx.status = 401;
 });
 router.post(apiPre + 'article/delete', async (ctx)=> {
+    if (!ctx.session.isLogin) {
+        ctx.body = '';
+        ctx.status = 401;
+        return;
+    }
     let data = ctx.request.body.idx;
     if (data) {
         let $data = await controller_api_article.delete(data);
@@ -38,6 +47,11 @@ router.get(apiPre + 'photo', async (ctx)=> {
     ctx.body = createMessage(data.rows, {total: data.total});
 });
 router.post(apiPre + 'photo/save', async (ctx)=> {
+    if (!ctx.session.isLogin) {
+        ctx.body = '';
+        ctx.status = 401;
+        return;
+    }
     let data = ctx.request.body;
     if (!data.url) {
         ctx.body = createMessage({}, {}, 1, '图片不得为空');
@@ -51,6 +65,11 @@ router.post(apiPre + 'photo/save', async (ctx)=> {
     }
 });
 router.post(apiPre + 'photo/delete', async (ctx)=> {
+    if (!ctx.session.isLogin) {
+        ctx.body = '';
+        ctx.status = 401;
+        return;
+    }
     let data = ctx.request.body.idx;
     if (data) {
         let $data = await controller_api_photo.delete(data);
@@ -61,6 +80,11 @@ router.post(apiPre + 'photo/delete', async (ctx)=> {
 });
 
 router.post(apiPre + 'upload', async (ctx)=> {
+    if (!ctx.session.isLogin) {
+        ctx.body = '';
+        ctx.status = 401;
+        return;
+    }
     var data = controller_api_upload.index(ctx);
     if (data) {
         ctx.body = createMessage(data.url);
@@ -72,8 +96,9 @@ router.post(apiPre + 'upload', async (ctx)=> {
 router.post(apiPre + 'login', async (ctx) => {
     var requestData = ctx.request.body.fields;
     if (requestData.username === 'admin' && requestData.password === '123456') {
+        ctx.session.isLogin = true;
         ctx.body = createMessage({
-            redirectUrl: 'http://localhost:3900/manage'
+            redirectUrl: '/manage'
         });
     } else {
         ctx.body = createMessage({}, {}, '911', '账户名或密码错误');

@@ -110,7 +110,7 @@ export default class MiddleArticleList extends Component {
         return (
             <div className={"fl vh100 " + styles.MiddleArticleList}>
                 <div className={styles.top}>
-                    <div className="input">
+                    <div className="inputBorder">
                         <div className={"ShowSearchText fs12 " + (this.state.isFocus ? 'focused' : '')}>
                             <Input id="searchTextInput" className="searchTextInput"
                                    onChange={this.handleChange.bind(this)}

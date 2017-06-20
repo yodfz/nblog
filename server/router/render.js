@@ -7,9 +7,15 @@ var router = require('koa-router')();
 var path = require("path");
 var template = require('art-template');
 
-router.get('/', ctx=> {
+router.get('/login', ctx=> {
     ctx.body = template(path.resolve(__dirname, '../template/login.html'), {
         user:{'name': 'Hello World'}
+    });
+});
+
+
+router.get('/manage', ctx=> {
+    ctx.body = template(path.resolve(__dirname, '../template/manage/index.html'), {
     });
 });
 
