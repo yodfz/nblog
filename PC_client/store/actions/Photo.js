@@ -1,6 +1,6 @@
 import {
     CREATE_PHOTO_DETAIL, GET_PHOTO_LIST,
-    UPDATE_PHOTO_DETAIL,
+    UPDATE_PHOTO_DETAIL, DELETE_PHOTO_DETAIL,
     SAVE_PHOTO_DETAIL
 } from '../actionsType';
 
@@ -46,8 +46,21 @@ const savePhotoDetail = ($obj)=> {
     }
 };
 
+/**
+ * 删除数据
+ * @param $idx
+ * @returns {{type, payLoad: *}}
+ */
+const deletePhotoDetail = ($idx)=> {
+    return {
+        type: DELETE_PHOTO_DETAIL,
+        payLoad: $idx
+    }
+};
+
 export {
     createPhotoDetail,
+    deletePhotoDetail,
     getPhotoList,
     updatePhotoDetail,
     savePhotoDetail

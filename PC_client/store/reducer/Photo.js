@@ -3,7 +3,7 @@ import {
     CLEAR_PHOTO_DETAIL, CLEAR_PHOTO_LIST, UPDATE_PHOTO_PAGEINDEX,
     UPDATE_PHOTO_LIST_STATUS,
     UPDATE_PHOTO_DETAIL_STATUS,
-    APPEND_PHOTO_DETAIL_FOR_LIST
+    APPEND_PHOTO_DETAIL_FOR_LIST,REMOVE_PHOTO_INLIST
 } from '../actionsType';
 
 const defaultState = {
@@ -65,6 +65,11 @@ export default (state = defaultState, action)=> {
             return Object.assign({}, state, {pageIndex: action.payLoad});
         }
             break;
+        case REMOVE_PHOTO_INLIST:{
+            let $index = state.data.findIndex(p=>p.idx == action.payLoad);
+            state.data.splice($index, 1);
+            return Object.assign({}, state, {data: [...state.data]});
+        }break;
         default: {
             return Object.assign({}, state);
         }

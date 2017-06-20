@@ -12,13 +12,23 @@ import ShowTime from '../../../components/Time/showTime';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getPhotoList, updatePhotoDetail, savePhotoDetail, createPhotoDetail} from '../../../store/actions/Photo';
+import {
+    getPhotoList,
+    deletePhotoDetail,
+    updatePhotoDetail,
+    savePhotoDetail,
+    createPhotoDetail
+} from '../../../store/actions/Photo';
 
 @connect(
     state=> {
         return {state: state.Photo}
     },
-    dispatch=>bindActionCreators({getPhotoList, updatePhotoDetail, savePhotoDetail, createPhotoDetail}, dispatch)
+    dispatch=>bindActionCreators({
+        getPhotoList,
+        deletePhotoDetail,
+        updatePhotoDetail, savePhotoDetail, createPhotoDetail
+    }, dispatch)
 )
 export default class PhotoIndex extends Component {
     static defaultProps = {};
@@ -192,7 +202,7 @@ export default class PhotoIndex extends Component {
         let loadingButton;
 
         if (this.state.showSetting) {
-            let $dateTime = new Date();
+            let $dateTime = model.createdAt ? new Date(model.createdAt) : new Date();
             showSettingView =
                 <div className={articleStyles.setting} onClick={this.handleSetting.bind(this)}>
                     <div className="show" onClick={e=> {
@@ -230,14 +240,14 @@ export default class PhotoIndex extends Component {
                             <li>标题</li>
                             <li>
                                 <input type="text"
-                                       id="title"
+                                       id="photo.title"
                                        value={model.title}
                                        onChange={this::handle.handleOnChange}
                                 />
                             </li>
                             <li>描述信息</li>
                             <li><input type="text"
-                                       id="description" value={model.description}
+                                       id="photo.description" value={model.description}
                                        onChange={this::handle.handleOnChange}
                             /></li>
                             <li>
@@ -291,7 +301,10 @@ export default class PhotoIndex extends Component {
                                 </p>
                                 <p>
                                     <a className="hoverText" onClick={::this.handleSelect(item)}>编辑</a>&nbsp;|&nbsp;
-                                    <a className="hoverText delete">删除</a>
+                                    <a className="hoverText delete"
+                                       onClick={e=> {
+                                           this.props.deletePhotoDetail(item.idx);
+                                       }}>删除</a>
                                 </p>
                             </div>;
                         })

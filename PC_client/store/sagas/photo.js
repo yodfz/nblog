@@ -49,3 +49,18 @@ export function* watchPhotoList () {
         }
     });
 }
+
+export function* watchDeletePhoto () {
+    yield takeEvery(actions.DELETE_PHOTO_DETAIL, function* (action) {
+        try {
+            // yield put({type: actions.UPDATE_PHOTO_DETAIL_STATUS, payLoad: actions.STATE.FETCHING});
+            let data = yield call(services.photo_delete, {idx: action.payLoad});
+            data = data.data;
+            if (data.errorNo == 0) {
+                yield put({type: actions.REMOVE_PHOTO_INLIST, payLoad: action.payLoad});
+            }
+        } catch (err) {
+
+        }
+    });
+}
