@@ -47,6 +47,8 @@ export default class Detail extends Component {
         // });
         // fixbug:由于点开侧边栏不再切换数据造成的问题
         // this.state = {};
+        console.log(nextProps);
+
         if (nextProps.data.idx != this.props.data.idx) {
             this.setState(nextProps.data);
             console.log('componentWillReceiveProps');

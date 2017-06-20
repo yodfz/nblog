@@ -34,7 +34,7 @@
     margin-top:10px;
     border:0px;
     background-color: transparent;
-    transition-duration: .3s;
+    //transition-duration: .3s;
     outline: none;
     height:35px;
     line-height:35px;
@@ -100,16 +100,28 @@
       margin-top:5px;
     }
   }
+  .hoverText{
+    -webkit-transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -ms-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+    cursor: pointer;
+  }
+  .hoverText:hover{
+    text-decoration: underline;
+  }
   .photo{
     float: left;
     margin-right:10px;
+    margin-bottom:10px;
     width:220px;
     background-color: #fff;
     font-size:12px;
     padding:5px;
     border-radius: 5px;
     border:1px solid #efefef;
-    cursor: pointer;
+    //cursor: pointer;
     .thumbnail{
       height:150px;
       margin-bottom:10px;

@@ -12,13 +12,13 @@ import ShowTime from '../../../components/Time/showTime';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getPhotoList, updatePhotoDetail, savePhotoDetail} from '../../../store/actions/Photo';
+import {getPhotoList, updatePhotoDetail, savePhotoDetail, createPhotoDetail} from '../../../store/actions/Photo';
 
 @connect(
     state=> {
         return {state: state.Photo}
     },
-    dispatch=>bindActionCreators({getPhotoList, updatePhotoDetail, savePhotoDetail}, dispatch)
+    dispatch=>bindActionCreators({getPhotoList, updatePhotoDetail, savePhotoDetail, createPhotoDetail}, dispatch)
 )
 export default class PhotoIndex extends Component {
     static defaultProps = {};
@@ -29,7 +29,7 @@ export default class PhotoIndex extends Component {
         this.state = Object.assign({}, {
             showSetting: false,
             isUpload: false
-        }, props.state.photo);
+        }, {photo: props.state.photo});
         if (props.state.data.length == 0) {
             this.props.getPhotoList();
         }
@@ -47,10 +47,11 @@ export default class PhotoIndex extends Component {
 
     componentWillReceiveProps (nextProps) {
         // console.log(nextProps.data.idx, this.state.idx);
-        console.log(nextProps.data);
-        if (nextProps.data && nextProps.data.idx != this.state.idx) {
-            this.setState(nextProps.data);
-            // console.log('componentWillReceiveProps');
+        console.log(!nextProps.state.photo.idx);
+        if (!nextProps.state.photo.idx ||
+            (nextProps.state.photo && nextProps.state.photo.idx != this.state.photo.idx)) {
+            this.setState({photo: nextProps.state.photo});
+            //     console.log('componentWillReceiveProps');
         }
     }
 
@@ -68,15 +69,19 @@ export default class PhotoIndex extends Component {
     }
 
     handleSave () {
-        this.props.savePhotoDetail(this.state);
+        this.props.savePhotoDetail(this.state.photo);
     }
 
     handleDelete () {
 
     }
 
-    handleSelect () {
-
+    handleSelect ($obj) {
+        const that = this;
+        return function () {
+            that.props.updatePhotoDetail($obj);
+            that.setState({showSetting: true});
+        }
     }
 
     handleLoadMore () {
@@ -92,8 +97,8 @@ export default class PhotoIndex extends Component {
             if (that.state.isUpload) return;
             let file = that.refs.fileUploadControl.files[0];
             if (window.FileReader) {
-                if (file.size >= (1024 * 1024 * 5)) {
-                    window.alert('你选择的图片过大,当前图片大小:' + (file.size / (1024 * 1024)).toFixed(0) + 'MB,请选择小于5MB图片!');
+                if (file.size >= (1024 * 1024 * 20)) {
+                    window.alert('你选择的图片过大,当前图片大小:' + (file.size / (1024 * 1024)).toFixed(0) + 'MB,请选择小于20MB图片!');
                     return;
                 }
                 if (file.type.startsWith('image/')) {
@@ -146,7 +151,17 @@ export default class PhotoIndex extends Component {
                         console.log(data);
                         let imageUrl = window.config.uploadImage + data.data.data;
                         // that.props.updatePhotoDetail({url: imageUrl});
-                        that.setState({url: imageUrl, size: file.size});
+                        console.log(that.state.photo);
+                        if (that.state.photo.idx > 0) {
+                            that.setState({
+                                photo: Object.assign({}, that.state.photo, {
+                                    url: imageUrl,
+                                    size: file.size
+                                })
+                            });
+                        } else {
+                            that.setState({photo: {url: imageUrl, size: file.size}});
+                        }
                         that.state.isUpload = false;
                         // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
                     });
@@ -172,13 +187,12 @@ export default class PhotoIndex extends Component {
 
 
     render () {
-        let model = this.state;
+        let model = this.state.photo;
         let showSettingView;
         let loadingButton;
 
         if (this.state.showSetting) {
             let $dateTime = new Date();
-            console.log('load');
             showSettingView =
                 <div className={articleStyles.setting} onClick={this.handleSetting.bind(this)}>
                     <div className="show" onClick={e=> {
@@ -194,10 +208,14 @@ export default class PhotoIndex extends Component {
                                 <div className="uploadImage">
                                     +
                                 </div>
-                                <div className="width" ref="progresswidth" onClick={this.handleUpload.bind(this)}>
+
+                                <div className="width"
+                                     style={{'width': model.url ? '0' : ''}}
+                                     ref="progresswidth"
+                                     onClick={this.handleUpload.bind(this)}>
                                 </div>
                                 <img ref="fileUploadImage" onClick={this.handleUpload.bind(this)}
-                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                     src={model.url || "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="}
                                      id="fileUploadImage"/>
                                 <input type="file" id="fileUploadControl"
                                        ref="fileUploadControl"/>
@@ -229,7 +247,7 @@ export default class PhotoIndex extends Component {
                                 <button className="btn submit w100"
                                         onClick={::this.handleSave}
                                 >
-                                    添加图片
+                                    {model.idx > 0 ? '修改图片' : '添加图片'}
                                 </button>
                             </li>
                         </ul>
@@ -248,8 +266,8 @@ export default class PhotoIndex extends Component {
                 <div className="nav">
                     <span>共计{this.props.state.total}张相片</span>
                     <button className="btn submit" onClick={e=> {
+                        this.props.createPhotoDetail();
                         this.setState({showSetting: !this.state.showSetting});
-                        console.log(this, this.state.showSetting);
                     }}>+ 上传相片
                     </button>
 
@@ -272,8 +290,8 @@ export default class PhotoIndex extends Component {
                                     {item.description}
                                 </p>
                                 <p>
-                                    <a>编辑</a>&nbsp;|&nbsp;
-                                    <a className="delete">删除</a>
+                                    <a className="hoverText" onClick={::this.handleSelect(item)}>编辑</a>&nbsp;|&nbsp;
+                                    <a className="hoverText delete">删除</a>
                                 </p>
                             </div>;
                         })

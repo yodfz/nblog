@@ -16,6 +16,7 @@ const defaultState = {
 };
 
 export default (state = defaultState, action)=> {
+    console.log('photo', action);
     switch (action.type) {
         case APPEND_PHOTO_LIST: {
             return Object.assign({}, state, {
@@ -25,7 +26,15 @@ export default (state = defaultState, action)=> {
         }
             break;
         case APPEND_PHOTO_DETAIL_FOR_LIST: {
-            return Object.assign({}, state, {data: [action.payLoad.data, ...state.data]})
+            //判断是更新还是新增
+            let $index = state.data.findIndex(p=>p.idx == action.payLoad.data.idx);
+            if ($index > 0) {
+                state.data[$index] = Object.assign({}, action.payLoad.data);
+                return Object.assign({}, state, {data: [...state.data]})
+
+            } else {
+                return Object.assign({}, state, {data: [action.payLoad.data, ...state.data]})
+            }
         }
             break;
         case CREATE_PHOTO_DETAIL: {
@@ -33,7 +42,7 @@ export default (state = defaultState, action)=> {
         }
             break;
         case UPDATE_PHOTO_DETAIL: {
-            return Object.assign({}, state, Object.assign({}, state.photo, action.payLoad));
+            return Object.assign({}, state, {photo: Object.assign({}, state.photo, action.payLoad)});
         }
             break;
         case CLEAR_PHOTO_DETAIL: {

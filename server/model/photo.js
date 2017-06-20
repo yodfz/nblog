@@ -9,6 +9,7 @@ module.exports = (sequelize, SQ)=> {
         // {indexes: [{unique: true, fields: ['someUnique']}]},
         // idx
         idx: {type: SQ.INTEGER, primaryKey: true, autoIncrement: true},//SQ.INTEGER,
+        title: SQ.STRING,
         // 图片地址
         url: SQ.STRING,
         // 描述
