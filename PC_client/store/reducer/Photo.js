@@ -3,7 +3,7 @@ import {
     CLEAR_PHOTO_DETAIL, CLEAR_PHOTO_LIST, UPDATE_PHOTO_PAGEINDEX,
     UPDATE_PHOTO_LIST_STATUS,
     UPDATE_PHOTO_DETAIL_STATUS,
-    APPEND_PHOTO_DETAIL_FOR_LIST,REMOVE_PHOTO_INLIST
+    APPEND_PHOTO_DETAIL_FOR_LIST, REMOVE_PHOTO_INLIST
 } from '../actionsType';
 
 const defaultState = {
@@ -16,7 +16,30 @@ const defaultState = {
 };
 
 export default (state = defaultState, action)=> {
-    console.log('photo', action);
+    // console.log('photo', action);
+    // let map = {};
+    // map[APPEND_PHOTO_LIST] = ()=> {
+    //     return Object.assign({}, state, {
+    //         data: [...state.data, ...action.payLoad.data],
+    //         total: action.payLoad.total
+    //     });
+    // };
+    //
+    // map[APPEND_PHOTO_DETAIL_FOR_LIST] = ()=> {
+    //     //判断是更新还是新增
+    //     let $index = state.data.findIndex(p=>p.idx == action.payLoad.data.idx);
+    //     if ($index > 0) {
+    //         state.data[$index] = Object.assign({}, action.payLoad.data);
+    //         return Object.assign({}, state, {data: [...state.data]})
+    //
+    //     } else {
+    //         return Object.assign({}, state, {data: [action.payLoad.data, ...state.data]})
+    //     }
+    // };
+    //
+    // map[CREATE_PHOTO_DETAIL] = ()=>{
+    //     return Object.assign({}, state, {photo: {}});
+    // };
     switch (action.type) {
         case APPEND_PHOTO_LIST: {
             return Object.assign({}, state, {
@@ -65,11 +88,12 @@ export default (state = defaultState, action)=> {
             return Object.assign({}, state, {pageIndex: action.payLoad});
         }
             break;
-        case REMOVE_PHOTO_INLIST:{
+        case REMOVE_PHOTO_INLIST: {
             let $index = state.data.findIndex(p=>p.idx == action.payLoad);
             state.data.splice($index, 1);
             return Object.assign({}, state, {data: [...state.data]});
-        }break;
+        }
+            break;
         default: {
             return Object.assign({}, state);
         }
