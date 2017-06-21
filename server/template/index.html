@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{config?config.title:''}}</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+<% include('./components/header.art', {index:0}) %>
+<div class="w100 article clear">
+    <div style="float: left;width: 70%;">
+        {{each article.rows}}
+        <% var nowDate = new Date($value.createdAt); %>
+        {{set month = nowDate.getMonth()+1}}
+        {{set date = nowDate.getDate()}}
+        <div class="detail">
+            <a href="/detail/{{$value.idx}}/{{$value.title}}.html" class="title">{{$value.title}}</a>
+            <p class="info">
+                <span class="category">{{$value.category}}</span>
+                <span class="viewpoint">
+                 {{$value.viewCount}}<br/>
+                阅读量</span>
+                <span class="datetime">{{nowDate.getFullYear() + '-' + (month<10?'0':'') + month + '-' + (date<10?'0':'') + date}}</span>
+            </p>
+        </div>
+        {{/each}}
+        <a href="/article" class="more">查看更多文章>></a>
+    </div>
+
+    <div class="rightDetail">
+        <p>
+            共计:{{article.count}} 篇文章
+        </p>
+        <p>
+            共计:{{photo.count}} 张照片
+        </p>
+        <p class="title">
+            热门文章
+        </p>
+        <ul class="link">
+            <li>1. <a href="http://www.yodfz.com">写代码的熊猫</a></li>
+        </ul>
+        <p class="title">
+            友情链接
+        </p>
+        <ul class="link">
+            <li><a href="http://www.yodfz.com">写代码的熊猫</a></li>
+        </ul>
+        <p class="title">
+            扫码赞助
+        </p>
+        <p class="price">
+
+        </p>
+    </div>
+</div>
+<div class="w100 photo"></div>
+<div class="footer">
+    <div class="w100">
+        <p>
+            © 2017 写代码的熊猫,{{config.beian}},NBlog 是一个开源系统,遵从Apache License开源协议,
+            <a href="https://github.com/yodfz/nblog" target="_blank">[GITHUB SOURCE]</a></p>
+
+    </div>
+</div>
+</body>
+</html>

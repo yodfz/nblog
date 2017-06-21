@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #fbfbfb;
+}
+
+.clear:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+.logo{
+    color:#333;
+    font-size:20px;
+}
+.w100{
+    width:900px;
+    margin:0 auto;
+}
+.nav{
+    height:50px;
+    line-height:50px;
+    border-bottom:1px solid #efefef;
+    background-color: #fff;
+}
+.nav .w100{
+    position: relative;
+}
+.nav .menu{
+    position: absolute;
+    right:0;
+    top:0;
+    list-style: none;
+}
+.nav .menu li{
+    width:100px;
+    float: left;
+    text-align: center;
+}
+.nav .menu li a{
+    text-decoration: none;
+    font-size:14px;
+    color:#545454;
+}
+.nav .menu .action,.nav .menu li:hover{
+    background-color: #db4d52;
+    color:#fff;
+    -webkit-transition-duration: .3s;
+    -moz-transition-duration: .3s;
+    -ms-transition-duration: .3s;
+    -o-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.nav .menu .action a,.nav .menu li:hover a{
+    color:#fff;
+}
+
+.article{
+    padding:20px;
+    margin-top:10px;
+    background-color: #fff;
+    font-size:14px;
+}
+.article .detail{
+    position: relative;
+    float: left;
+    width:100%;
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:1px dotted #efefef;
+}
+.article .detail .viewpoint{
+    position: absolute;
+    background-color: #2e3235;
+    color:#fff;
+    top:0px;
+    padding:10px;
+    border-radius: 5px;
+    text-align: center;
+    right:10px;
+    font-size:12px;
+    line-height:15px;
+}
+.article .detail .datetime{
+    padding-left:15px;
+}
+.article .detail .info{
+    padding:10px 0;
+    padding-left:25px;
+    font-size:12px;
+    color:#545454;
+    line-height:25px;
+}
+.article .detail .category{
+    font-weight: bold;
+    color:#db4d52;
+    font-size:14px;
+}
+.article .rightDetail{
+    float: left;
+    width:30%;
+    padding-left:40px;
+    color: #2e3235;
+    box-sizing: border-box;
+    font-size:12px;
+}
+.article .rightDetail .title{
+    margin-top:10px;
+    font-size:12px;
+    text-indent: 5px;
+}
+.article .rightDetail .title:hover{
+    text-decoration: none;
+}
+.article .rightDetail .link{
+    list-style: none;
+    padding:20px 0;
+    line-height:20px;
+    padding-left:10px;
+    overflow: hidden;
+}
+.more{
+    display: block;
+    width:100%;
+    text-align: right;
+    color:#db4d52;
+
+}
+.rightDetail a{
+    color:#db4d52;
+}
+.article .title{
+    width:100%;
+    display: block;
+    border-left:5px solid #545454;
+    text-indent: 20px;
+    font-size:16px;
+    color:#545454;
+    text-decoration: none;
+    line-height:20px;
+}
+
+.article .title:hover{
+    text-decoration: underline;
+}
+
+.footer{
+    margin-top:20px;
+    padding:40px 0;
+    font-size:14px;
+    background-color: #545454;
+    color:#fff;
+}
+.footer a{
+    color:#66d9ef;
+}

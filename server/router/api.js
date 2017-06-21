@@ -8,6 +8,7 @@ var $config = require('../config');
 var controller_api_article = require('../controller/api/article');
 var controller_api_upload = require('../controller/api/upload');
 var controller_api_photo = require('../controller/api/photo');
+var model = require('../model');
 var router = require('koa-router')();
 const apiPre = $config.apiPre;
 router.get(apiPre + 'article', async (ctx)=> {
@@ -95,14 +96,17 @@ router.post(apiPre + 'upload', async (ctx)=> {
 
 router.post(apiPre + 'login', async (ctx) => {
     var requestData = ctx.request.body.fields;
-    if (requestData.username === 'admin' && requestData.password === '123456') {
-        ctx.session.isLogin = true;
-        ctx.body = createMessage({
-            redirectUrl: '/manage'
-        });
-    } else {
-        ctx.body = createMessage({}, {}, '911', '账户名或密码错误');
+    if (requestData.username && requestData.password) {
+        let user = await model.user.findOne({where: {user: requestData.username}});
+        if (user && user.pwd === requestData.password) {
+            ctx.session.isLogin = true;
+            ctx.body = createMessage({
+                redirectUrl: '/manage'
+            });
+            return;
+        }
     }
+    ctx.body = createMessage({}, {}, '911', '账户名或密码错误');
 });
 
 module.exports = router;
