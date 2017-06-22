@@ -24,6 +24,7 @@ router.post(apiPre + 'article/save', async (ctx)=> {
         } else {
             ctx.body = createMessage($data, {});
         }
+        return;
     }
     ctx.body = '';
     ctx.status = 401;

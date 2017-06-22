@@ -27,16 +27,14 @@
             </p>
         </div>
         {{/each}}
-        <a href="/article" class="more">查看更多文章>></a>
+        <div class="page">
+            <a href="">上一页</a>
+            <span>1/1</span>
+            <a href="">下一页</a>
+        </div>
     </div>
 
     <div class="rightDetail">
-        <p>
-            共计:{{article.count}} 篇文章
-        </p>
-        <p>
-            共计:{{photo.count}} 张照片
-        </p>
         <p class="title">
             热门文章
         </p>
@@ -56,18 +54,6 @@
 
         </p>
     </div>
-</div>
-<div class="w100 photo clear">
-    {{each photo.rows}}
-    <div class="photoDetail">
-        <div class="img" style="background-image:url({{$value.url}})">
-
-        </div>
-        <p>
-            {{$value.title}}
-        </p>
-    </div>
-    {{/each}}
 </div>
 <% include('./components/footer.html') %>
 </body>
