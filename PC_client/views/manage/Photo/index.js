@@ -170,7 +170,12 @@ export default class PhotoIndex extends Component {
                                 })
                             });
                         } else {
-                            that.setState({photo: {url: imageUrl, size: file.size}});
+                            that.setState({
+                                photo: Object.assign({}, that.state.photo, {
+                                    url: imageUrl,
+                                    size: file.size
+                                })
+                            });
                         }
                         that.state.isUpload = false;
                         // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
@@ -193,6 +198,11 @@ export default class PhotoIndex extends Component {
             }
         };
         this.refs.fileUploadControl.click();
+    }
+
+    handleOnChange ($event) {
+        let id = $event.target.id;
+        this.setState({photo: Object.assign({}, this.state.photo, {[id]: $event.target.value})});
     }
 
 
@@ -240,15 +250,15 @@ export default class PhotoIndex extends Component {
                             <li>标题</li>
                             <li>
                                 <input type="text"
-                                       id="photo.title"
+                                       id="title"
                                        value={model.title}
-                                       onChange={this::handle.handleOnChange}
+                                       onChange={::this.handleOnChange}
                                 />
                             </li>
                             <li>描述信息</li>
                             <li><input type="text"
-                                       id="photo.description" value={model.description}
-                                       onChange={this::handle.handleOnChange}
+                                       id="description" value={model.description}
+                                       onChange={::this.handleOnChange}
                             /></li>
                             <li>
                                 {this.props.state.detailStatus}

@@ -1,7 +1,7 @@
 module.exports = {
     web: {
         // 标题
-        title:'this is node blog.',
+        title:'一只会写代码的熊猫 Blog',
         // 关键字
         key:'',
         // 描述信息
