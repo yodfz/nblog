@@ -4125,6 +4125,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
+var _defineProperty2 = __webpack_require__("./node_modules/babel-runtime/helpers/defineProperty.js");
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
 var _assign = __webpack_require__("./node_modules/babel-runtime/core-js/object/assign.js");
 
 var _assign2 = _interopRequireDefault(_assign);
@@ -4348,7 +4352,12 @@ var PhotoIndex = (_dec = (0, _reactRedux.connect)(function (state) {
                                     })
                                 });
                             } else {
-                                that.setState({ photo: { url: imageUrl, size: file.size } });
+                                that.setState({
+                                    photo: (0, _assign2.default)({}, that.state.photo, {
+                                        url: imageUrl,
+                                        size: file.size
+                                    })
+                                });
                             }
                             that.state.isUpload = false;
                             // that.editor.codemirror.replaceSelection('![Alt text](' + window.config.uploadImage + data.data.data + ')', 'Alt')
@@ -4371,6 +4380,12 @@ var PhotoIndex = (_dec = (0, _reactRedux.connect)(function (state) {
                 }
             };
             this.refs.fileUploadControl.click();
+        }
+    }, {
+        key: 'handleOnChange',
+        value: function handleOnChange($event) {
+            var id = $event.target.id;
+            this.setState({ photo: (0, _assign2.default)({}, this.state.photo, (0, _defineProperty3.default)({}, id, $event.target.value)) });
         }
     }, {
         key: 'render',
@@ -4436,9 +4451,9 @@ var PhotoIndex = (_dec = (0, _reactRedux.connect)(function (state) {
                                 'li',
                                 null,
                                 _react2.default.createElement('input', { type: 'text',
-                                    id: 'photo.title',
+                                    id: 'title',
                                     value: model.title,
-                                    onChange: _handle2.default.handleOnChange.bind(this)
+                                    onChange: this.handleOnChange.bind(this)
                                 })
                             ),
                             _react2.default.createElement(
@@ -4450,8 +4465,8 @@ var PhotoIndex = (_dec = (0, _reactRedux.connect)(function (state) {
                                 'li',
                                 null,
                                 _react2.default.createElement('input', { type: 'text',
-                                    id: 'photo.description', value: model.description,
-                                    onChange: _handle2.default.handleOnChange.bind(this)
+                                    id: 'description', value: model.description,
+                                    onChange: this.handleOnChange.bind(this)
                                 })
                             ),
                             _react2.default.createElement(
@@ -21833,4 +21848,4 @@ module.exports = __webpack_require__("./PC_client/index.js");
 /***/ })
 
 },[1]);
-//# sourceMappingURL=main.3548992d0c91666f85d1.js.map
+//# sourceMappingURL=main.babd2c071a7f2ee3c12c.js.map
