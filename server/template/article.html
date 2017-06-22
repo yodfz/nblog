@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
-<% include('./components/header.art', {index:0}) %>
+<% include('./components/header.art', {index:1}) %>
 <div class="w100 article clear">
     <div style="float: left;width: 70%;">
         {{each article.rows}}
@@ -28,9 +28,9 @@
         </div>
         {{/each}}
         <div class="page">
-            <a href="">上一页</a>
-            <span>1/1</span>
-            <a href="">下一页</a>
+            {{if pageIndex>1}} <a href="/article/{{pageIndex-1}}" class="pl">上一页</a>{{/if}}
+            <span>{{pageIndex}}/{{pageCount}}</span>
+            {{if pageIndex*1<pageCount*1}} <a href="/article/{{pageIndex*1+1}}" class="pr">下一页</a>{{/if}}
         </div>
     </div>
 
@@ -39,13 +39,9 @@
             热门文章
         </p>
         <ul class="link">
-            <li>1. <a href="http://www.yodfz.com">写代码的熊猫</a></li>
-        </ul>
-        <p class="title">
-            友情链接
-        </p>
-        <ul class="link">
-            <li><a href="http://www.yodfz.com">写代码的熊猫</a></li>
+            {{each hotarticle.rows}}
+            <li>{{$index+1}}. <a href="/detail/{{$value.idx}}/{{$value.title}}.html">{{$value.title}}</a></li>
+            {{/each}}
         </ul>
         <p class="title">
             扫码赞助

@@ -31,17 +31,13 @@
     </div>
 
     <div class="rightDetail">
-        <p>
-            共计:{{article.count}} 篇文章
-        </p>
-        <p>
-            共计:{{photo.count}} 张照片
-        </p>
         <p class="title">
             热门文章
         </p>
         <ul class="link">
-            <li>1. <a href="http://www.yodfz.com">写代码的熊猫</a></li>
+            {{each hotarticle.rows}}
+            <li>{{$index+1}}. <a href="/detail/{{$value.idx}}/{{$value.title}}.html">{{$value.title}}</a></li>
+            {{/each}}
         </ul>
         <p class="title">
             友情链接

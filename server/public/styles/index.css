@@ -145,6 +145,10 @@ body {
     overflow: hidden;
 }
 
+.article .rightDetail .link li{
+    margin-bottom:10px;
+}
+
 .more {
     display: block;
     width: 100%;
@@ -249,4 +253,30 @@ body {
 pre[class*="language-"]{
     box-sizing: border-box;
     font-size:12px;
+}
+
+.page{
+    position: relative;
+    text-align: center;
+}
+.page .pl{
+    position: absolute;
+    left:0;
+}
+.page .pr{
+    position: absolute;
+    right:0;
+}
+.photo_Detail{
+    background-color: #545454;
+    margin:15px auto;
+    padding:20px;
+    text-align: center;
+    line-height:30px;
+    color:#fff;
+}
+.photo_Detail .description{
+}
+.photo_Detail img{
+    max-width: 100%;
 }
