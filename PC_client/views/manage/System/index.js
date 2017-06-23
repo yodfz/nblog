@@ -60,7 +60,7 @@ export default class SystemIndex extends Component {
                         </li>
                         <li>
                             <input type="password" required className="input" id="updatePassword.newPassword1"
-                                   value={model.oldPassword}
+                                   value={model.newPassword1}
                                    onChange={this::handle.handleOnChange}
                             />
                             <span className="label">
@@ -69,7 +69,7 @@ export default class SystemIndex extends Component {
                         </li>
                         <li>
                             <input type="password" required className="input" id="updatePassword.newPassword2"
-                                   value={model.oldPassword}
+                                   value={model.newPassword2}
                                    onChange={this::handle.handleOnChange}
                             />
                             <span className="label">

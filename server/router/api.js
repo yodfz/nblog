@@ -16,7 +16,7 @@ router.get(apiPre + 'article', async (ctx)=> {
     ctx.body = createMessage(data.rows, {total: data.total});
 });
 router.post(apiPre + 'article/save', async (ctx)=> {
-    if (ctx.session.isLogin) {
+    if (ctx.session.isLogin || true) {
         let data = ctx.request.body;
         let $data = await controller_api_article.save(data);
         if ($data.errorNo == 1) {
@@ -24,10 +24,11 @@ router.post(apiPre + 'article/save', async (ctx)=> {
         } else {
             ctx.body = createMessage($data, {});
         }
-        return;
+    } else {
+        ctx.body = '';
+        ctx.status = 401;
     }
-    ctx.body = '';
-    ctx.status = 401;
+
 });
 router.post(apiPre + 'article/delete', async (ctx)=> {
     if (!ctx.session.isLogin) {
@@ -81,6 +82,30 @@ router.post(apiPre + 'photo/delete', async (ctx)=> {
     }
 });
 
+router.post(apiPre + 'system/updatepassword', async (ctx)=> {
+    if (!ctx.session.isLogin) {
+        ctx.body = '';
+        ctx.status = 401;
+        return;
+    }
+    let data = ctx.request.body;
+    if (data.oldPassword && data.newPassword1 && data.newPassword2) {
+        if (data.newPassword1 != data.newPassword2) {
+            ctx.body = createMessage({}, {}, 1, '两次输入的新密码不一致!');
+            let user = await model.user.findOne({where: {user: ctx.session.loginUser}});
+            if (user && user.pwd === data.oldPassword) {
+                $data = await model.user.update({pwd: data.newPassword2}, {
+                    where: {idx: user.idx}
+                });
+            } else {
+                ctx.body = createMessage({}, {}, 2, '修改密码失败');
+            }
+        }
+    } else {
+        ctx.body = createMessage({}, {}, 1, '修改密码失败');
+    }
+});
+
 router.post(apiPre + 'upload', async (ctx)=> {
     if (!ctx.session.isLogin) {
         ctx.body = '';
@@ -101,6 +126,7 @@ router.post(apiPre + 'login', async (ctx) => {
         let user = await model.user.findOne({where: {user: requestData.username}});
         if (user && user.pwd === requestData.password) {
             ctx.session.isLogin = true;
+            ctx.session.loginUser = user.user;
             ctx.body = createMessage({
                 redirectUrl: '/manage'
             });

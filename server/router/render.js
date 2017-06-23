@@ -55,7 +55,7 @@ router.get('/detail/:id/:title', async ctx=> {
     let data = await model.article.findOne({where: {idx: ctx.params.id}});
     if (data) {
         data.viewCount += 1;
-        $data = await model.article.update({viewCount: data.viewCount}, {
+        let $data = await model.article.update({viewCount: data.viewCount}, {
             where: {idx: data.idx}
         });
 

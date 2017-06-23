@@ -1,6 +1,7 @@
-import {UPDATE_SYSTEM_PASSWORD} from '../actionsType';
+import {UPDATE_SYSTEM_PASSWORD, UPDATE_SYSTEM_PASSWORD_STATUS} from '../actionsType';
 const defaultState = {
     index: 0,
+    updatePasswordStatus: '',
     updatePassword: {
         oldPassword: {},
         newPassword1: {},
@@ -11,6 +12,9 @@ export default (state = defaultState, action)=> {
     let map = {};
     map[UPDATE_SYSTEM_PASSWORD] = ()=> {
         return state;
+    };
+    map[UPDATE_SYSTEM_PASSWORD_STATUS] = ()=> {
+        return Object.assign({}, state, {updatePasswordStatus: action.payLoad})
     };
 
     let $action = map[action.type];

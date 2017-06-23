@@ -280,3 +280,17 @@ pre[class*="language-"]{
 .photo_Detail img{
     max-width: 100%;
 }
+
+.detail  blockquote {
+    border-left: 5px solid #db4d52;
+    padding-left: 30px;
+    box-sizing: border-box;
+    margin: 0;
+    color:#999;
+}
+.detail ol{
+    padding-left:20px;
+}
+.detail a{
+    color:#66d9ef;
+}

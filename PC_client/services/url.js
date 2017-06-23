@@ -8,5 +8,7 @@ export default [
     {key: 'photo_save', url: window.config.apiPre + 'photo/save',method:'POST'},
     {key: 'photo_delete', url: window.config.apiPre + 'photo/delete',method:'POST'},
 
+    {key: 'system_updatePassword', url: window.config.apiPre + 'system/updatepassword',method:'POST'},
+
     {key: 'upload', url: window.config.apiPre + 'upload'}
 ];

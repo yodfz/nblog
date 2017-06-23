@@ -8,6 +8,8 @@ var renderRoute = require('./router/render');
 var apiRoute = require('./router/api');
 const serve = require('koa-static');
 const session = require('koa-session');
+var staticCache = require('koa-static-cache');
+
 
 app.keys = ['nblog'];
 const CONFIG = {
@@ -27,7 +29,9 @@ app.use(session(CONFIG, app));
 app.use(cors());
 app.use(koaBody({ multipart: true }));
 app.use(serve(path.join(__dirname, '/public')));
-
+app.use(staticCache(path.join(__dirname, '/public'), {
+    maxAge: 365 * 24 * 60 * 60
+}));
 // api 路由
 app.use(apiRoute.routes())
     .use(apiRoute.allowedMethods());

@@ -5,12 +5,12 @@ import * as system from './system';
 import {fork} from 'redux-saga/effects';
 // export default [watchGetArticleList, watchSaveArticle,wathcDeleteArticle];
 let importSaga = [
-    article, photo
+    article, photo, system
 ];
 let sagasList = [];
 
 importSaga.map(saga=> {
-    saga&&Object.keys(saga).map(p=> {
+    saga && Object.keys(saga).map(p=> {
         sagasList.push(fork(saga[p]));
     });
 });
