@@ -92,11 +92,13 @@ router.post(apiPre + 'system/updatepassword', async (ctx)=> {
     if (data.oldPassword && data.newPassword1 && data.newPassword2) {
         if (data.newPassword1 != data.newPassword2) {
             ctx.body = createMessage({}, {}, 1, '两次输入的新密码不一致!');
+        }else{
             let user = await model.user.findOne({where: {user: ctx.session.loginUser}});
             if (user && user.pwd === data.oldPassword) {
                 $data = await model.user.update({pwd: data.newPassword2}, {
                     where: {idx: user.idx}
                 });
+                ctx.body = createMessage({}, {}, 2, '修改密码成功');
             } else {
                 ctx.body = createMessage({}, {}, 2, '修改密码失败');
             }
