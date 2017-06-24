@@ -98,7 +98,7 @@ router.post(apiPre + 'system/updatepassword', async (ctx)=> {
                 $data = await model.user.update({pwd: data.newPassword2}, {
                     where: {idx: user.idx}
                 });
-                ctx.body = createMessage({}, {}, 2, '修改密码成功');
+                ctx.body = createMessage({}, {}, 0, '修改密码成功');
             } else {
                 ctx.body = createMessage({}, {}, 2, '修改密码失败');
             }

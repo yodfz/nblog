@@ -56,12 +56,14 @@
 <div class="w100 photo clear">
     {{each photo.rows}}
     <div class="photoDetail">
-        <div class="img" style="background-image:url({{$value.url}})">
+        <a href="/photoDetail/{{$value.idx}}.html">
+            <div class="img" style="background-image:url({{$value.url}})">
 
-        </div>
-        <p>
-            {{$value.title}}
-        </p>
+            </div>
+            <p>
+                {{$value.title}}
+            </p>
+        </a>
     </div>
     {{/each}}
 </div>

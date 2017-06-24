@@ -281,16 +281,22 @@ pre[class*="language-"]{
     max-width: 100%;
 }
 
-.detail  blockquote {
+.content  blockquote {
     border-left: 5px solid #db4d52;
     padding-left: 30px;
     box-sizing: border-box;
     margin: 0;
     color:#999;
 }
-.detail ol{
+.content ol{
     padding-left:20px;
 }
-.detail a{
+.content a{
     color:#66d9ef;
+}
+.content ul{
+    padding-left:20px;
+}
+.content li{
+
 }
