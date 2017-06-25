@@ -28,8 +28,17 @@ module.exports = {
             const reader = fs.createReadStream(file.path);
             const stream = fs.createWriteStream(ph);
             reader.pipe(stream);
+            // 类型判断
+            const picExt = ['.jpg', '.jpeg', '.png'];
+            const zipExt = ['.zip', '.7zip'];
+            if (picExt.indexOf(ext.toLowerCase()) > -1) {
+                // 制作缩略图
+            }
+            if(zipExt.indexOf(ext.toLowerCase())>-1){
+                // 释放到静态目录中的 case 中 做模版样例
+            }
             // console.log('uploading %s -> %s', file.name, stream.path);
-            return {url: ph.replace(path.join(__dirname,'/../../public/'), '/')};
+            return {url: ph.replace(path.join(__dirname, '/../../public/'), '/')};
         } else {
             return null;
         }

@@ -47,6 +47,7 @@ export default class SystemIndex extends Component {
             <div className={styles.index}>
                 <div className="nav">
                     <div className="menu">修改密码</div>
+                    <div className="menu">数据库备份</div>
                 </div>
                 <div id="updatePassword">
                     <ul>
@@ -82,6 +83,9 @@ export default class SystemIndex extends Component {
                             }}>
                                 确定修改密码
                             </button>
+                        </li>
+                        <li>
+                            {this.props.state.updatePasswordStatus}
                         </li>
                     </ul>
                 </div>

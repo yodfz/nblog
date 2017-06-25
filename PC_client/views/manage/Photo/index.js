@@ -58,6 +58,9 @@ export default class PhotoIndex extends Component {
     componentWillReceiveProps (nextProps) {
         // console.log(nextProps.data.idx, this.state.idx);
         console.log(!nextProps.state.photo.idx);
+        if (nextProps.state.status == STATE.SUCCESS) {
+            this.setState({photo: {}});
+        }
         if (!nextProps.state.photo.idx ||
             (nextProps.state.photo && nextProps.state.photo.idx != this.state.photo.idx)) {
             this.setState({photo: nextProps.state.photo});
@@ -95,7 +98,6 @@ export default class PhotoIndex extends Component {
     }
 
     handleLoadMore () {
-        console.log(this.props.state.pageIndex);
         this.props.getPhotoList(this.props.state.pageIndex + 1);
     }
 

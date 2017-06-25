@@ -3,26 +3,39 @@
 {{ /if }}-->
 <div class="container">
     <div class="login-box">
-        <div class="login-input" >
+        <div class="login-input">
             <label for="username">用户名:</label>
             <input type="text" id="username" name="username">
         </div>
-        <div class="login-input" >
+        <div class="login-input">
             <label for="password">密码:</label>
             <input type="password" id="password" name="password">
         </div>
         <a href="javascript:void(0);" class="login-btn" id="loginBtn">
             <span></span>
         </a>
+        <div class="message">
+
+        </div>
     </div>
 </div>
 
 <style>
-    body{
+    body {
         padding: 0;
         margin: 0;
     }
-    .container{
+
+    .message {
+        position: absolute;
+        bottom: -20px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+    }
+
+    .container {
         height: 100%;
         width: 100%;
         background-color: #2e3235;
@@ -30,18 +43,21 @@
         align-items: center;
         justify-content: center;
     }
-    .login-box{
+
+    .login-box {
         position: relative;
         width: 400px;
     }
-    .login-input{
+
+    .login-input {
         display: block;
         height: 36px;
         line-height: 36px;
         margin-bottom: 10px;
         font-size: 0;
     }
-    .login-input label{
+
+    .login-input label {
         display: inline-block;
         width: 60px;
         margin-right: 10px;
@@ -50,6 +66,7 @@
         font-size: 14px;
         color: #717171;
     }
+
     .login-input input {
         box-sizing: border-box;
         width: 300px;
@@ -63,7 +80,8 @@
         box-shadow: inset 0 0 4px #000;
         outline: none;
     }
-    .login-btn{
+
+    .login-btn {
         position: absolute;
         box-sizing: border-box;
         top: 10px;
@@ -76,7 +94,8 @@
         border-radius: 100%;
         box-shadow: 0 0 4px #000;
     }
-    .login-btn:before{
+
+    .login-btn:before {
         content: '';
         display: block;
         position: absolute;
@@ -86,7 +105,8 @@
         left: -5px;
         background-color: #2e3235;
     }
-    .login-btn:after{
+
+    .login-btn:after {
         content: '';
         display: block;
         position: absolute;
@@ -96,11 +116,13 @@
         left: 31px;
         background-color: #2e3235;
     }
+
     .login-btn:active span {
         transform: translateZ(0);
         background: linear-gradient(180deg, #04a1d6, #04a1d6);
         box-shadow: none;
     }
+
     .login-btn span {
         position: relative;
         display: block;
@@ -110,9 +132,10 @@
         border: 4px solid #2b2b2b;
         border-radius: 100%;
         z-index: 1;
-        box-shadow: inset 0 0 2px rgba(255,255,255,.3);
+        box-shadow: inset 0 0 2px rgba(255, 255, 255, .3);
     }
-    .login-btn span:before{
+
+    .login-btn span:before {
         position: absolute;
         content: '';
         display: block;
@@ -122,7 +145,8 @@
         top: 16px;
         left: 11px;
     }
-    .login-btn span:after{
+
+    .login-btn span:after {
         position: absolute;
         content: '';
         display: block;
@@ -138,21 +162,26 @@
 <script>
     (function () {
         let loginBtn = document.querySelector('#loginBtn');
+        let message = document.querySelector('.message');
         loginBtn.addEventListener('click', () => {
+            if (document.querySelector('#username').value.length == 0 || document.querySelector('#password').value.length == 0) {
+                alert('请填写账号密码!');
+                return;
+            }
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:7800/api/v1/login');
-
+            message.innerText = '登陆中请稍后...';
+            xhr.open('POST', '/api/v1/login');
             var formData = new FormData();
             formData.append('username', document.querySelector('#username').value);
             formData.append('password', document.querySelector('#password').value);
             xhr.send(formData);
-
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var res = JSON.parse(xhr.responseText);
                     if (res.errorNo === 0) {
                         window.location.href = res.data.redirectUrl;
                     } else {
+                        message.innerText = res.errorMessage || '登录失败！';
                         console.log(res.errorMessage || '登录失败！')
                     }
                 }
