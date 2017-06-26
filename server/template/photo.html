@@ -26,9 +26,9 @@
 </div>
 <div class="w100" style="background-color: #fff;padding: 20px;height: 60px;line-height: 40px; box-sizing: border-box">
     <div class="page">
-        {{if pageIndex>1}} <a href="/article/{{pageIndex-1}}" class="pl">上一页</a>{{/if}}
+        {{if pageIndex>1}} <a href="/photo/{{pageIndex-1}}" class="pl">上一页</a>{{/if}}
         <span>{{pageIndex}}/{{pageCount}}</span>
-        {{if pageIndex*1<pageCount*1}} <a href="/article/{{pageIndex*1+1}}" class="pr">下一页</a>{{/if}}
+        {{if pageIndex*1<pageCount*1}} <a href="/photo/{{pageIndex*1+1}}" class="pr">下一页</a>{{/if}}
     </div>
 </div>
 <% include('./components/footer.html') %>

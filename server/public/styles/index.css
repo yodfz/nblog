@@ -168,8 +168,10 @@ body {
 .article .title {
     width: 100%;
     display: block;
+    box-sizing: border-box;
+    padding:0 50px 0 20px;
     border-left: 5px solid #545454;
-    text-indent: 20px;
+    /*text-indent: 20px;*/
     font-size: 16px;
     color: #545454;
     text-decoration: none;

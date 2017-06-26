@@ -42,7 +42,10 @@ export function* watchSaveArticle () {
             if (data.errorNo == 0) {
                 yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: actions.STATE.SUCCESS});
                 // 更新列表中数据
-                yield put({type: actions.UPDATE_ARTICLE_DETAIL, payLoad: {data: data.data}});
+                yield put({
+                    type: actions.UPDATE_ARTICLE_DETAIL,
+                    payLoad: {data: data.data, isCreate: action.payLoad.data.idx != data.data.idx}
+                });
             } else {
                 yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: data.errorMessage});
             }
