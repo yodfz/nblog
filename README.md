@@ -1,32 +1,37 @@
-# NBlog
+#NBlog
 
-> 学习型项目
+> 本项目是一个学习型项目，已经部署在www.yodfz.com上，采用Node做后端 React做后端管理。
 
-## 技术结构
+
+技术结构
+
 后台:
-[ ] express
-[x] koa2
-[ ] egg.js
-[ ] hapijs
+- [ ] express
+- [x] koa2
+- [ ] egg.js
+- [ ] hapijs
 
-RESTFUL框架:hapijs,feathers
+RESTFUL框架:
+- [ ] hapijs
+- [ ] feathers
 
-ORM框架:sequelizejs,ORM2
+ORM框架:
+- [ ] sequelizejs
+- [ ] ORM2
 
 PC端:
-[x] React.js 16
+- [x] React.js 15
 
-M端:Vue2.0
+M端:
+- [ ] Vue2.0
 
-数据库:Mysql
+数据库:
+- [ ] Mysql
+- [x] Sqlite3
 
-授权:jwt
+授权:
+- [ ] jwt
+- [ ] Session
 
-后台编辑器:markdown
-
-## 基本功能
-1.首页列表
-
-2.内容详情
-
-3.后台登陆校验
+后台编辑器:
+- [x] markdown
