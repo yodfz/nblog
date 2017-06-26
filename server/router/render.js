@@ -115,8 +115,13 @@ router.get('/photo/:pageIndex',async ctx=> {
         order: [['idx', 'DESC']]
     });
     let count = await model.photo.count();
-    let pageCount = Math.ceil(count / $config.pageSize);
+    let pageCount = Math.ceil(count / 20);
     template.defaults.imports.Date = Date;
+    // 图片处理
+    // data.map(p=>{
+    //     let url = p.url;
+    //     let
+    // });
     ctx.body = template(path.resolve(__dirname, '../template/photo.html'), {
         config: $config.web,
         data: data,
