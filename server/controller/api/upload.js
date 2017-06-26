@@ -4,6 +4,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 const model = require('../../model');
 const $config = require('../../config');
 module.exports = {
@@ -27,16 +28,24 @@ module.exports = {
 
             const reader = fs.createReadStream(file.path);
             const stream = fs.createWriteStream(ph);
+            stream.on('close',function(){
+                console.log('copy over');
+                // 类型判断
+                const picExt = ['.jpg', '.jpeg', '.png'];
+                const zipExt = ['.zip', '.7zip'];
+                if (picExt.indexOf(ext.toLowerCase()) > -1) {
+                    // 制作缩略图
+                    sharp(ph).resize(300).toFile(ph.replace(ext, '_thumb' + ext), (err, info)=> {
+                        // console.log(err, info);
+                    });
+                }
+                if (zipExt.indexOf(ext.toLowerCase()) > -1) {
+                    // 释放到静态目录中的 case 中 做模版样例
+                }
+            });
             reader.pipe(stream);
-            // 类型判断
-            const picExt = ['.jpg', '.jpeg', '.png'];
-            const zipExt = ['.zip', '.7zip'];
-            if (picExt.indexOf(ext.toLowerCase()) > -1) {
-                // 制作缩略图
-            }
-            if(zipExt.indexOf(ext.toLowerCase())>-1){
-                // 释放到静态目录中的 case 中 做模版样例
-            }
+
+
             // console.log('uploading %s -> %s', file.name, stream.path);
             return {url: ph.replace(path.join(__dirname, '/../../public/'), '/')};
         } else {

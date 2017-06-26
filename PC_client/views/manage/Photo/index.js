@@ -161,7 +161,8 @@ export default class PhotoIndex extends Component {
                         // window.config.uploadImage
                         // {"errorNo":0,"errorMessage":"","data":"/upload/20170614/1497423078000.jpg"}
                         console.log(data);
-                        let imageUrl = window.config.uploadImage + data.data.data;
+                        // window.config.uploadImage +
+                        let imageUrl =  data.data.data;
                         // that.props.updatePhotoDetail({url: imageUrl});
                         console.log(that.state.photo);
                         if (that.state.photo.idx > 0) {

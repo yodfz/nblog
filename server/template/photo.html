@@ -14,7 +14,7 @@
     {{each data.rows}}
     <div class="photoDetail">
         <a href="/photoDetail/{{$value.idx}}.html">
-            <div class="img" style="background-image:url({{$value.url}})">
+            <div class="img" style="background-image:url({{$value.url.replace('.','_thumb.')}})">
 
             </div>
             <p>
