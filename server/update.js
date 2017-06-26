@@ -3,7 +3,9 @@ const sharp = require('sharp');
 var path = require('path');
 
 // 升级数据库图片至压缩图片
-const fn = async () => {
+// 1.0.0
+// date:2017-6-26 12:22
+const uploadImageForThumb = async () => {
     const data = await model.photo.findAll();
     data.map(p=> {
         var ph = __dirname + '/public/' + p.url.replace('http://www.yodfz.com/','');
@@ -16,4 +18,4 @@ const fn = async () => {
         });
     });
 };
-fn();
+// fn();

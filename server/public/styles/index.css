@@ -43,6 +43,7 @@ body {
     list-style: none;
 }
 
+
 .nav .menu li {
     width: 120px;
     float: left;
@@ -50,6 +51,9 @@ body {
 }
 
 .nav .menu li a {
+    display: block;
+    width:100%;
+    height:100%;
     text-decoration: none;
     font-size: 14px;
     color: #545454;
@@ -257,8 +261,17 @@ pre[class*="language-"]{
 
 .page{
     position: relative;
+    float: left;
+    width:100%;
     text-align: center;
+    font-size:12px;
 }
+
+.page a{
+    color:#db4d52;
+    font-weight:bold;
+}
+
 .page .pl{
     position: absolute;
     left:0;
