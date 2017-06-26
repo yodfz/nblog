@@ -46,6 +46,8 @@ export function* watchSaveArticle () {
                     type: actions.UPDATE_ARTICLE_DETAIL,
                     payLoad: {data: data.data, isCreate: action.payLoad.data.idx != data.data.idx}
                 });
+                yield put({type: actions.SELECT_ARTICLE, payLoad: {id: data.data.idx}});
+
             } else {
                 yield put({type: actions.UPDATE_ARTICLE_SAVEING, payLoad: data.errorMessage});
             }

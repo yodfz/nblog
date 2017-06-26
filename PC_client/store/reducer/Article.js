@@ -66,15 +66,20 @@ export default (state = defaultState, action)=> {
         }
             break;
         case ADD_ARTICLE: {
-            return Object.assign({}, state, {
-                data: [{
-                    idx: 0,
-                    tag: '',
-                    createdAt: new Date(),
-                    content: '',
-                    title: ''
-                }, ...state.data]
-            });
+            let $index = state.data.findIndex(p=>p.idx == 0);
+            if ($index == -1) {
+                return Object.assign({}, state, {
+                    data: [{
+                        idx: 0,
+                        tag: '',
+                        createdAt: new Date(),
+                        content: '',
+                        title: ''
+                    }, ...state.data]
+                });
+            } else {
+                return state;
+            }
         }
             break;
         case REMOVE_ARTICLE_INLIST: {
@@ -88,8 +93,7 @@ export default (state = defaultState, action)=> {
         // }
         //     break;
         case UPDATE_ARTICLE_DETAIL: {
-            let $item = state.data.findIndex(p=>p.idx == action.payLoad.data.idx);
-            console.log(UPDATE_ARTICLE_DETAIL, $item);
+            let $item = state.data.findIndex(p=>p.idx == (action.payLoad.isCreate ? 0 : action.payLoad.data.idx));
             if ($item >= 0) {
                 state.data[$item] = Object.assign({}, state.data[$item], action.payLoad.data);
             }

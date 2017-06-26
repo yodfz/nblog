@@ -241,7 +241,7 @@ body {
 }
 
 .content p{
-    text-indent: 24px;
+    /*text-indent: 24px;*/
     margin-bottom:15px;
 }
 .content img{
