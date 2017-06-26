@@ -146,5 +146,10 @@ router.get('/photoDetail/:idx.html',async ctx=> {
     }
 });
 
+router.get('/about',ctx=>{
+    ctx.body = template(path.resolve(__dirname, '../template/about.html'), {
+        config: $config.web
+    });
+});
 
 module.exports = router;

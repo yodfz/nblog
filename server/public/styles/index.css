@@ -233,6 +233,7 @@ body {
 .content{
     line-height:30px;
     color:#545454;
+    min-height:600px;
 }
 
 .content *::selection{
