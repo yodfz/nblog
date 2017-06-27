@@ -31,7 +31,7 @@ M端:
 
 授权:
 - [ ] jwt
-- [ ] Session
+- [x] Session
 
 后台编辑器:
 - [x] markdown

@@ -1,106 +1,107 @@
-:local(.index){
+:local(.index) {
   position: relative;
-  flex:1;
+  flex: 1;
   box-sizing: border-box;
-  padding:60px 20px 20px 20px;
-  .loadMore{
+  padding: 60px 20px 20px 20px;
+  overflow-y: auto;
+  .loadMore {
     position: relative;
     text-align: center;
-    height:40px;
-    line-height:40px;
-    font-size:12px;
-    color:#545454;
-    .icon-animation{
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    color: #545454;
+    .icon-animation {
       position: absolute;
-      left:30%;
+      left: 30%;
     }
   }
 
-  .uploadImage{
+  .uploadImage {
     position: relative;
     //border:1px dashed #ccc;
     border-radius: 5px;
-    height:150px;
+    height: 150px;
     text-align: center;
-    line-height:150px;
-    font-size:40px;
-    color:#ccc;
+    line-height: 150px;
+    font-size: 40px;
+    color: #ccc;
     cursor: pointer;
-    z-index:1;
+    z-index: 1;
   }
-  .loadMoreButton{
+  .loadMoreButton {
     float: left;
-    width:100%;
-    margin-top:10px;
-    border:0px;
+    width: 100%;
+    margin-top: 10px;
+    border: 0px;
     background-color: transparent;
     //transition-duration: .3s;
     outline: none;
-    height:35px;
-    line-height:35px;
+    height: 35px;
+    line-height: 35px;
   }
-  .loadMoreButton:hover{
+  .loadMoreButton:hover {
     background-color: #f5f5f5;
   }
-  #fileUploadImage{
+  #fileUploadImage {
     position: absolute;
-    top:1px;
-    border-width:0px;
-    border-style:none;
+    top: 1px;
+    border-width: 0px;
+    border-style: none;
     border-radius: 5px;
-    height:150px;
-    width:100%;
-    z-index:2;
+    height: 150px;
+    width: 100%;
+    z-index: 2;
   }
-  .width{
+  .width {
     position: absolute;
-    top:0;
+    top: 0;
     cursor: pointer;
-    right:0;
+    right: 0;
     //margin-top:10px;
-    width:100%;
+    width: 100%;
     transition-duration: .3s;
-    height:152px;
+    height: 152px;
     background-color: rgba(255, 255, 255, .5);
-    z-index:11;
+    z-index: 11;
     //background-color: #3879d9;
   }
-  .progress{
+  .progress {
     position: relative;
-    width:100%;
+    width: 100%;
     text-align: right;
-    .uploadProgress{
+    .uploadProgress {
       position: relative;
-      margin-top:10px;
-      font-size:10px;
+      margin-top: 10px;
+      font-size: 10px;
     }
 
   }
-  #fileUploadControl{
+  #fileUploadControl {
     display: none;
   }
-  .w100{
-    width:100%;
+  .w100 {
+    width: 100%;
   }
-  .nav{
+  .nav {
     position: absolute;
-    top:0;
-    width:100%;
-    left:0;
-    height:50px;
-    line-height:50px;
-    font-size:12px;
-    color:#333;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    color: #333;
     text-indent: 25px;
-    border-bottom:1px solid #efefef;
-    .btn{
+    border-bottom: 1px solid #efefef;
+    .btn {
       float: right;
       //position: absolute;
-      margin-right:10px;
-      margin-top:5px;
+      margin-right: 10px;
+      margin-top: 5px;
     }
   }
-  .hoverText{
+  .hoverText {
     -webkit-transition-duration: .5s;
     -moz-transition-duration: .5s;
     -ms-transition-duration: .5s;
@@ -108,42 +109,42 @@
     transition-duration: .5s;
     cursor: pointer;
   }
-  .hoverText:hover{
+  .hoverText:hover {
     text-decoration: underline;
   }
-  .photo{
+  .photo {
     float: left;
-    margin-right:10px;
-    margin-bottom:10px;
-    width:220px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 220px;
     background-color: #fff;
-    font-size:12px;
-    padding:5px;
+    font-size: 12px;
+    padding: 5px;
     border-radius: 5px;
-    border:1px solid #efefef;
+    border: 1px solid #efefef;
     //cursor: pointer;
-    .thumbnail{
-      height:150px;
-      margin-bottom:10px;
-      background-size:cover;
+    .thumbnail {
+      height: 150px;
+      margin-bottom: 10px;
+      background-size: cover;
       background-repeat: no-repeat;
     }
-    p{
-      line-height:20px;
+    p {
+      line-height: 20px;
       text-align: center;
     }
-    .title{
-      font-size:14px;
+    .title {
+      font-size: 14px;
       font-weight: bold;
     }
-    .info{
-      color:#666;
+    .info {
+      color: #666;
     }
-    a{
-      color:#04a1d6;
+    a {
+      color: #04a1d6;
     }
-    a.delete{
-      color:#db4d52;
+    a.delete {
+      color: #db4d52;
     }
   }
 }
