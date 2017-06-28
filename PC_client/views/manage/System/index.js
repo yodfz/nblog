@@ -46,7 +46,7 @@ export default class SystemIndex extends Component {
         return (
             <div className={styles.index}>
                 <div className="nav">
-                    <div className="menu">修改密码</div>
+                    <div className="menu select">修改密码</div>
                     <div className="menu">数据库备份</div>
                 </div>
                 <div id="updatePassword">
