@@ -6,6 +6,10 @@ const defaultState = {
         oldPassword: {},
         newPassword1: {},
         newPassword2: {},
+    },
+    DbBak:{
+        name:'',
+        size:0
     }
 };
 export default (state = defaultState, action)=> {
