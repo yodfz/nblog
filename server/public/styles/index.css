@@ -28,7 +28,7 @@ body {
     }
 }
 
-@media screen and (max-width: 375px){
+@media screen and (max-width: 420px){
     .nav{
         height:40px;
     }
