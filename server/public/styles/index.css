@@ -7,6 +7,52 @@ body {
     background-color: #fbfbfb;
 }
 
+@media screen and (max-width: 660px) {
+    .w100 {
+        width: auto !important;
+        max-width: 650px !important;
+    }
+
+    .left70 {
+        width: 100% !important;
+    }
+
+    .rightDetail {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .logo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .nav{
+        height:40px;
+    }
+    .menu{
+        width:100% !important;
+        display: flex;
+    }
+    .menu li{
+        flex:1;
+    }
+    .photoDetail{
+        width:100% !important;
+    }
+    .photoDetail p{
+        position: relative !important;
+        width:100% !important;
+        top:-40px !important;
+    }
+}
+.left70 {
+    float: left;
+    width: 70%;
+}
+
 .clear:after {
     content: ".";
     display: block;
@@ -43,7 +89,6 @@ body {
     list-style: none;
 }
 
-
 .nav .menu li {
     width: 120px;
     float: left;
@@ -52,8 +97,8 @@ body {
 
 .nav .menu li a {
     display: block;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
     font-size: 14px;
     color: #545454;
@@ -149,8 +194,8 @@ body {
     overflow: hidden;
 }
 
-.article .rightDetail .link li{
-    margin-bottom:10px;
+.article .rightDetail .link li {
+    margin-bottom: 10px;
 }
 
 .more {
@@ -169,7 +214,7 @@ body {
     width: 100%;
     display: block;
     box-sizing: border-box;
-    padding:0 50px 0 20px;
+    padding: 0 50px 0 20px;
     border-left: 5px solid #545454;
     /*text-indent: 20px;*/
     font-size: 16px;
@@ -222,97 +267,117 @@ body {
     position: absolute;
     background-color: rgba(0, 0, 0, .8);
     color: #fff;
-    top:130px;
-    height:30px;
-    line-height:30px;
+    top: 130px;
+    height: 30px;
+    line-height: 30px;
     overflow: hidden;
-    width:205px;
-    font-size:12px;
+    width: 205px;
+    font-size: 12px;
 }
 
-.content{
-    line-height:30px;
-    color:#545454;
-    min-height:600px;
+.content {
+    line-height: 30px;
+    color: #545454;
+    min-height: 600px;
 }
 
-.content *::selection{
+.content *::selection {
     background-color: #545454;
-    color:#fff;
+    color: #fff;
 }
 
-.content p{
+.content p {
     /*text-indent: 24px;*/
-    margin-bottom:15px;
-}
-.content img{
-    max-width:100%;
+    margin-bottom: 15px;
 }
 
-.content pre,.content code{
-    width:100%;
+.content img {
+    max-width: 100%;
+}
+
+.content pre, .content code {
+    width: 100%;
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
     white-space: -o-pre-wrap; /* Opera 7 */
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-pre[class*="language-"]{
+
+pre[class*="language-"] {
     box-sizing: border-box;
-    font-size:12px;
+    font-size: 12px;
 }
 
-.page{
+.page {
     position: relative;
     float: left;
-    width:100%;
+    width: 100%;
     text-align: center;
-    font-size:12px;
+    font-size: 12px;
 }
 
-.page a{
-    color:#db4d52;
-    font-weight:bold;
+.page a {
+    color: #db4d52;
+    font-weight: bold;
 }
 
-.page .pl{
+.page .pl {
     position: absolute;
-    left:0;
+    left: 0;
 }
-.page .pr{
+
+.page .pr {
     position: absolute;
-    right:0;
+    right: 0;
 }
-.photo_Detail{
+
+.photo_Detail {
     background-color: #545454;
-    margin:15px auto;
-    padding:20px;
+    margin: 15px auto;
+    padding: 20px;
     text-align: center;
-    line-height:30px;
-    color:#fff;
+    line-height: 30px;
+    color: #fff;
 }
-.photo_Detail .description{
+
+.photo_Detail .description {
 }
-.photo_Detail img{
+
+.photo_Detail img {
     max-width: 100%;
 }
 
-.content  blockquote {
+.content blockquote {
     border-left: 5px solid #db4d52;
     padding-left: 30px;
     box-sizing: border-box;
     margin: 0;
-    color:#999;
+    color: #999;
 }
-.content ol{
-    padding-left:20px;
-}
-.content a{
-    color:#66d9ef;
-}
-.content ul{
-    padding-left:20px;
-}
-.content li{
 
+.content ol {
+    padding-left: 20px;
+}
+
+.content a {
+    color: #66d9ef;
+}
+
+.content ul {
+    padding-left: 20px;
+}
+
+.content li {
+
+}
+
+code {
+    background: #efefef;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+code[class*='language'] {
+    padding: 0 !important;
 }

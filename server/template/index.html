@@ -11,7 +11,7 @@
 <body>
 <% include('./components/header.art', {index:0}) %>
 <div class="w100 article clear">
-    <div style="float: left;width: 70%;">
+    <div class="left70">
         {{each article.rows}}
         <% var nowDate = new Date($value.createdAt); %>
         {{set month = nowDate.getMonth()+1}}
