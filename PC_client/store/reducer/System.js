@@ -7,9 +7,9 @@ const defaultState = {
         newPassword1: {},
         newPassword2: {},
     },
-    DbBak:{
-        name:'',
-        size:0
+    DbBak: {
+        now: {},
+        bak: {}
     }
 };
 export default (state = defaultState, action)=> {
@@ -22,8 +22,8 @@ export default (state = defaultState, action)=> {
     };
 
     let $action = map[action.type];
-    if ($action) {
-        return $action();
-    }
-    return state;
+    // if ($action) {
+    //     return $action();
+    // }
+    return $action ? $action() : state;
 }

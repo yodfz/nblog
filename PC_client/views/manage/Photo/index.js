@@ -105,6 +105,7 @@ export default class PhotoIndex extends Component {
         let that = this;
         let numberInvert = null;
 
+        //点击上传图片
         this.refs.fileUploadControl.onchange = function () {
             if (that.state.isUpload) return;
             let file = that.refs.fileUploadControl.files[0];
@@ -127,6 +128,7 @@ export default class PhotoIndex extends Component {
                     };
                     fr.readAsDataURL(file);
                     postFormData.append('file', file);
+                    // 上传进度动画
                     numberInvert && clearInterval(numberInvert);
                     numberInvert = setInterval(function () {
                         if (nowNumber < resultNumber) {

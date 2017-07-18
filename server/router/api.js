@@ -8,6 +8,7 @@ var $config = require('../config');
 var controller_api_article = require('../controller/api/article');
 var controller_api_upload = require('../controller/api/upload');
 var controller_api_photo = require('../controller/api/photo');
+var controller_api_system = require('../controller/api/system');
 var model = require('../model');
 var router = require('koa-router')();
 const apiPre = $config.apiPre;
@@ -92,7 +93,7 @@ router.post(apiPre + 'system/updatepassword', async (ctx)=> {
     if (data.oldPassword && data.newPassword1 && data.newPassword2) {
         if (data.newPassword1 != data.newPassword2) {
             ctx.body = createMessage({}, {}, 1, '两次输入的新密码不一致!');
-        }else{
+        } else {
             let user = await model.user.findOne({where: {user: ctx.session.loginUser}});
             if (user && user.pwd === data.oldPassword) {
                 $data = await model.user.update({pwd: data.newPassword2}, {
@@ -106,6 +107,20 @@ router.post(apiPre + 'system/updatepassword', async (ctx)=> {
     } else {
         ctx.body = createMessage({}, {}, 1, '修改密码失败');
     }
+});
+
+router.post(apiPre + 'system/bakDb', async (ctx)=> {
+    if (!ctx.session.isLogin) {
+        ctx.body = '';
+        ctx.status = 401;
+        return;
+    }
+    let $data = await controller_api_system.bakDb();
+    ctx.body = createMessage({}, {}, ($data == 'SUCCESS' ? 3 : 0), $data);
+});
+
+router.get(apiPre + 'system/dbInfo', async (ctx)=> {
+    ctx.body = createMessage(controller_api_system.getDbInfo(), {});
 });
 
 router.post(apiPre + 'upload', async (ctx)=> {
