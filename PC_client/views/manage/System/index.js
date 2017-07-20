@@ -45,6 +45,9 @@ export default class SystemIndex extends Component {
                             <div className="menu">修改密码</div>
                         </Link>
                         <Link to="">
+                            <div className="menu">友情链接</div>
+                        </Link>
+                        <Link to="">
                             <div className="menu">数据库备份</div>
                         </Link>
                     </div>
