@@ -371,6 +371,9 @@ pre[class*="language-"] {
 .content li {
 
 }
+.content h1,.content h2,.content h3,.content h4,.content h5{
+    padding:10px 0;
+}
 
 code {
     background: #efefef;
