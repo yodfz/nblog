@@ -6,6 +6,7 @@ var config = require('./config');
 const koaBody = require('koa-body');
 var renderRoute = require('./router/render');
 var apiRoute = require('./router/api');
+
 const serve = require('koa-static');
 const session = require('koa-session');
 var staticCache = require('koa-static-cache');
