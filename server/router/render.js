@@ -24,7 +24,7 @@ router.get('/', async (ctx)=> {
     });
     let photoData = await model.photo.findAndCountAll({
         offset: 0,
-        limit: 12,
+        limit: 8,
         order: [['idx', 'DESC']]
     });
     let hotarticle = await model.article.findAndCountAll({

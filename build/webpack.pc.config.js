@@ -51,7 +51,7 @@ module.exports = {
                 // 使用了这个load 可以直接在jsx文件中import less文件
                 // 如: import 'entry.less'; 将自动将样式插入
                 test: /\.less$/,
-                use:[
+                use: [
                     'style-loader',
                     'css-loader',
                     'less-loader'
@@ -86,12 +86,17 @@ module.exports = {
         // 默认扩展名 import 可不带后缀的文件
         extensions: ['.js', '.jsx'],
         alias: {
-            'store':__dirname + '/../PC_client/store'
+            'store': __dirname + '/../PC_client/store'
         }
     },
     resolveLoader: {},
     // 插件
     plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
         new webpack.optimize.CommonsChunkPlugin(
             {name: 'vendor', filename: 'vendor.bundle.js'}),
         // new webpack.optimize.CommonsChunkPlugin({
