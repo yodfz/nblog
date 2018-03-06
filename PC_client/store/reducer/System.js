@@ -1,6 +1,7 @@
 import {
     UPDATE_SYSTEM_PASSWORD,
     UPDATE_SYSTEM_PASSWORD_STATUS,
+    UPDATE_DBBAK_INFO,
     GET_DBBAK_INFO} from '../actionsType';
 const defaultState = {
     index: 0,
@@ -20,8 +21,8 @@ export default (state = defaultState, action)=> {
     map[UPDATE_SYSTEM_PASSWORD] = ()=> {
         return state;
     };
-    map[GET_DBBAK_INFO] = () =>{
-        return state
+    map[UPDATE_DBBAK_INFO] = () =>{
+        return Object.assign({}, state, {DbBak: action.payLoad})
     };
     map[UPDATE_SYSTEM_PASSWORD_STATUS] = ()=> {
         return Object.assign({}, state, {updatePasswordStatus: action.payLoad})
