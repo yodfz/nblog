@@ -1,4 +1,4 @@
-import {UPDATE_SYSTEM_PASSWORD, UPDATE_SYSTEM_PASSWORD_STATUS, STATE} from '../actionsType';
+import {UPDATE_SYSTEM_PASSWORD, UPDATE_SYSTEM_PASSWORD_STATUS, STATE,GET_DBBAK_INFO} from '../actionsType';
 import {put, call, fork} from 'redux-saga/effects';
 import {takeEvery} from 'redux-saga'
 import services from '../../services';
@@ -19,4 +19,8 @@ export function* watchUpdatePassword () {
             yield put({type: UPDATE_SYSTEM_PASSWORD_STATUS, payLoad: STATE.ERROR});
         }
     });
+}
+
+export function* watchGET_DBBAK_INFO () {
+
 }

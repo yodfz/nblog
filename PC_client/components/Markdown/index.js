@@ -78,7 +78,7 @@ export default class Markdown extends Component {
     handleUpdatState () {
 
     }
-
+    // 或者需要动态计算rows的值
     render () {
         return (<div ref="editor" className={styles.index}>
             <textarea name="" id="" ref="MarkdownEditor" cols="30" rows="10"
