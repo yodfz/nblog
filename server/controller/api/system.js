@@ -3,13 +3,13 @@ const fse = require('fs-extra');
 const config = require('../../config');
 
 const db = config.db.url;
-const bakDb = config.db.url.replace('.sqlite','.bak.sqlite');
+const bakDb = config.db.url.replace('.sqlite', '.bak.sqlite');
 
 module.exports = {
     /**
      * 获取数据库与备份数据库大小大小
      */
-    getDbInfo () {
+    getDbInfo() {
         let returnResult = {
             now: {},
             bak: {}
@@ -30,10 +30,11 @@ module.exports = {
     /**
      * 备份数据库
      */
-    async bakDb () {
-        return await new Promise((res,rej)=>{
-            fse.copy(db,bakDb,function(err){
-                if(err) rej('COPY ERROR');
+    async bakDb() {
+        return await new Promise((res, rej) => {
+            let $date = new Date()
+            fse.copy(db, bakDb + '.' + ($date.getFullYear() + '.' + $date.getMonth() + '.' + $date.getDate()), function (err) {
+                if (err) rej('COPY ERROR');
                 res('SUCCESS');
             });
         });
