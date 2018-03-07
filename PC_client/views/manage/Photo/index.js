@@ -307,7 +307,7 @@ export default class PhotoIndex extends Component {
                     {
                         this.props.state.data.map(item=> {
                             return <div className="photo" key={item.idx}>
-                                <div className="thumbnail" style={{'backgroundImage': 'url(' + item.url + ')'}}>
+                                <div className="thumbnail" style={{'backgroundImage': 'url(' + item.url.replace('.','_thumb.') + ')'}}>
 
                                 </div>
                                 <p className="title">{item.title}</p>
