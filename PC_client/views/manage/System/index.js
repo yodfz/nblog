@@ -15,6 +15,7 @@ export default class SystemIndex extends Component {
 
     constructor (props) {
         super(props);
+        this.match = props.match;
     };
 
     componentWillMount () {
@@ -37,6 +38,7 @@ export default class SystemIndex extends Component {
     }
 
     render () {
+        console.log('system index')
         return (
             <Router>
                 <div className={styles.index}>

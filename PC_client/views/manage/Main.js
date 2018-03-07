@@ -10,7 +10,7 @@ import LeftMenu from './LeftMenu';
 
 import ArticleMain from './Article/Main';
 import PhotoMain from './Photo/';
-import SystemMain from './System';
+import SystemMain from './System/';
 import NoMatchImg from './NoMatchImg';
 
 
@@ -28,7 +28,7 @@ export default class Main extends Component {
                     <Switch>
                         <Route exact path={`${this.match.url}/article`} component={ArticleMain}/>
                         <Route exact path={`${this.match.url}/photo`} component={PhotoMain}/>
-                        <Route exact path={`${this.match.url}/system`} component={SystemMain}/>
+                        <Route exact={false} path={`${this.match.url}/system`} component={SystemMain}/>
                         <Route component={NoMatchImg}/>
                     </Switch>
                     {/*{this.props.children}*/}

@@ -47,3 +47,6 @@ M端:
 在目录中运行npm install,注意sharp可能需要gc++支持，请按照安装提示安装所需软件
 
 配置nginx文件，设置反向代理，设置静态文件映射
+
+## 相关类库
+https://reacttraining.com/react-router/web/example/basic

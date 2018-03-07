@@ -9,12 +9,11 @@ window.config = {
             url: '/manage/article',
             active: true
         },
-
         {
             idx: 3,
             icon: 'setting',
             text: '系统',
-            url: '/manage/system',
+            url: '/manage/system/EditPassword',
             active: false
         },
         {
@@ -22,6 +21,13 @@ window.config = {
             icon: 'photo',
             text: '相册',
             url: '/manage/photo',
+            active: false
+        },
+        {
+            idx: 5,
+            icon: 'loading',
+            text: '静态包管理',
+            url: '/manage/staticZip',
             active: false
         },
         {

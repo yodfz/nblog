@@ -92,11 +92,11 @@ module.exports = {
     resolveLoader: {},
     // 插件
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // }),
         new webpack.optimize.CommonsChunkPlugin(
             {name: 'vendor', filename: 'vendor.bundle.js'}),
         // new webpack.optimize.CommonsChunkPlugin({
