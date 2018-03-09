@@ -286,6 +286,12 @@ body {
     color: #fff;
 }
 
+.content h1{
+    font-size:24px;
+    margin:15px 0;
+    color:#000
+}
+
 .content p {
     /*text-indent: 24px;*/
     margin-bottom: 15px;
@@ -304,6 +310,7 @@ body {
     white-space: -pre-wrap; /* Opera 4-6 */
     white-space: -o-pre-wrap; /* Opera 7 */
     word-wrap: break-word; /* Internet Explorer 5.5+ */
+    margin-bottom:15px;
 }
 
 pre[class*="language-"] {
