@@ -32,6 +32,7 @@ module.exports = (sequelize, SQ)=> {
         title: SQ.STRING,
         // 描述
         description: SQ.STRING,
+        url: SQ.STRING,
         // 正文内容
         content: SQ.TEXT,
         // 标签
