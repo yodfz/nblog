@@ -1,41 +1,48 @@
-import React, {Component,PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import styles from './index.less';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-// import {updatePassword} from '../../../store/actions/System';
+import {getDbInfo, getBAK_DBBAK} from '../../../store/actions/System';
 
 @connect(
-    state=> {
+    state => {
         return {state: state.DbBak}
     },
-    dispatch=>bindActionCreators({
-
-    }, dispatch)
+    dispatch => bindActionCreators({getDbInfo, getBAK_DBBAK}, dispatch)
 )
 export default class DbBak extends Component {
-    static defaultProps = {
-    };
-    static propTypes = {
-    };
-    constructor () {
-        super()
-    };
-    componentWillMount () {}
-    componentDidMount  () {}
-    shouldComponentUpdate () {return true;}
-    componentWillUpdate () {}
-    componentDidUpdate () {}
-    componentWillUnmount () {}
+    static defaultProps = {};
+    static propTypes = {};
 
-    render () {
-        return (<div className={[styles.index,styles.DbBak]}>
-            <div className="nav">
-                <div className="menu">修改密码</div>
-                <div className="menu select">数据库备份</div>
-            </div>
+    constructor(props) {
+        super(props)
+        this.props.getDbInfo()
+    };
+
+    componentWillMount() {
+    }
+
+    componentDidMount() {
+    }
+
+    shouldComponentUpdate() {
+        return true;
+    }
+
+    componentWillUpdate() {
+    }
+
+    componentDidUpdate() {
+    }
+
+    componentWillUnmount() {
+    }
+
+    render() {
+        return (<div className={[styles.index, styles.DbBak]}>
             <div className="DbBakIndex">
                 <p>
-                    最后备份时间:  (KB)
+                    最后备份:{this.props.state.size} (KB)/{this.props.state.lastDate}
                 </p>
                 <p>
 
