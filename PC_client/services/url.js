@@ -9,7 +9,7 @@ export default [
     {key: 'photo_delete', url: window.config.apiPre + 'photo/delete',method:'POST'},
 
     {key: 'system_updatePassword', url: window.config.apiPre + 'system/updatepassword',method:'POST'},
-    {key: 'system_getDbInfo', url: window.config.apiPre + 'system/getDbInfo',method:'GET'},
+    {key: 'system_getDbInfo', url: window.config.apiPre + 'system/dbInfo',method:'GET'},
     {key: 'system_bakDb', url: window.config.apiPre + 'system/bakDb',method:'POST'},
 
     {key: 'upload', url: window.config.apiPre + 'upload'}

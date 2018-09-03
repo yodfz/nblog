@@ -24,11 +24,18 @@ export function* watchUpdatePassword() {
     });
 }
 
+export function* watchBAK_DBBAK() {
+    yield takeEvery(BAK_DBBAK, function* (action) {
+
+    })
+}
+
 export function* watchGET_DBBAK_INFO() {
     yield takeEvery(GET_DBBAK_INFO, function* (action) {
         let data = yield call(services.system_getDbInfo)
         data = data.data
         if (data.errorNo === 0) {
+            console.log(data)
             yield put({type: UPDATE_DBBAK_INFO, payLoad: data.data})
         }
     })

@@ -8,6 +8,6 @@ export function getDbInfo() {
     return {type: GET_DBBAK_INFO}
 }
 
-export function getBAK_DBBAK() {
+export function getBak_DbBak() {
     return {type: BAK_DBBAK}
 }
