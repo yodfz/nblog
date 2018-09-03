@@ -2,9 +2,12 @@
   "name": "nblog",
   "version": "1.0.0",
   "description": "> 学习型项目",
-  "main": "index.js",
+  "main": "ReactSSR/index.jsx",
   "scripts": {
+    "next":"next",
     "build": "node ./build/publicManage2KOAStatic.js",
+    "scp":"sh scp.sh",
+    "prod":"npm run build && npm run scp",
     "installdb": "node ./server/db/installDB.js",
     "server": "node ./server/index.js",
     "devpc": "sudo webpack-dev-server --content-base ./PC_client --config ./build/webpack.pc.config.js --history-api-fallback --inline --port 3900"
@@ -59,11 +62,11 @@
     "sqlite3": "^3.1.13",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
+    "react": "^16.1.0-beta",
     "webpack": "^2.5.1"
   },
   "devDependencies": {
     "babel-plugin-transform-function-bind": "^6.22.0",
-    "react": "^16.1.0-beta",
     "webpack-dev-server": "^2.9.4"
   }
 }
