@@ -3892,10 +3892,27 @@ function (_Document) {
           fileName: _jsxFileName,
           lineNumber: 16
         }
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["NextScript"], {
+      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 18
+        }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        style: {
+          display: 'none'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("script", {
+        async: "async",
+        dangerouslySetInnerHTML: {
+          __html: "\n                var _hmt = _hmt || [];\n                                (function() {\n                                var hm = document.createElement(\"script\");\n                                hm.src = \"https://hm.baidu.com/hm.js?1777f0fe0a70e49ecffcc2f72658af37\";\n                                var s = document.getElementsByTagName(\"script\")[0];\n                                s.async = true;\n                                s.parentNode.insertBefore(hm, s);\n                            })();"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
         }
       })));
     }

@@ -14,8 +14,19 @@ export default class MyDocument extends Document {
             </Head>
             <body className="custom_class">
             <Main />
-            <NextScript />
             </body>
+            <NextScript />
+            <div style={{display: 'none'}}>
+                <script async="async" dangerouslySetInnerHTML={{ __html: `
+                var _hmt = _hmt || [];
+                                (function() {
+                                var hm = document.createElement("script");
+                                hm.src = "https://hm.baidu.com/hm.js?1777f0fe0a70e49ecffcc2f72658af37";
+                                var s = document.getElementsByTagName("script")[0];
+                                s.async = true;
+                                s.parentNode.insertBefore(hm, s);
+                            })();`}} />
+            </div>
             </html>
         )
     }

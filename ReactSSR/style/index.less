@@ -1,5 +1,6 @@
 @import 'base.less';
 @import "autoScreen.less";
+@import "footer.less";
 
 .logo {
   color: #333;
@@ -12,10 +13,16 @@
 }
 
 .nav {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
   height: 80px;
   line-height: 80px;
   border-bottom: 1px solid #efefef;
   background-color: #fff;
+  box-shadow:0 1px 10px rgba(26,26,26,.1);
+  z-index:10;
 }
 
 .nav .w100 {
@@ -30,6 +37,8 @@
 }
 
 .nav .menu li {
+  border-top:1px solid #fff;
+  box-sizing: border-box;
   width: 120px;
   float: left;
   text-align: center;
@@ -38,15 +47,17 @@
 .nav .menu li a {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 79px;
   text-decoration: none;
   font-size: 14px;
   color: #545454;
 }
 
 .nav .menu .action, .nav .menu li:hover {
-  background-color: #db4d52;
-  color: #fff;
+  border-top:1px solid #db4d52;
+  border-bottom:5px solid #db4d52;
+  color:#db4d52;
+  background-color: rgba(240,240,240,.1);
   -webkit-transition-duration: .3s;
   -moz-transition-duration: .3s;
   -ms-transition-duration: .3s;
@@ -55,7 +66,7 @@
 }
 
 .nav .menu .action a, .nav .menu li:hover a {
-  color: #fff;
+  color: #db4d52;
 }
 
 .article {
@@ -109,7 +120,7 @@
 .article .rightDetail {
   float: left;
   width: 30%;
-  padding-left: 40px;
+  padding-left: 20px;
   color: #2e3235;
   line-height: 35px;
   box-sizing: border-box;
@@ -145,7 +156,9 @@
   color: #db4d52;
 
 }
+.leftList {
 
+}
 .rightDetail a {
   color: #db4d52;
 }
@@ -167,18 +180,6 @@
   text-decoration: underline;
 }
 
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  padding: 40px 0;
-  font-size: 14px;
-  background-color: #545454;
-  color: #fff;
-}
-
-.footer a {
-  color: #66d9ef;
-}
 
 .photo {
   margin-top: 10px;
