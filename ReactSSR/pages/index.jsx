@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import MyHead from '../components/Head'
 import CustomFooter from '../components/CustomFooter'
+import ArticleListItem from '../components/ArticleListItem'
 import '../style/index.less'
 export default class Index  extends Component  {
     render () {
@@ -8,16 +9,7 @@ export default class Index  extends Component  {
             <MyHead index="0" key="head"></MyHead>,
             <div className="vh100 w100 article clear" key="body">
                 <div className="left70 leftList">
-                    <div class="detail">
-                        <a href="/detail/27/了解this 怒推面试官一波.html" class="title">了解this 怒推面试官一波</a>
-                        <p class="info">
-                            <span class="category"></span>
-                            <span class="viewpoint">
-                 102<br/>
-                阅读量</span>
-                            <span class="datetime">2018-08-29</span>
-                        </p>
-                    </div>
+                    <ArticleListItem />
 
 
 

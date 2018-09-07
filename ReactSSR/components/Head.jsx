@@ -2,7 +2,9 @@ const Head = (props) => (
     <div className="nav">
         <div className="w100">
             <div className="logo">
-                写代码的熊猫
+                <div className="logoJpg">
+                    写代码的熊猫
+                </div>
             </div>
             <ul className="menu">
                 <li className={props.index==0?'action':''}>
