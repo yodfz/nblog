@@ -3882,7 +3882,7 @@ function (_Document) {
           lineNumber: 13
         }
       })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("body", {
-        className: "custom_class",
+        className: "custom_class wrapper",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 15

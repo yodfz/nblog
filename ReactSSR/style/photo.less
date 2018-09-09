@@ -1,0 +1,31 @@
+.photoDetail {
+  width:188px;
+  margin-right:5px;
+  margin-bottom:5px;
+  overflow: hidden;
+  position: relative;
+  .img {
+    height:188px;
+    background-position:top center;
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
+  p{
+    position: absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    transform: translateY(100%);
+    transition-duration: .5s;
+    background-color: rgba(23, 23, 23, .5);
+    color:#fff;
+    font-size:12px;
+    text-align: center;
+    line-height:188px;
+  }
+}
+.photoDetail:hover{
+  p{
+    transform: translateY(0%);
+  }
+}
