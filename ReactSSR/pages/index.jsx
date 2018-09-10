@@ -17,11 +17,11 @@ export default class Index  extends Component  {
                     <div class="detail">
                         <a href="/detail/26/Spring Boot操作Sqlite数据库 从入门到跑路.html" class="title">Spring Boot操作Sqlite数据库 从入门到跑路</a>
                         <p class="info">
+                            <span class="datetime">2018-08-28</span>
                             <span class="category">Java</span>
                             <span class="viewpoint">
                  107<br/>
                 阅读量</span>
-                            <span class="datetime">2018-08-28</span>
                         </p>
                     </div>
 
@@ -31,11 +31,11 @@ export default class Index  extends Component  {
                     <div class="detail">
                         <a href="/detail/25/git commit message标准化.html" class="title">git commit message标准化</a>
                         <p class="info">
+                            <span class="datetime">2018-07-30</span>
                             <span class="category">git</span>
                             <span class="viewpoint">
                  154<br/>
                 阅读量</span>
-                            <span class="datetime">2018-07-30</span>
                         </p>
                     </div>
 
@@ -45,25 +45,24 @@ export default class Index  extends Component  {
                     <div class="detail">
                         <a href="/detail/24/移动端Rem布局方案.html" class="title">移动端Rem布局方案</a>
                         <p class="info">
+                            <span class="datetime">2018-07-23</span>
                             <span class="category">css</span>
                             <span class="viewpoint">
                  353<br/>
                 阅读量</span>
-                            <span class="datetime">2018-07-23</span>
                         </p>
                     </div>
-
 
 
 
                     <div class="detail">
                         <a href="/detail/23/Flutter 部署真机出现异常.html" class="title">Flutter 部署真机出现异常</a>
                         <p class="info">
+                            <span class="datetime">2018-07-18</span>
                             <span class="category">Flutter</span>
                             <span class="viewpoint">
                  262<br/>
                 阅读量</span>
-                            <span class="datetime">2018-07-18</span>
                         </p>
                     </div>
 
@@ -132,8 +131,7 @@ export default class Index  extends Component  {
                             <span class="datetime">2018-03-15</span>
                         </p>
                     </div>
-
-                    <a href="/article" class="more">查看更多文章>></a>
+                    <a href="/article" class="more">查看更多文章 + </a>
                 </div>
                 <div class="rightDetail">
                     <p class="title">
@@ -176,6 +174,10 @@ export default class Index  extends Component  {
                     </p>
                 </div>
             </div>,
+            <div className="w100 newphoto">
+                <img src="/static/imgs/newphoto.png" alt=""/>
+            </div>
+            ,
             <div className="w100 photoIndexList row wrap">
                 <div class="photoDetail">
                     <a href="/photoDetail/40.html">
@@ -210,6 +212,14 @@ export default class Index  extends Component  {
                     </a>
                 </div>
 
+                <div className="photoDetail photoDetailTitle">
+                    <div className="title">
+                        文艺范
+                    </div>
+                    <div className="des">
+                        [风景]&nbsp;&nbsp;&nbsp;&nbsp;[人物]&nbsp;&nbsp;&nbsp;&nbsp;[植物]
+                    </div>
+                </div>
                 <div class="photoDetail">
                     <a href="/photoDetail/35.html">
                         <div class="img" style={{'background-image':'url(http://www.yodfz.com/upload/20180501/1525146656000_thumb.png)'}}>
@@ -242,7 +252,14 @@ export default class Index  extends Component  {
                         </p>
                     </a>
                 </div>
-
+                <div className="photoDetail photoDetailTitle">
+                    <div className="title">
+                        视觉系
+                    </div>
+                    <div className="des">
+                        [航拍]&nbsp;&nbsp;&nbsp;&nbsp;[生活]&nbsp;&nbsp;&nbsp;&nbsp;[静物]
+                    </div>
+                </div>
                 <div class="photoDetail">
                     <a href="/photoDetail/34.html">
                         <div class="img" style={{'background-image':'url(http://www.yodfz.com/upload/20180501/1525146569000_thumb.png)'}}>
@@ -275,7 +292,14 @@ export default class Index  extends Component  {
                         </p>
                     </a>
                 </div>
-
+                <div className="photoDetail photoDetailTitle">
+                    <div className="title">
+                        转瞬即逝
+                    </div>
+                    <div className="des">
+                        [手机]&nbsp;&nbsp;&nbsp;&nbsp;[荷花]&nbsp;&nbsp;&nbsp;&nbsp;[动物]
+                    </div>
+                </div>
                 <div class="photoDetail">
                     <a href="/photoDetail/35.html">
                         <div class="img" style={{'background-image':'url(http://www.yodfz.com/upload/20180501/1525146656000_thumb.png)'}}>
