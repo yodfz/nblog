@@ -3,7 +3,7 @@
  * @type {{create: (()), list: (()), delete: (()), update: (())}}
  */
 var model = require('../../model');
-var $config = require('../../config');
+var $config = require('../../../config');
 module.exports = {
     save: async function (data) {
         let isCreate = data.idx <= 0;

@@ -2,10 +2,10 @@ var koa = require('koa');
 const path = require('path');
 var app = new koa();
 var cors = require('koa-cors');
-var config = require('./config');
+var config = require('../config');
 const koaBody = require('koa-body');
 // var renderRoute = require('./router/render');
-// var apiRoute = require('./router/api');
+var apiRoute = require('./router/api');
 
 const serve = require('koa-static');
 const session = require('koa-session');
@@ -38,8 +38,8 @@ app.use(apiRoute.routes())
     .use(apiRoute.allowedMethods());
 
 // 渲染 路由
-app.use(renderRoute.routes())
-    .use(renderRoute.allowedMethods());
+// app.use(renderRoute.routes())
+//     .use(renderRoute.allowedMethods());
 
 module.exports = app
 

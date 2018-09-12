@@ -6,8 +6,6 @@ module.exports = {
         key:'',
         // 描述信息
         description:'',
-        // 备案号
-        beian:'浙ICP备09026245号',
         // 是否开启评论
         isComment:true,
     },
