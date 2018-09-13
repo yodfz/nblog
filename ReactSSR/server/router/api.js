@@ -19,6 +19,11 @@ router.get(apiPre + 'article', async (ctx) => {
     });
 });
 
+router.get(apiPre + 'article/:id', async (ctx) => {
+    let data = await controller_api_article.findOne(ctx.params.id);
+    ctx.body = createMessage(data.rows);
+});
+
 router.get(apiPre + 'default', async (ctx) => {
 
     let data = await model.article.findAndCountAll({
@@ -42,8 +47,10 @@ router.get(apiPre + 'default', async (ctx) => {
             ['viewCount', 'DESC']
         ]
     });
-    ctx.body = createMessage(data.rows, {
-        total: data.total
+    ctx.body = createMessage({
+        article: data.rows,
+        photo: photoData.rows,
+        hot: hotarticle.rows
     });
 });
 

@@ -3,6 +3,49 @@ __NEXT_REGISTER_PAGE('/_document', function() {
           var comp =
       webpackJsonp([1],{
 
+/***/ "./components/CustomFooter.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _jsxFileName = "/Users/zhaoyifeng/Documents/project/nblog/ReactSSR/components/CustomFooter.jsx";
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "footer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 3
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "w100",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    }
+  }, "\xA9 2017-2018 \u5199\u4EE3\u7801\u7684\u718A\u732B. All Rights Reserved \xA0 \u6D59ICP\u590709026245\u53F7"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    }
+  }, "\u5F53\u524D\u7CFB\u7EDF\u9075\u4ECEApache License\u5F00\u6E90\u534F\u8BAE\u5F00\u6E90 ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    href: "https://github.com/yodfz/nblog",
+    target: "_blank",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    }
+  }, "[GitHub]"))));
+});
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/extends.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3823,6 +3866,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_document__ = __webpack_require__("./node_modules/next/document.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_document___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_document__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CustomFooter__ = __webpack_require__("./components/CustomFooter.jsx");
 
 var _jsxFileName = "/Users/zhaoyifeng/Documents/project/nblog/ReactSSR/pages/_document.jsx";
 
@@ -3848,7 +3892,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
-console.log('_document.js');
+
 
 var MyDocument =
 /*#__PURE__*/
@@ -3892,10 +3936,15 @@ function (_Document) {
           fileName: _jsxFileName,
           lineNumber: 16
         }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CustomFooter__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
       })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 19
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         style: {
@@ -3903,7 +3952,7 @@ function (_Document) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 20
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("script", {
         async: "async",
@@ -3912,7 +3961,7 @@ function (_Document) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 21
         }
       })));
     }

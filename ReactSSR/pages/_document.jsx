@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-console.log('_document.js')
+import CustomFooter from '../components/CustomFooter'
 export default class MyDocument extends Document {
     static async getInitialProps(ctx) {
         const initialProps = await Document.getInitialProps(ctx)
@@ -14,6 +14,7 @@ export default class MyDocument extends Document {
             </Head>
             <body className="custom_class wrapper">
             <Main />
+            <CustomFooter/>
             </body>
             <NextScript />
             <div style={{display: 'none'}}>
