@@ -1,72 +1,102 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{config?config.title:''}}</title>
-    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/newIndex.css">
 </head>
+
 <body>
-<% include('./components/header.art', {index:0}) %>
-<div class="w100 article clear">
-    <div class="left70">
-        {{each article.rows}}
-        <% var nowDate = new Date($value.createdAt); %>
-        {{set month = nowDate.getMonth()+1}}
-        {{set date = nowDate.getDate()}}
-        <div class="detail">
-            <a href="/detail/{{$value.idx}}/{{$value.title}}.html" class="title">{{$value.title}}</a>
-            <p class="info">
-                <span class="category">{{$value.category}}</span>
-                <span class="viewpoint">
-                 {{$value.viewCount}}<br/>
-                阅读量</span>
-                <span class="datetime">{{nowDate.getFullYear() + '-' + (month<10?'0':'') + month + '-' + (date<10?'0':'') + date}}</span>
-            </p>
-        </div>
-        {{/each}}
-        <a href="/article" class="more">查看更多文章>></a>
-    </div>
-
-    <div class="rightDetail">
-        <p class="title">
-            热门文章
-        </p>
-        <ul class="link">
-            {{each hotarticle.rows}}
-            <li>{{$index+1}}. <a href="/detail/{{$value.idx}}/{{$value.title}}.html">{{$value.title}}</a></li>
-            {{/each}}
-        </ul>
-        <p class="title">
-            友情链接
-        </p>
-        <ul class="link">
-            <li><a href="http://www.yodfz.com">写代码的熊猫</a></li>
-        </ul>
-        <p class="title">
-            扫码赞助
-        </p>
-        <p class="price">
-            <img src="/static/images/zfb.jpg" style="width: 218px;" alt="">
-        </p>
-    </div>
-</div>
-<div class="w100 photo clear">
-    {{each photo.rows}}
-    <div class="photoDetail">
-        <a href="/photoDetail/{{$value.idx}}.html">
-            <div class="img" style="background-image:url({{$value.url.replace(/\.(jpg|jpeg|png|webp|gif)$/,'_thumb' + $value.url.match(/\.(jpg|gif|png|jpeg)$/)[0])}})">
-
+    <% include('./components/header.art', {index:0}) %>
+    <div class="w100 article clear">
+        <div class="left70">
+            {{each article.rows}}
+            <% var nowDate = new Date($value.createdAt); %>
+            {{set month = nowDate.getMonth()+1}}
+            {{set date = nowDate.getDate()}}
+            <div class="detail">
+                <a href="/detail/{{$value.idx}}/{{$value.title}}.html" class="title">{{$value.title}}</a>
+                <p class="info">
+                    <span class="category">{{$value.category}}</span>
+                    <span class="viewpoint">
+                        {{$value.viewCount}}<br />
+                        阅读量</span>
+                    <span class="datetime">{{nowDate.getFullYear() + '-' + (month<10?'0':'') + month + '-' +
+                            (date<10?'0':'') + date}}</span> </p> </div> {{/each}} <a href="/article" class="more">查看更多文章>></a>
             </div>
-            <p>
-                {{$value.title}}
-            </p>
-        </a>
-    </div>
-    {{/each}}
-</div>
-<% include('./components/footer.html') %>
+
+            <div class="rightDetail">
+                <p class="title">
+                    热门文章
+                </p>
+                <ul class="link">
+                    {{each hotarticle.rows}}
+                    <li>{{$index+1}}. <a href="/detail/{{$value.idx}}/{{$value.title}}.html">{{$value.title}}</a></li>
+                    {{/each}}
+                </ul>
+                <p class="title">
+                    友情链接
+                </p>
+                <ul class="link">
+                    <li><a href="http://www.yodfz.com">写代码的熊猫</a></li>
+                </ul>
+                <p class="title">
+                    扫码赞助
+                </p>
+                <p class="price">
+                    <img src="/static/images/zfb.jpg" style="width: 218px;" alt="">
+                </p>
+            </div>
+        </div>
+
+
+        <div class="w100 newphoto"> <img src="/static/images/newphoto.png" alt="" /> </div>
+        <div class="w100 photoIndexList row wrap">
+            {{each photo.rows}}
+            <div class="photoDetail">
+                    <a href="/photoDetail/{{$value.idx}}.html">
+                    <div class="img" style="background-image:url({{$value.url.replace(/\.(jpg|jpeg|png|webp|gif)$/,'_thumb' + $value.url.match(/\.(jpg|gif|png|jpeg)$/)[0])}})" />
+                    </div>
+                    <p> {{$value.title}}</p>
+                    </a>
+                </div>
+            {{if ($index==3||$index%5==0)&&$index!=0}}
+                {{if $index/5==0.6}}
+                <div class="photoDetail photoDetailTitle">
+                    <div class="title">
+                        文艺范
+                    </div>
+                    <div class="des">
+                        [风景]&nbsp;&nbsp;&nbsp;&nbsp;[人物]&nbsp;&nbsp;&nbsp;&nbsp;[植物]
+                    </div>
+                </div>
+                {{/if}}
+                {{if $index/5==1}}
+                <div class="photoDetail photoDetailTitle">
+                    <div class="title">
+                        视觉系
+                    </div>
+                    <div class="des">
+                        [航拍] &nbsp;&nbsp;&nbsp;&nbsp;[生活] &nbsp;&nbsp;&nbsp;&nbsp;[静物] </div>
+                </div>
+                {{/if}}
+                {{if $index/5==2}}
+                <div class="photoDetail photoDetailTitle">
+                    <div class="title">
+                        转瞬即逝
+                    </div>
+                    <div class="des">
+                        [手机]&nbsp;&nbsp;&nbsp;&nbsp;[荷花]&nbsp;&nbsp;&nbsp;&nbsp;[动物]
+                    </div>
+                </div>
+                {{/if}}
+            {{/if}}
+            {{/each}}
+        </div>
+    <% include('./components/footer.html') %>
 </body>
+
 </html>

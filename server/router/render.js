@@ -16,30 +16,31 @@ router.get('/login', ctx=> {
     });
 });
 
-// router.get('/', async (ctx)=> {
-//     let data = await model.article.findAndCountAll({
-//         offset: 0,
-//         limit: $config.pageSize,
-//         order: [['idx', 'DESC']]
-//     });
-//     let photoData = await model.photo.findAndCountAll({
-//         offset: 0,
-//         limit: 8,
-//         order: [['idx', 'DESC']]
-//     });
-//     let hotarticle = await model.article.findAndCountAll({
-//         offset: 0,
-//         limit: 10,
-//         order: [['viewCount', 'DESC']]
-//     });
-//     template.defaults.imports.Date = Date;
-//     ctx.body = template(path.resolve(__dirname, '../template/index.html'), {
-//         config: $config.web,
-//         article: data,
-//         photo: photoData,
-//         hotarticle:hotarticle
-//     });
-// });
+router.get('/', async (ctx)=> {
+    let data = await model.article.findAndCountAll({
+        offset: 0,
+        limit: $config.pageSize,
+        order: [['idx', 'DESC']]
+    });
+    let photoData = await model.photo.findAndCountAll({
+        offset: 0,
+        limit: 8,
+        order: [['idx', 'DESC']]
+    });
+    console.log(photoData.rows)
+    let hotarticle = await model.article.findAndCountAll({
+        offset: 0,
+        limit: 10,
+        order: [['viewCount', 'DESC']]
+    });
+    template.defaults.imports.Date = Date;
+    ctx.body = template(path.resolve(__dirname, '../template/index.html'), {
+        config: $config.web,
+        article: data,
+        photo: photoData,
+        hotarticle:hotarticle
+    });
+});
 
 
 router.get('/manage*', ctx=> {

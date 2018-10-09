@@ -1,7 +1,9 @@
 <div class="nav">
     <div class="w100">
         <div class="logo">
-            写代码的熊猫
+                <div class="logoJpg">
+                    写代码的熊猫
+                </div>
         </div>
         <ul class="menu">
             <li {{index==0?'class=action':''}}>

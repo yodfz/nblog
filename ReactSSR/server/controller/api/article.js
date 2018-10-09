@@ -26,6 +26,12 @@ module.exports = {
         // }
 
     },
+    findOne:async function (id) {
+        let data = await model.article.findOne({
+            where: {idx:id}
+        });
+        return data
+    },
     list: async function (pageIndex = 1, key = '', tag = '', sort = 'idx') {
         let search = (key ? {title: {$like: `%${key}%`}} : {});
         let data = await model.article.findAndCountAll({

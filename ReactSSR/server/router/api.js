@@ -21,7 +21,7 @@ router.get(apiPre + 'article', async (ctx) => {
 
 router.get(apiPre + 'article/:id', async (ctx) => {
     let data = await controller_api_article.findOne(ctx.params.id);
-    ctx.body = createMessage(data.rows);
+    ctx.body = createMessage(data);
 });
 
 router.get(apiPre + 'default', async (ctx) => {
