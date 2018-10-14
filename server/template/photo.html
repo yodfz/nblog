@@ -6,11 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{config?config.title:''}}</title>
-    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/newIndex.css">
 </head>
 <body>
 <% include('./components/header.art', {index:2}) %>
-<div class="w100 photo clear">
+<div class="w100 photoIndexList row wrap">
     {{each data.rows}}
     <div class="photoDetail">
         <a href="/photoDetail/{{$value.idx}}.html">

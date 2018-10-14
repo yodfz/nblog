@@ -140,7 +140,6 @@ body .vh100 {
   
   .article .detail {
     position: relative;
-    float: left;
     width: 100%;
     margin-bottom: 20px;
     padding-bottom: 10px;
@@ -398,9 +397,13 @@ body .vh100 {
 }
 
 .content {
+    position: relative;
     line-height: 30px;
     color: #545454;
-    min-height: 600px
+    min-height: 600px;
+    box-sizing: border-box;
+}
+.content .children{
 }
 
 .content ::selection {
@@ -520,4 +523,56 @@ code[class*=language] {
 }
 .nostyle li p{
     line-height: 20px;;
+}
+.articleMenuList{
+    line-height: 20px;
+}
+.padding0{
+    padding-left: 0;
+   ;
+}
+.padding1{
+    padding-left: 10px;
+}
+.padding2{
+    padding-left: 0px;
+    font-size:16px;
+    padding:5px 0;
+}
+.padding3{
+    padding-left: 20px;
+}
+.padding4{
+    padding-left: 40px;
+}
+.padding5{
+    padding-left: 60px;
+}
+.menuIndex{
+    top:0;
+    right:0;
+    min-width:200px;
+    width:auto;
+}
+.menuIndex a{
+    color:#d94e55;
+    height:20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+.lockScreen{
+    position: fixed;
+    z-index:1000;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:rgba(0,0,0,.5);
+    text-align: center;
+    line-height: 100vh;
+    overflow-y:scroll;
+}
+.lockScreen img{
+    margin-top: 30px;
+    max-width: 90%;
 }

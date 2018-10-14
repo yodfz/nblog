@@ -27,13 +27,23 @@
                 <span class="datetime">{{nowDate.getFullYear() + '-' + (month<10?'0':'') + month + '-' + (date<10?'0':'') + date}}</span>
             </p>
         </div>
-        <div class="content">
-            {{@data.content}}
+        <div class="content row">
+            <div class="children">
+                    {{@data.content}}
+                    <div>
+                        <div><img src="/static/images/zfb.jpg" style="width: 218px;" alt=""></div>
+                        <div></div>
+                    </div>
+            </div>
+            <div class="menuIndex wrapper">
+
+            </div>
         </div>
+
     </div>
 </div>
 <script src="/js/prism.js"></script>
+<script src="/js/detail.js"></script>
 <% include('./components/footer.html') %>
-
 </body>
 </html>
