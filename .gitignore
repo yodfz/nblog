@@ -1,11 +1,1 @@
-# webstrom
-.idea
-.next
-# 数据库:
-server/db/*.sqlite
-*.sqlite
-
-# node依赖包
 node_modules
-
-.DS_Store
