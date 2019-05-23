@@ -2,3 +2,5 @@ node_modules
 .next
 .next/*
 \.next
+dist
+.next/server/static/development/pages/index.js.map
